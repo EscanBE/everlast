@@ -22,8 +22,8 @@ import (
 	evmtypes "github.com/EscanBE/everlast/v12/x/evm/types"
 )
 
-// EthereumAPI allows applications to connect to an Everlast node that is
-// part of the Everlast blockchain. Developers can interact with on-chain EVM data
+// EthereumAPI allows applications to connect to an EverLast node that is
+// part of the EverLast blockchain. Developers can interact with on-chain EVM data
 // and send different types of transactions to the network by utilizing the
 // endpoints provided by the API. The API follows a JSON-RPC standard. If not
 // otherwise specified, the interface is derived from the Alchemy Ethereum API:

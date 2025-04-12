@@ -27,7 +27,7 @@ func init() {
 	cmdcfg.SetBip44CoinType(cfg)
 }
 
-func (suite *LedgerTestSuite) TestEverlastLedgerDerivation() {
+func (suite *LedgerTestSuite) TestEverLastLedgerDerivation() {
 	testCases := []struct {
 		name     string
 		mockFunc func()

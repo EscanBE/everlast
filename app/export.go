@@ -17,7 +17,7 @@ import (
 
 // ExportAppStateAndValidators exports the state of the application for a genesis
 // file.
-func (app *Everlast) ExportAppStateAndValidators(
+func (app *EverLast) ExportAppStateAndValidators(
 	forZeroHeight bool, jailAllowedAddrs []string, modulesToExport []string,
 ) (servertypes.ExportedApp, error) {
 	// Creates context with current height and checks txs for ctx to be usable by start of next block
@@ -58,7 +58,7 @@ func (app *Everlast) ExportAppStateAndValidators(
 // prepare for fresh start at zero height
 // NOTE zero height genesis is a temporary feature which will be deprecated
 // in favor of export at a block height
-func (app *Everlast) prepForZeroHeightGenesis(ctx sdk.Context, jailAllowedAddrs []string) {
+func (app *EverLast) prepForZeroHeightGenesis(ctx sdk.Context, jailAllowedAddrs []string) {
 	applyAllowedAddrs := false
 
 	// check if there is a allowed address list

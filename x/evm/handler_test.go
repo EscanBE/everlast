@@ -46,7 +46,7 @@ type EvmTestSuite struct {
 	suite.Suite
 
 	ctx     sdk.Context
-	app     *chainapp.Everlast
+	app     *chainapp.EverLast
 	chainID *big.Int
 
 	signer    keyring.Signer
@@ -70,7 +70,7 @@ func (suite *EvmTestSuite) DoSetupTest() {
 	suite.Require().NoError(err)
 	consAddress := sdk.ConsAddress(priv.PubKey().Address())
 
-	suite.app = helpers.EthSetup(checkTx, func(chainApp *chainapp.Everlast, genesis chainapp.GenesisState) chainapp.GenesisState {
+	suite.app = helpers.EthSetup(checkTx, func(chainApp *chainapp.EverLast, genesis chainapp.GenesisState) chainapp.GenesisState {
 		return genesis
 	})
 

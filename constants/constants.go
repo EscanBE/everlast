@@ -8,18 +8,16 @@ import (
 
 // App
 
+//goland:noinspection SpellCheckingInspection
 const (
-	ApplicationName = "everlast"
-
+	ApplicationName       = "everlast"
 	ApplicationBinaryName = "evld"
-
-	ApplicationHome = ".everlast"
-
-	GitHubRepo = "https://github.com/EscanBE/" + ApplicationName // must be well-formed url pattern: "https://github.com/owner/repo"
+	ApplicationHome       = ".everlast"
 )
 
 // Denom
 
+//goland:noinspection SpellCheckingInspection
 const (
 	// BaseDenom defines the default coin denomination used on this chain in:
 	//
@@ -67,6 +65,7 @@ const (
 
 // Chain ID
 
+//goland:noinspection SpellCheckingInspection
 const (
 	ChainIdPrefix = "everlast"
 

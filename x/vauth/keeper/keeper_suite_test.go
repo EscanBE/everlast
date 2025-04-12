@@ -14,7 +14,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/runtime"
 
 	"github.com/EscanBE/everlast/v12/constants"
-	
+
 	evmkeeper "github.com/EscanBE/everlast/v12/x/evm/keeper"
 	evmtypes "github.com/EscanBE/everlast/v12/x/evm/types"
 	vauthkeeper "github.com/EscanBE/everlast/v12/x/vauth/keeper"

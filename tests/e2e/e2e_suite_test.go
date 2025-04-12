@@ -95,7 +95,7 @@ func (s *IntegrationTestSuite) runInitialNode(version upgrade.VersionConfig) {
 	s.T().Logf("successfully started node with version: [%s]", version.ImageTag)
 }
 
-// runNodeWithCurrentChanges builds a docker image using the current branch of the Everlast repository.
+// runNodeWithCurrentChanges builds a docker image using the current branch of the EverLast repository.
 // Before running the node, runs a script to modify some configurations for the tests
 // (e.g.: gov proposal voting period, setup accounts, balances, etc..)
 // After a successful build, runs the container.
@@ -136,7 +136,7 @@ func (s *IntegrationTestSuite) proposeUpgrade(name, target string) {
 	s.Require().NoError(err, "can't get block height from running node")
 	s.upgradeManager.UpgradeHeight = uint(nodeHeight + upgradeHeightDelta)
 
-	// if Everlast is based on Evmos lower than v10.x.x no need to use the legacy proposal
+	// if EverLast is based on Evmos lower than v10.x.x no need to use the legacy proposal
 	currentVersion, err := s.upgradeManager.GetNodeVersion(ctx)
 	s.Require().NoErrorf(err, "can't get current %s version", constants.ApplicationName)
 	isLegacyProposal := upgrade.CheckLegacyProposal(currentVersion)

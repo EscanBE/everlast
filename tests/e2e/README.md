@@ -3,7 +3,7 @@
 The End-to-End (E2E) testing suite provides an environment
 for running end-to-end tests on our chain.
 It is used for testing chain upgrades,
-as it allows for initializing multiple Everlast chains with different versions.
+as it allows for initializing multiple EverLast chains with different versions.
 
 - [End-to-End Testing Suite](#end-to-end-testing-suite)
     - [Quick Start](#quick-start)
@@ -81,12 +81,13 @@ The node will get upgrade information from `upgrade-info.json`
 and will execute the upgrade.
 
 ## Test Suite Structure
+Note: not tested since fork from Evmos
 
 ### `e2e` Package
 
 The `e2e` package defines an integration testing suite
 used for full end-to-end testing functionality.
-This package is decoupled from depending on the Everlast codebase.
+This package is decoupled from depending on the EverLast codebase.
 It initializes the chains for testing via Docker.  
 As a result, the test suite may provide the
 desired version to Docker containers during the initialization.

@@ -39,7 +39,7 @@ func init() {
 var DefaultTestingAppInit func(chainId string) func() (ibctesting.TestingApp, map[string]json.RawMessage) = SetupTestingApp
 
 // DefaultConsensusParams defines the default CometBFT consensus params used in
-// Everlast testing.
+// EverLast testing.
 var DefaultConsensusParams = &tmproto.ConsensusParams{
 	Block: &tmproto.BlockParams{
 		MaxBytes: 200000,
@@ -64,12 +64,12 @@ func init() {
 	cmdcfg.SetBip44CoinType(cfg)
 }
 
-// Setup initializes a new Everlast. A Nop logger is set in Everlast.
+// Setup initializes a new EverLast. A Nop logger is set in EverLast.
 func Setup(
 	isCheckTx bool,
 	feemarketGenesis *feemarkettypes.GenesisState,
 	chainID string,
-) *chainapp.Everlast {
+) *chainapp.EverLast {
 	privVal := mock.NewPV()
 	pubKey, _ := privVal.GetPubKey()
 	encodingConfig := chainapp.RegisterEncodingConfig()
@@ -88,7 +88,7 @@ func Setup(
 
 	db := sdkdb.NewMemDB()
 
-	chainApp := chainapp.NewEverlast(
+	chainApp := chainapp.NewEverLast(
 		log.NewNopLogger(),
 		db,
 		nil,
@@ -136,7 +136,7 @@ func Setup(
 	return chainApp
 }
 
-func GenesisStateWithValSet(chainApp *chainapp.Everlast, genesisState chainapp.GenesisState,
+func GenesisStateWithValSet(chainApp *chainapp.EverLast, genesisState chainapp.GenesisState,
 	valSet *cmttypes.ValidatorSet, genAccs []authtypes.GenesisAccount,
 	balances ...banktypes.Balance,
 ) chainapp.GenesisState {
@@ -204,7 +204,7 @@ func SetupTestingApp(chainID string) func() (ibctesting.TestingApp, map[string]j
 	return func() (ibctesting.TestingApp, map[string]json.RawMessage) {
 		db := sdkdb.NewMemDB()
 		encodingConfig := chainapp.RegisterEncodingConfig()
-		app := chainapp.NewEverlast(
+		app := chainapp.NewEverLast(
 			log.NewNopLogger(),
 			db,
 			nil,

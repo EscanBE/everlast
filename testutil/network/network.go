@@ -124,10 +124,10 @@ func DefaultConfig() Config {
 	}
 }
 
-// NewAppConstructor returns a new Everlast AppConstructor
+// NewAppConstructor returns a new EverLast AppConstructor
 func NewAppConstructor(encodingCfg params.EncodingConfig) AppConstructor {
 	return func(val Validator) servertypes.Application {
-		return chainapp.NewEverlast(
+		return chainapp.NewEverLast(
 			val.Ctx.Logger, sdkdb.NewMemDB(), nil, true, make(map[int64]bool), val.Ctx.Config.RootDir, 0,
 			encodingCfg,
 			simtestutil.EmptyAppOptions{},

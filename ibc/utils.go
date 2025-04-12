@@ -30,15 +30,15 @@ func GetTransferSenderRecipient(packet channeltypes.Packet) (
 	}
 
 	// validate the sender bech32 address from the counterparty chain
-	// and change the bech32 human readable prefix (HRP) of the sender to bech32-style address of this chain
-	sender, err = utils.GetEverlastAddressFromBech32(data.Sender)
+	// and change the bech32 human-readable prefix (HRP) of the sender to bech32-style address of this chain
+	sender, err = utils.GetEverLastAddressFromBech32(data.Sender)
 	if err != nil {
 		return nil, nil, "", "", errorsmod.Wrap(err, "invalid sender")
 	}
 
 	// validate the recipient bech32 address from the counterparty chain
-	// and change the bech32 human readable prefix (HRP) of the recipient to bech32-style address of this chain
-	recipient, err = utils.GetEverlastAddressFromBech32(data.Receiver)
+	// and change the bech32 human-readable prefix (HRP) of the recipient to bech32-style address of this chain
+	recipient, err = utils.GetEverLastAddressFromBech32(data.Receiver)
 	if err != nil {
 		return nil, nil, "", "", errorsmod.Wrap(err, "invalid recipient")
 	}

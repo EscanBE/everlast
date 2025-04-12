@@ -43,7 +43,7 @@ func TestParseChainID(t *testing.T) {
 			"invalid chain-id, uppercases", "EVRMINT_1-1", true, nil,
 		},
 		{
-			"invalid chain-id, mixed cases", "Everlast_1-1", true, nil,
+			"invalid chain-id, mixed cases", "EverLast_1-1", true, nil,
 		},
 		{
 			"invalid chain-id, special chars", "$&*#!_1-1", true, nil,

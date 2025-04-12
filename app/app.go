@@ -73,14 +73,14 @@ var (
 )
 
 var (
-	_ servertypes.Application = (*Everlast)(nil)
-	_ ibctesting.TestingApp   = (*Everlast)(nil)
+	_ servertypes.Application = (*EverLast)(nil)
+	_ ibctesting.TestingApp   = (*EverLast)(nil)
 )
 
-// Everlast implements an extended ABCI application.
+// EverLast implements an extended ABCI application.
 // It is an application that may process transactions
 // through Ethereum's EVM running atop of CometBFT consensus.
-type Everlast struct {
+type EverLast struct {
 	*baseapp.BaseApp
 	keepers.AppKeepers
 
@@ -111,8 +111,8 @@ func init() {
 	sdk.DefaultPowerReduction = evertypes.PowerReduction // 10^18
 }
 
-// NewEverlast returns a reference to a new initialized Everlast application.
-func NewEverlast(
+// NewEverLast returns a reference to a new initialized EverLast application.
+func NewEverLast(
 	logger log.Logger,
 	db sdkdb.DB,
 	traceStore io.Writer,
@@ -123,7 +123,7 @@ func NewEverlast(
 	encodingConfig params.EncodingConfig,
 	appOpts servertypes.AppOptions,
 	baseAppOptions ...func(*baseapp.BaseApp),
-) *Everlast {
+) *EverLast {
 	appCodec := encodingConfig.Codec
 	legacyAmino := encodingConfig.Amino
 	interfaceRegistry := encodingConfig.InterfaceRegistry
@@ -150,7 +150,7 @@ func NewEverlast(
 	baseApp.SetInterfaceRegistry(interfaceRegistry)
 	baseApp.SetTxEncoder(txConfig.TxEncoder())
 
-	chainApp := &Everlast{
+	chainApp := &EverLast{
 		BaseApp:           baseApp,
 		legacyAmino:       legacyAmino,
 		txConfig:          txConfig,
@@ -253,24 +253,24 @@ func NewEverlast(
 }
 
 // Name returns the name of the App
-func (app *Everlast) Name() string { return app.BaseApp.Name() }
+func (app *EverLast) Name() string { return app.BaseApp.Name() }
 
 // BeginBlocker runs the CometBFT ABCI BeginBlock logic. It executes state changes at the beginning
 // of the new block for every registered module. If there is a registered fork at the current height,
 // BeginBlocker will schedule the upgrade plan and perform the state migration (if any).
-func (app *Everlast) BeginBlocker(ctx sdk.Context) (sdk.BeginBlock, error) {
+func (app *EverLast) BeginBlocker(ctx sdk.Context) (sdk.BeginBlock, error) {
 	// Perform any scheduled forks before executing the modules logic
 	app.scheduleForkUpgrade(ctx)
 	return app.mm.BeginBlock(ctx)
 }
 
 // EndBlocker updates every end block
-func (app *Everlast) EndBlocker(ctx sdk.Context) (sdk.EndBlock, error) {
+func (app *EverLast) EndBlocker(ctx sdk.Context) (sdk.EndBlock, error) {
 	return app.mm.EndBlock(ctx)
 }
 
 // InitChainer updates at chain initialization
-func (app *Everlast) InitChainer(ctx sdk.Context, req *abci.RequestInitChain) (*abci.ResponseInitChain, error) {
+func (app *EverLast) InitChainer(ctx sdk.Context, req *abci.RequestInitChain) (*abci.ResponseInitChain, error) {
 	var genesisState GenesisState
 	if err := json.Unmarshal(req.AppStateBytes, &genesisState); err != nil {
 		panic(err)
@@ -289,12 +289,12 @@ func (app *Everlast) InitChainer(ctx sdk.Context, req *abci.RequestInitChain) (*
 }
 
 // LoadHeight loads state at a particular height
-func (app *Everlast) LoadHeight(height int64) error {
+func (app *EverLast) LoadHeight(height int64) error {
 	return app.LoadVersion(height)
 }
 
 // ModuleAccountAddrs returns all the app's module account addresses.
-func (app *Everlast) ModuleAccountAddrs() map[string]bool {
+func (app *EverLast) ModuleAccountAddrs() map[string]bool {
 	modAccAddrs := make(map[string]bool)
 	for acc := range maccPerms {
 		modAccAddrs[authtypes.NewModuleAddress(acc).String()] = true
@@ -305,7 +305,7 @@ func (app *Everlast) ModuleAccountAddrs() map[string]bool {
 
 // BlockedModuleAccountAddrs returns all the app's module account addresses that are not
 // allowed to receive external tokens.
-func (app *Everlast) BlockedModuleAccountAddrs(modAccAddrs map[string]bool) map[string]bool {
+func (app *EverLast) BlockedModuleAccountAddrs(modAccAddrs map[string]bool) map[string]bool {
 	blockedAddrs := make(map[string]bool)
 
 	for acc := range modAccAddrs {
@@ -315,30 +315,30 @@ func (app *Everlast) BlockedModuleAccountAddrs(modAccAddrs map[string]bool) map[
 	return blockedAddrs
 }
 
-// LegacyAmino returns Everlast's amino codec.
+// LegacyAmino returns EverLast's amino codec.
 //
 // NOTE: This is solely to be used for testing purposes as it may be desirable
 // for modules to register their own custom testing types.
-func (app *Everlast) LegacyAmino() *codec.LegacyAmino {
+func (app *EverLast) LegacyAmino() *codec.LegacyAmino {
 	return app.legacyAmino
 }
 
-// AppCodec returns Everlast's app codec.
+// AppCodec returns EverLast's app codec.
 //
 // NOTE: This is solely to be used for testing purposes as it may be desirable
 // for modules to register their own custom testing types.
-func (app *Everlast) AppCodec() codec.Codec {
+func (app *EverLast) AppCodec() codec.Codec {
 	return app.appCodec
 }
 
-// InterfaceRegistry returns Everlast's InterfaceRegistry
-func (app *Everlast) InterfaceRegistry() codectypes.InterfaceRegistry {
+// InterfaceRegistry returns EverLast's InterfaceRegistry
+func (app *EverLast) InterfaceRegistry() codectypes.InterfaceRegistry {
 	return app.interfaceRegistry
 }
 
 // RegisterAPIRoutes registers all application module routes with the provided
 // API server.
-func (app *Everlast) RegisterAPIRoutes(apiSvr *api.Server, apiConfig srvconfig.APIConfig) {
+func (app *EverLast) RegisterAPIRoutes(apiSvr *api.Server, apiConfig srvconfig.APIConfig) {
 	clientCtx := apiSvr.ClientCtx
 	// Register new tx routes from grpc-gateway.
 	authtx.RegisterGRPCGatewayRoutes(clientCtx, apiSvr.GRPCGatewayRouter)
@@ -358,17 +358,17 @@ func (app *Everlast) RegisterAPIRoutes(apiSvr *api.Server, apiConfig srvconfig.A
 }
 
 // RegisterNodeService allows query minimum-gas-prices in app.toml
-func (app *Everlast) RegisterNodeService(clientCtx client.Context, cfg srvconfig.Config) {
+func (app *EverLast) RegisterNodeService(clientCtx client.Context, cfg srvconfig.Config) {
 	node.RegisterNodeService(clientCtx, app.GRPCQueryRouter(), cfg)
 }
 
 // RegisterTxService implements the Application.RegisterTxService method.
-func (app *Everlast) RegisterTxService(clientCtx client.Context) {
+func (app *EverLast) RegisterTxService(clientCtx client.Context) {
 	authtx.RegisterTxService(app.BaseApp.GRPCQueryRouter(), clientCtx, app.BaseApp.Simulate, app.interfaceRegistry)
 }
 
 // RegisterTendermintService implements the Application.RegisterTendermintService method.
-func (app *Everlast) RegisterTendermintService(clientCtx client.Context) {
+func (app *EverLast) RegisterTendermintService(clientCtx client.Context) {
 	cmtservice.RegisterTendermintService(
 		clientCtx,
 		app.BaseApp.GRPCQueryRouter(),
@@ -377,7 +377,7 @@ func (app *Everlast) RegisterTendermintService(clientCtx client.Context) {
 	)
 }
 
-func (app *Everlast) setDualLaneAnteHandler(txConfig client.TxConfig) {
+func (app *EverLast) setDualLaneAnteHandler(txConfig client.TxConfig) {
 	options := antedl.HandlerOptions{
 		Cdc:                    app.appCodec,
 		AccountKeeper:          &app.AccountKeeper,
@@ -402,7 +402,7 @@ func (app *Everlast) setDualLaneAnteHandler(txConfig client.TxConfig) {
 	app.SetAnteHandler(antedl.NewAnteHandler(options))
 }
 
-func (app *Everlast) setPostHandler() {
+func (app *EverLast) setPostHandler() {
 	postHandler, err := NewPostHandler()
 	if err != nil {
 		panic(err)
@@ -411,7 +411,7 @@ func (app *Everlast) setPostHandler() {
 	app.SetPostHandler(postHandler)
 }
 
-func (app *Everlast) setupUpgradeHandlers() {
+func (app *EverLast) setupUpgradeHandlers() {
 	for _, upgrade := range Upgrades {
 		app.UpgradeKeeper.SetUpgradeHandler(
 			upgrade.UpgradeName, // Sample v13.0.0 upgrade handler
@@ -424,7 +424,7 @@ func (app *Everlast) setupUpgradeHandlers() {
 	}
 }
 
-func (app *Everlast) setupUpgradeStoreLoaders() {
+func (app *EverLast) setupUpgradeStoreLoaders() {
 	// When a planned update height is reached, the old binary will panic
 	// writing on disk the height and name of the update that triggered it
 	// This will read that value, and execute the preparations for the upgrade.
@@ -449,17 +449,17 @@ func (app *Everlast) setupUpgradeStoreLoaders() {
 // IBC Go TestingApp functions
 
 // GetBaseApp implements the TestingApp interface.
-func (app *Everlast) GetBaseApp() *baseapp.BaseApp {
+func (app *EverLast) GetBaseApp() *baseapp.BaseApp {
 	return app.BaseApp
 }
 
 // GetTxConfig implements the TestingApp interface.
-func (app *Everlast) GetTxConfig() client.TxConfig {
+func (app *EverLast) GetTxConfig() client.TxConfig {
 	return app.txConfig
 }
 
 // AutoCliOpts returns the autocli options for the app.
-func (app *Everlast) AutoCliOpts() autocli.AppOptions {
+func (app *EverLast) AutoCliOpts() autocli.AppOptions {
 	modules := make(map[string]appmodule.AppModule, 0)
 	for _, m := range app.mm.Modules {
 		if moduleWithName, ok := m.(module.HasName); ok {
@@ -480,22 +480,22 @@ func (app *Everlast) AutoCliOpts() autocli.AppOptions {
 }
 
 // GetStakingKeeper implements the TestingApp interface.
-func (app *Everlast) GetStakingKeeper() ibctestingtypes.StakingKeeper {
+func (app *EverLast) GetStakingKeeper() ibctestingtypes.StakingKeeper {
 	return app.StakingKeeper
 }
 
 // GetStakingKeeperSDK implements the TestingApp interface.
-func (app *Everlast) GetStakingKeeperSDK() stakingkeeper.Keeper {
+func (app *EverLast) GetStakingKeeperSDK() stakingkeeper.Keeper {
 	return *app.StakingKeeper
 }
 
 // GetIBCKeeper implements the TestingApp interface.
-func (app *Everlast) GetIBCKeeper() *ibckeeper.Keeper {
+func (app *EverLast) GetIBCKeeper() *ibckeeper.Keeper {
 	return app.IBCKeeper
 }
 
 // GetScopedIBCKeeper implements the TestingApp interface.
-func (app *Everlast) GetScopedIBCKeeper() capabilitykeeper.ScopedKeeper {
+func (app *EverLast) GetScopedIBCKeeper() capabilitykeeper.ScopedKeeper {
 	return app.ScopedIBCKeeper
 }
 

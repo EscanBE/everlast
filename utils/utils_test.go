@@ -6,7 +6,6 @@ import (
 	cmdcfg "github.com/EscanBE/everlast/v12/cmd/config"
 
 	"github.com/EscanBE/everlast/v12/constants"
-	
 
 	"github.com/stretchr/testify/require"
 
@@ -127,7 +126,7 @@ func TestGetNativeAddressFromBech32(t *testing.T) {
 
 	for _, tc := range testCases {
 		t.Run(tc.name, func(t *testing.T) {
-			addr, err := GetEverlastAddressFromBech32(tc.address)
+			addr, err := GetEverLastAddressFromBech32(tc.address)
 			if tc.expError {
 				require.Error(t, err)
 			} else {

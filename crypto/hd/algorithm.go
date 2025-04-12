@@ -25,7 +25,7 @@ var (
 	//  - eth_secp256k1 (Ethereum)
 	//  - secp256k1 (CometBFT)
 	SupportedAlgorithms = keyring.SigningAlgoList{EthSecp256k1, hd.Secp256k1}
-	// SupportedAlgorithmsLedger defines the list of signing algorithms used on Everlast for the Ledger device:
+	// SupportedAlgorithmsLedger defines the list of signing algorithms used on EverLast for the Ledger device:
 	//  - eth_secp256k1 (Ethereum)
 	//  - secp256k1 (CometBFT)
 	SupportedAlgorithmsLedger = keyring.SigningAlgoList{EthSecp256k1, hd.Secp256k1}

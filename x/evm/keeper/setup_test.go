@@ -40,7 +40,7 @@ type KeeperTestSuite struct {
 	suite.Suite
 
 	ctx                         sdk.Context
-	app                         *chainapp.Everlast
+	app                         *chainapp.EverLast
 	queryClient                 evmtypes.QueryClient
 	address                     common.Address
 	pseudoCoinBaseForWarmUpTest common.Address // a random address to use as coinbase for warm up test
@@ -106,7 +106,7 @@ func (suite *KeeperTestSuite) SetupAppWithT(checkTx bool, t require.TestingT) {
 	require.NoError(t, err)
 	suite.consAddress = sdk.ConsAddress(priv.PubKey().Address())
 
-	suite.app = helpers.EthSetup(checkTx, func(chainApp *chainapp.Everlast, genesis chainapp.GenesisState) chainapp.GenesisState {
+	suite.app = helpers.EthSetup(checkTx, func(chainApp *chainapp.EverLast, genesis chainapp.GenesisState) chainapp.GenesisState {
 		feemarketGenesis := feemarkettypes.DefaultGenesisState()
 		if !suite.enableFeemarket {
 			feemarketGenesis.Params.BaseFee = sdkmath.ZeroInt()

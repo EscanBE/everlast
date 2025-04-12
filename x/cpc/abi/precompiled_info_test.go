@@ -10,7 +10,6 @@ import (
 	addresscodec "github.com/cosmos/cosmos-sdk/codec/address"
 
 	"github.com/EscanBE/everlast/v12/constants"
-	
 
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/stretchr/testify/require"

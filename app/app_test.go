@@ -27,7 +27,7 @@ import (
 	sdkdb "github.com/cosmos/cosmos-db"
 )
 
-func TestEverlastExport(t *testing.T) {
+func TestEverLastExport(t *testing.T) {
 	// create public key
 	privVal := mock.NewPV()
 	pubKey, err := privVal.GetPubKey()
@@ -48,7 +48,7 @@ func TestEverlastExport(t *testing.T) {
 
 	chainID := constants.TestnetFullChainId
 	db := sdkdb.NewMemDB()
-	chainApp := chainapp.NewEverlast(
+	chainApp := chainapp.NewEverLast(
 		log.NewLogger(os.Stdout), db, nil, true, map[int64]bool{}, chainapp.DefaultNodeHome, 0, encodingConfig,
 		simtestutil.NewAppOptionsWithFlagHome(chainapp.DefaultNodeHome),
 		baseapp.SetChainID(chainID),

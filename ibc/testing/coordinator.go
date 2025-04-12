@@ -20,7 +20,7 @@ const DefaultFeeAmt = int64(150_000_000_000_000_000) // 0.15 EVMOS
 
 var globalStartTime = time.Date(2020, 1, 2, 0, 0, 0, 0, time.UTC)
 
-// NewCoordinator initializes Coordinator with N EVM TestChain's (Everlast apps) and M Cosmos chains (Simulation Apps)
+// NewCoordinator initializes Coordinator with N EVM TestChain's (EverLast apps) and M Cosmos chains (Simulation Apps)
 func NewCoordinator(t *testing.T, nEVMChains, mCosmosChains int) *ibctesting.Coordinator {
 	chains := make(map[string]*ibctesting.TestChain)
 	coord := &ibctesting.Coordinator{
@@ -126,7 +126,7 @@ func SendMsgs(chain *ibctesting.TestChain, feeAmt int64, msgs ...sdk.Msg) (*sdk.
 	chain.Coordinator.UpdateTimeForChain(chain)
 
 	var err error
-	if everlastChain, ok := chain.App.(*chainapp.Everlast); ok {
+	if everlastChain, ok := chain.App.(*chainapp.EverLast); ok {
 		bondDenom, err = everlastChain.StakingKeeper.BondDenom(chain.GetContext())
 	} else {
 		bondDenom, err = chain.GetSimApp().StakingKeeper.BondDenom(chain.GetContext())

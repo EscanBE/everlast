@@ -61,7 +61,7 @@ type StateTransition struct {
 	state      corevm.StateDB
 	evm        *corevm.EVM
 
-	// extra fields for Everlast
+	// extra fields for EverLast
 
 	/**
 	 * SenderPaidTheFee is a flag that indicates if the sender paid the fee in the AnteHandle.
@@ -110,7 +110,7 @@ func (st *StateTransition) to() common.Address {
 
 func (st *StateTransition) buyGas() error {
 	/* This logic was disabled because AnteHandle already charges the fee
-	// TODO ES: try to let this work
+	// TODO EVL: try to let this work
 	mgval := new(big.Int).SetUint64(st.msg.Gas())
 	mgval = mgval.Mul(mgval, st.gasPrice)
 	balanceCheck := mgval
@@ -274,8 +274,8 @@ func (st *StateTransition) TransitionDb() (*core.ExecutionResult, error) {
 		// are 0. This avoids a negative effectiveTip being applied to
 		// the coinbase when simulating calls.
 	} else {
-		/* This logic was disabled because it was not on Everlast
-		// TODO ES: consider make this work
+		/* This logic was disabled because it was not on EverLast
+		// TODO EVL: consider make this work
 
 		effectiveTip := st.gasPrice
 		if rules.IsLondon {

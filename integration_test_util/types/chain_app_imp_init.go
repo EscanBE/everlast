@@ -122,7 +122,7 @@ func NewChainApp(chainCfg ChainConfig, disableCometBFT bool, testConfig TestConf
 		})
 	}
 
-	app := chainapp.NewEverlast(
+	app := chainapp.NewEverLast(
 		logger,           // logger
 		sdkdb.NewMemDB(), // db
 		nil,              // trace store

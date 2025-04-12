@@ -15,7 +15,7 @@ import (
 	"github.com/EscanBE/everlast/v12/app/antedl/cosmoslane"
 	"github.com/EscanBE/everlast/v12/constants"
 	itutiltypes "github.com/EscanBE/everlast/v12/integration_test_util/types"
-	
+
 	vauthtypes "github.com/EscanBE/everlast/v12/x/vauth/types"
 )
 

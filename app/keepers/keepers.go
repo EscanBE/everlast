@@ -107,7 +107,7 @@ type AppKeepers struct {
 	EvmKeeper       *evmkeeper.Keeper
 	FeeMarketKeeper feemarketkeeper.Keeper
 
-	// Everlast keepers
+	// EverLast keepers
 	VAuthKeeper vauthkeeper.Keeper
 	CPCKeeper   cpckeeper.Keeper
 
@@ -386,7 +386,7 @@ func NewAppKeeper(
 		appKeepers.FeeMarketKeeper = appKeepers.FeeMarketKeeper.WithEvmKeeper(appKeepers.EvmKeeper)
 	}
 
-	{ // Create Everlast keepers
+	{ // Create EverLast keepers
 		appKeepers.VAuthKeeper = vauthkeeper.NewKeeper(
 			appCodec,
 			keys[vauthtypes.StoreKey],
@@ -460,7 +460,7 @@ func initParamsKeeper(
 	// Ethermint subspaces
 	paramsKeeper.Subspace(evmtypes.ModuleName).WithKeyTable(evmtypes.ParamKeyTable()) //nolint: staticcheck
 	paramsKeeper.Subspace(feemarkettypes.ModuleName).WithKeyTable(feemarkettypes.ParamKeyTable())
-	// Everlast subspaces
+	// EverLast subspaces
 	// (none)
 	return paramsKeeper
 }

@@ -60,11 +60,11 @@ func IsSupportedKey(pubkey cryptotypes.PubKey) bool {
 	}
 }
 
-// GetEverlastAddressFromBech32 returns the sdk.Account address of given address,
+// GetEverLastAddressFromBech32 returns the sdk.Account address of given address,
 // while also changing bech32 human read-able prefix (HRP) to the value set on
 // the global sdk.Config.
 // The function fails if the provided bech32 address is invalid.
-func GetEverlastAddressFromBech32(address string) (sdk.AccAddress, error) {
+func GetEverLastAddressFromBech32(address string) (sdk.AccAddress, error) {
 	bech32Prefix := strings.SplitN(address, "1", 2)[0]
 	if bech32Prefix == address {
 		return nil, errorsmod.Wrapf(errortypes.ErrInvalidAddress, "invalid bech32 address: %s", address)

@@ -103,7 +103,7 @@ func NewRootCmd() (*cobra.Command, params.EncodingConfig) {
 
 	rootCmd := &cobra.Command{
 		Use:   constants.ApplicationBinaryName,
-		Short: "Everlast Daemon",
+		Short: "EverLast Daemon",
 		PersistentPreRunE: func(cmd *cobra.Command, _ []string) error {
 			// set the default command outputs
 			cmd.SetOut(cmd.OutOrStdout())
@@ -296,7 +296,7 @@ func queryCommand() *cobra.Command {
 	return cmd
 }
 
-func txCommand(chainApp *chainapp.Everlast) *cobra.Command {
+func txCommand(chainApp *chainapp.EverLast) *cobra.Command {
 	cmd := &cobra.Command{
 		Use:                        "tx",
 		Short:                      "Transactions subcommands",
@@ -396,7 +396,7 @@ func (a appCreator) newApp(logger log.Logger, db sdkdb.DB, traceStore io.Writer,
 		chainID = conf.ChainID
 	}
 
-	chainApp := chainapp.NewEverlast(
+	chainApp := chainapp.NewEverLast(
 		logger, db, traceStore, true, skipUpgradeHeights,
 		cast.ToString(appOpts.Get(flags.FlagHome)),
 		cast.ToUint(appOpts.Get(sdkserver.FlagInvCheckPeriod)),
@@ -431,20 +431,20 @@ func (a appCreator) appExport(
 	appOpts servertypes.AppOptions,
 	modulesToExport []string,
 ) (servertypes.ExportedApp, error) {
-	var chainApp *chainapp.Everlast
+	var chainApp *chainapp.EverLast
 	homePath, ok := appOpts.Get(flags.FlagHome).(string)
 	if !ok || homePath == "" {
 		return servertypes.ExportedApp{}, errors.New("application home not set")
 	}
 
 	if height != -1 {
-		chainApp = chainapp.NewEverlast(logger, db, traceStore, false, map[int64]bool{}, "", uint(1), a.encCfg, appOpts)
+		chainApp = chainapp.NewEverLast(logger, db, traceStore, false, map[int64]bool{}, "", uint(1), a.encCfg, appOpts)
 
 		if err := chainApp.LoadHeight(height); err != nil {
 			return servertypes.ExportedApp{}, err
 		}
 	} else {
-		chainApp = chainapp.NewEverlast(logger, db, traceStore, true, map[int64]bool{}, "", uint(1), a.encCfg, appOpts)
+		chainApp = chainapp.NewEverLast(logger, db, traceStore, true, map[int64]bool{}, "", uint(1), a.encCfg, appOpts)
 	}
 
 	return chainApp.ExportAppStateAndValidators(forZeroHeight, jailAllowedAddrs, modulesToExport)
@@ -463,7 +463,7 @@ func initCometBftConfig() *cmtcfg.Config {
 	return cfg
 }
 
-func initTemporaryChainApp() *chainapp.Everlast {
+func initTemporaryChainApp() *chainapp.EverLast {
 	encodingConfig := chainapp.RegisterEncodingConfig()
 
 	// we "pre"-instantiate the application for getting the injected/configured encoding configuration
@@ -480,7 +480,7 @@ func initTemporaryChainApp() *chainapp.Everlast {
 		return dir
 	}()
 	initAppOptions.Set(flags.FlagHome, tempDir)
-	return chainapp.NewEverlast(
+	return chainapp.NewEverLast(
 		log.NewNopLogger(),
 		sdkdb.NewMemDB(),
 		nil,

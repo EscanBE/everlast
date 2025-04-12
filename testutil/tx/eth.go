@@ -30,7 +30,7 @@ import (
 func PrepareEthTx(
 	ctx sdk.Context,
 	txCfg client.TxConfig,
-	chainApp *chainapp.Everlast,
+	chainApp *chainapp.EverLast,
 	priv cryptotypes.PrivKey,
 	msg sdk.Msg,
 ) (authsigning.Tx, error) {
@@ -91,7 +91,7 @@ func PrepareEthTx(
 // Should this not be the case, just pass in zero.
 func CreateEthTx(
 	ctx sdk.Context,
-	chainApp *chainapp.Everlast,
+	chainApp *chainapp.EverLast,
 	privKey cryptotypes.PrivKey,
 	from sdk.AccAddress,
 	dest sdk.AccAddress,

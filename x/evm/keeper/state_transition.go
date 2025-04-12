@@ -26,7 +26,7 @@ import (
 // NOTE: the RANDOM opcode is currently not supported since it requires
 // RANDAO implementation. See https://github.com/evmos/ethermint/pull/1520#pullrequestreview-1200504697
 // for more information.
-// TODO ES: support RANDOM opcode
+// TODO EVL: support RANDOM opcode
 func (k *Keeper) NewEVM(
 	ctx sdk.Context,
 	msg core.Message,
@@ -95,7 +95,7 @@ func (k *Keeper) NewEVM(
 	return evm
 }
 
-// GetHashFn implements vm.GetHashFunc for Everlast.
+// GetHashFn implements vm.GetHashFunc for EverLast.
 func (k Keeper) GetHashFn(ctx sdk.Context) corevm.GetHashFunc {
 	return func(height uint64) common.Hash {
 		h, err := evertypes.SafeInt64(height)

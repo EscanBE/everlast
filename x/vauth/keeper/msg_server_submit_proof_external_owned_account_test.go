@@ -2,7 +2,7 @@ package keeper_test
 
 import (
 	"github.com/EscanBE/everlast/v12/constants"
-	
+
 	vauthkeeper "github.com/EscanBE/everlast/v12/x/vauth/keeper"
 	vauthtypes "github.com/EscanBE/everlast/v12/x/vauth/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"

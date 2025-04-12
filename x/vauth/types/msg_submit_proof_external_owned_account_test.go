@@ -6,7 +6,6 @@ import (
 
 	cmdcfg "github.com/EscanBE/everlast/v12/cmd/config"
 
-	
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/ethereum/go-ethereum/crypto"
 	"github.com/stretchr/testify/require"

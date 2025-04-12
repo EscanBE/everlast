@@ -689,7 +689,7 @@ func (suite *EIP712TestSuite) TestTypedDataGeneration() {
 	suite.Require().False(typedData.Types["TypemsgType1"] == nil)
 }
 
-func initTemporaryChainApp() (*chainapp.Everlast, sdk.Context) {
+func initTemporaryChainApp() (*chainapp.EverLast, sdk.Context) {
 	consAddress := sdk.ConsAddress(utiltx.GenerateAddress().Bytes())
 	tempChainApp := helpers.Setup(false, feemarkettypes.DefaultGenesisState(), chainID)
 	header := tmproto.Header{

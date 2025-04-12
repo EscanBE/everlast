@@ -24,7 +24,7 @@ import (
 // compiled contract data and constructor arguments
 func DeployContract(
 	ctx sdk.Context,
-	chainApp *chainapp.Everlast,
+	chainApp *chainapp.EverLast,
 	priv cryptotypes.PrivKey,
 	queryClientEvm evm.QueryClient,
 	contract evm.CompiledContract,
@@ -73,7 +73,7 @@ func DeployContract(
 // with the provided factoryAddress
 func DeployContractWithFactory(
 	ctx sdk.Context,
-	chainApp *chainapp.Everlast,
+	chainApp *chainapp.EverLast,
 	priv cryptotypes.PrivKey,
 	factoryAddress common.Address,
 ) (sdk.Context, common.Address, abci.ExecTxResult, error) {

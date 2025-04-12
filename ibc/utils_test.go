@@ -8,7 +8,6 @@ import (
 	sdkmath "cosmossdk.io/math"
 
 	"github.com/EscanBE/everlast/v12/constants"
-	
 
 	"github.com/stretchr/testify/require"
 

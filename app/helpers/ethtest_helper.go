@@ -27,17 +27,17 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 )
 
-// EthSetup initializes a new Everlast app. A Nop logger is set in Everlast app.
-func EthSetup(isCheckTx bool, patchGenesis func(*chainapp.Everlast, chainapp.GenesisState) chainapp.GenesisState) *chainapp.Everlast {
+// EthSetup initializes a new EverLast app. A Nop logger is set in EverLast app.
+func EthSetup(isCheckTx bool, patchGenesis func(*chainapp.EverLast, chainapp.GenesisState) chainapp.GenesisState) *chainapp.EverLast {
 	return EthSetupWithDB(isCheckTx, patchGenesis, sdkdb.NewMemDB())
 }
 
-// EthSetupWithDB initializes a new Everlast app. A Nop logger is set in Everlast app.
-func EthSetupWithDB(isCheckTx bool, patchGenesis func(*chainapp.Everlast, chainapp.GenesisState) chainapp.GenesisState, db sdkdb.DB) *chainapp.Everlast {
+// EthSetupWithDB initializes a new EverLast app. A Nop logger is set in EverLast app.
+func EthSetupWithDB(isCheckTx bool, patchGenesis func(*chainapp.EverLast, chainapp.GenesisState) chainapp.GenesisState, db sdkdb.DB) *chainapp.EverLast {
 	encodingConfig := chainapp.RegisterEncodingConfig()
 
 	chainID := constants.TestnetFullChainId
-	chainApp := chainapp.NewEverlast(log.NewNopLogger(),
+	chainApp := chainapp.NewEverLast(log.NewNopLogger(),
 		db,
 		nil,
 		true,

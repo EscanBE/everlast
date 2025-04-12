@@ -29,7 +29,7 @@ import (
 //     1.2. deliverTx
 //     1.3. endBlock
 //  2. Commit
-func Commit(ctx sdk.Context, chainApp *chainapp.Everlast, t time.Duration, vs *cmttypes.ValidatorSet) (sdk.Context, error) {
+func Commit(ctx sdk.Context, chainApp *chainapp.EverLast, t time.Duration, vs *cmttypes.ValidatorSet) (sdk.Context, error) {
 	ctx = ReflectChangesToCommitMultiStore(ctx, chainApp.BaseApp)
 
 	header := ctx.BlockHeader()
@@ -69,7 +69,7 @@ func Commit(ctx sdk.Context, chainApp *chainapp.Everlast, t time.Duration, vs *c
 // DeliverTx delivers a cosmos tx for a given set of msgs
 func DeliverTx(
 	ctx sdk.Context,
-	chainApp *chainapp.Everlast,
+	chainApp *chainapp.EverLast,
 	priv cryptotypes.PrivKey,
 	gasPrice *sdkmath.Int,
 	msgs ...sdk.Msg,
@@ -98,7 +98,7 @@ func DeliverTx(
 // otherwise, it will assume the messages have already been signed.
 func DeliverEthTx(
 	ctx sdk.Context,
-	chainApp *chainapp.Everlast,
+	chainApp *chainapp.EverLast,
 	priv cryptotypes.PrivKey,
 	msg sdk.Msg,
 ) (sdk.Context, abci.ExecTxResult, error) {
@@ -114,7 +114,7 @@ func DeliverEthTx(
 // CheckTx checks a cosmos tx for a given set of msgs
 func CheckTx(
 	ctx sdk.Context,
-	chainApp *chainapp.Everlast,
+	chainApp *chainapp.EverLast,
 	priv cryptotypes.PrivKey,
 	gasPrice *sdkmath.Int,
 	msgs ...sdk.Msg,
@@ -142,7 +142,7 @@ func CheckTx(
 // CheckEthTx checks a Ethereum tx for a given set of msgs
 func CheckEthTx(
 	ctx sdk.Context,
-	chainApp *chainapp.Everlast,
+	chainApp *chainapp.EverLast,
 	priv cryptotypes.PrivKey,
 	msg sdk.Msg,
 ) (abci.ResponseCheckTx, error) {
@@ -157,7 +157,7 @@ func CheckEthTx(
 
 // BroadcastTxBytes encodes a transaction and calls DeliverTx on the app.
 // This function returns sdk.Context because it called Finalize block, so changes to Commit Multistore must be reflected to the new context.
-func BroadcastTxBytes(ctx sdk.Context, chainApp *chainapp.Everlast, txEncoder sdk.TxEncoder, tx sdk.Tx) (sdk.Context, abci.ExecTxResult, error) {
+func BroadcastTxBytes(ctx sdk.Context, chainApp *chainapp.EverLast, txEncoder sdk.TxEncoder, tx sdk.Tx) (sdk.Context, abci.ExecTxResult, error) {
 	oldCtx := ctx
 
 	ctx = ReflectChangesToCommitMultiStore(ctx, chainApp.BaseApp)
@@ -218,7 +218,7 @@ func ReflectChangesToCommitMultiStore(ctx sdk.Context, baseApp *baseapp.BaseApp)
 }
 
 // checkTxBytes encodes a transaction and calls checkTx on the app.
-func checkTxBytes(chainApp *chainapp.Everlast, txEncoder sdk.TxEncoder, tx sdk.Tx) (abci.ResponseCheckTx, error) {
+func checkTxBytes(chainApp *chainapp.EverLast, txEncoder sdk.TxEncoder, tx sdk.Tx) (abci.ResponseCheckTx, error) {
 	bz, err := txEncoder(tx)
 	if err != nil {
 		return abci.ResponseCheckTx{}, err

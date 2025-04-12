@@ -15,7 +15,7 @@ import (
 var _ ChainApp = &chainAppImp{}
 
 type chainAppImp struct {
-	app *chainapp.Everlast
+	app *chainapp.EverLast
 }
 
 func (c chainAppImp) App() abci.Application {

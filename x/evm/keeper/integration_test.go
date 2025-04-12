@@ -177,7 +177,7 @@ func setupChain(localMinGasPricesStr string) {
 	// validator-specific min-gas-prices setting
 	db := sdkdb.NewMemDB()
 	chainID := constants.TestnetFullChainId
-	chainApp := chainapp.NewEverlast(
+	chainApp := chainapp.NewEverLast(
 		log.NewNopLogger(),
 		db,
 		nil,

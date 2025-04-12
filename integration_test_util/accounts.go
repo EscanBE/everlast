@@ -7,7 +7,7 @@ import (
 	"github.com/EscanBE/everlast/v12/crypto/ethsecp256k1"
 	etherminthd "github.com/EscanBE/everlast/v12/crypto/hd"
 	itutiltypes "github.com/EscanBE/everlast/v12/integration_test_util/types"
-	
+
 	cosmoshd "github.com/cosmos/cosmos-sdk/crypto/hd"
 	"github.com/cosmos/cosmos-sdk/crypto/keyring"
 	"github.com/stretchr/testify/require"

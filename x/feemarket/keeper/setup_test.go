@@ -24,7 +24,7 @@ type KeeperTestSuite struct {
 	suite.Suite
 
 	ctx         sdk.Context
-	app         *chainapp.Everlast
+	app         *chainapp.EverLast
 	queryClient feemarkettypes.QueryClient
 	address     common.Address
 	consAddress sdk.ConsAddress
