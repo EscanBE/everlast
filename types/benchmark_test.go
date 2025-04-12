@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/EscanBE/evermint/v12/constants"
+	"github.com/EscanBE/everlast/v12/constants"
 )
 
 func BenchmarkParseChainID(b *testing.B) {

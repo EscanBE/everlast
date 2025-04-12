@@ -6,11 +6,11 @@ import (
 	"regexp"
 	"testing"
 
-	"github.com/EscanBE/evermint/v12/rename_chain/marker"
+	
 
 	sdkmath "cosmossdk.io/math"
 
-	"github.com/EscanBE/evermint/v12/constants"
+	"github.com/EscanBE/everlast/v12/constants"
 
 	"github.com/stretchr/testify/suite"
 
@@ -24,9 +24,9 @@ import (
 	auxTx "github.com/cosmos/cosmos-sdk/x/auth/tx"
 	bankTypes "github.com/cosmos/cosmos-sdk/x/bank/types"
 
-	"github.com/EscanBE/evermint/v12/wallets/ledger"
-	"github.com/EscanBE/evermint/v12/wallets/ledger/mocks"
-	"github.com/EscanBE/evermint/v12/wallets/usbwallet"
+	"github.com/EscanBE/everlast/v12/wallets/ledger"
+	"github.com/EscanBE/everlast/v12/wallets/ledger/mocks"
+	"github.com/EscanBE/everlast/v12/wallets/usbwallet"
 )
 
 type LedgerTestSuite struct {
@@ -66,8 +66,8 @@ func (suite *LedgerTestSuite) newPubKey(pk string) (res cryptoTypes.PubKey) {
 }
 
 var (
-	fromAddr = marker.ReplaceAbleAddress("evm1r5sckdd808qvg7p8d0auaw896zcluqfdkh4lcm")
-	toAddr   = marker.ReplaceAbleAddress("evm10t8ca2w09ykd6ph0agdz5stvgau47whh4j0f58")
+	fromAddr = "evl1r5sckdd808qvg7p8d0auaw896zcluqfdafz54s"
+	toAddr   = "evl10t8ca2w09ykd6ph0agdz5stvgau47whh7vczev"
 )
 
 func (suite *LedgerTestSuite) getMockTxAmino() []byte {

@@ -6,7 +6,7 @@ import (
 
 	errorsmod "cosmossdk.io/errors"
 
-	evertypes "github.com/EscanBE/evermint/v12/types"
+	evertypes "github.com/EscanBE/everlast/v12/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 )
 

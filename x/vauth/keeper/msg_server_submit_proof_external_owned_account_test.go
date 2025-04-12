@@ -1,10 +1,10 @@
 package keeper_test
 
 import (
-	"github.com/EscanBE/evermint/v12/constants"
-	"github.com/EscanBE/evermint/v12/rename_chain/marker"
-	vauthkeeper "github.com/EscanBE/evermint/v12/x/vauth/keeper"
-	vauthtypes "github.com/EscanBE/evermint/v12/x/vauth/types"
+	"github.com/EscanBE/everlast/v12/constants"
+	
+	vauthkeeper "github.com/EscanBE/everlast/v12/x/vauth/keeper"
+	vauthtypes "github.com/EscanBE/everlast/v12/x/vauth/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/types/errors"
 )
@@ -99,7 +99,7 @@ func (s *KeeperTestSuite) Test_msgServer_SubmitProofExternalOwnedAccount() {
 			name: "fail - fail tx does not persist, mis-match address",
 			msg: &vauthtypes.MsgSubmitProofExternalOwnedAccount{
 				Submitter: s.submitterAccAddr.String(),
-				Account:   marker.ReplaceAbleAddress("evm13zqksjwyjdvtzqjhed2m9r4xq0y8fvz79xjsqd"),
+				Account:   "evl13zqksjwyjdvtzqjhed2m9r4xq0y8fvz7wc9mdx",
 				Signature: s.SignToStr(vauthtypes.MessageToSign),
 			},
 			submitterBalance: vauthkeeper.CostSubmitProofExternalOwnedAccount,

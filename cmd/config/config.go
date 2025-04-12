@@ -2,8 +2,8 @@ package config
 
 import (
 	sdkmath "cosmossdk.io/math"
-	"github.com/EscanBE/evermint/v12/constants"
-	evertypes "github.com/EscanBE/evermint/v12/types"
+	"github.com/EscanBE/everlast/v12/constants"
+	evertypes "github.com/EscanBE/everlast/v12/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 )
 

@@ -6,7 +6,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/EscanBE/evermint/v12/constants"
+	"github.com/EscanBE/everlast/v12/constants"
 
 	"github.com/stretchr/testify/require"
 )
@@ -43,7 +43,7 @@ func TestParseChainID(t *testing.T) {
 			"invalid chain-id, uppercases", "EVRMINT_1-1", true, nil,
 		},
 		{
-			"invalid chain-id, mixed cases", "Evermint_1-1", true, nil,
+			"invalid chain-id, mixed cases", "Everlast_1-1", true, nil,
 		},
 		{
 			"invalid chain-id, special chars", "$&*#!_1-1", true, nil,

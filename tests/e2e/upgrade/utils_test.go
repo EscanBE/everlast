@@ -46,10 +46,10 @@ func TestCheckLegacyProposal(t *testing.T) {
 	}
 }
 
-// TestVersionsLess tests the EvermintVersion type's Less method with
+// TestVersionsLess tests the EverlastVersion type's Less method with
 // different version strings
 func TestVersionsLess(t *testing.T) {
-	var version EvermintVersion
+	var version EverlastVersion
 
 	testCases := []struct {
 		Name string
@@ -76,18 +76,18 @@ func TestVersionsLess(t *testing.T) {
 	}
 }
 
-// TestVersionsSwap tests the EvermintVersion type's Swap method
+// TestVersionsSwap tests the EverlastVersion type's Swap method
 func TestVersionsSwap(t *testing.T) {
-	var version EvermintVersion
+	var version EverlastVersion
 	value := "v9.1.0"
 	version = []string{value, "v10.0.0"}
 	version.Swap(0, 1)
 	require.Equal(t, value, version[1], "expected: %v, got: %v", value, version[1])
 }
 
-// TestVersionsLen tests the EvermintVersion type's Len method
+// TestVersionsLen tests the EverlastVersion type's Len method
 func TestVersionsLen(t *testing.T) {
-	var version EvermintVersion = []string{"v9.1.0", "v10.0.0"}
+	var version EverlastVersion = []string{"v9.1.0", "v10.0.0"}
 	require.Equal(t, 2, version.Len(), "expected: %v, got: %v", 2, version.Len())
 }
 

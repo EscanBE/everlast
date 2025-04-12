@@ -3,8 +3,8 @@ package keepers
 import (
 	"os"
 
-	cpckeeper "github.com/EscanBE/evermint/v12/x/cpc/keeper"
-	cpctypes "github.com/EscanBE/evermint/v12/x/cpc/types"
+	cpckeeper "github.com/EscanBE/everlast/v12/x/cpc/keeper"
+	cpctypes "github.com/EscanBE/everlast/v12/x/cpc/types"
 
 	"github.com/cosmos/cosmos-sdk/codec/address"
 	"github.com/cosmos/cosmos-sdk/runtime"
@@ -67,13 +67,13 @@ import (
 	ibctransferkeeper "github.com/cosmos/ibc-go/v8/modules/apps/transfer/keeper"
 	ibckeeper "github.com/cosmos/ibc-go/v8/modules/core/keeper"
 
-	srvflags "github.com/EscanBE/evermint/v12/server/flags"
-	evmkeeper "github.com/EscanBE/evermint/v12/x/evm/keeper"
-	evmtypes "github.com/EscanBE/evermint/v12/x/evm/types"
-	feemarketkeeper "github.com/EscanBE/evermint/v12/x/feemarket/keeper"
-	feemarkettypes "github.com/EscanBE/evermint/v12/x/feemarket/types"
-	vauthkeeper "github.com/EscanBE/evermint/v12/x/vauth/keeper"
-	vauthtypes "github.com/EscanBE/evermint/v12/x/vauth/types"
+	srvflags "github.com/EscanBE/everlast/v12/server/flags"
+	evmkeeper "github.com/EscanBE/everlast/v12/x/evm/keeper"
+	evmtypes "github.com/EscanBE/everlast/v12/x/evm/types"
+	feemarketkeeper "github.com/EscanBE/everlast/v12/x/feemarket/keeper"
+	feemarkettypes "github.com/EscanBE/everlast/v12/x/feemarket/types"
+	vauthkeeper "github.com/EscanBE/everlast/v12/x/vauth/keeper"
+	vauthtypes "github.com/EscanBE/everlast/v12/x/vauth/types"
 )
 
 type AppKeepers struct {
@@ -107,7 +107,7 @@ type AppKeepers struct {
 	EvmKeeper       *evmkeeper.Keeper
 	FeeMarketKeeper feemarketkeeper.Keeper
 
-	// Evermint keepers
+	// Everlast keepers
 	VAuthKeeper vauthkeeper.Keeper
 	CPCKeeper   cpckeeper.Keeper
 
@@ -386,7 +386,7 @@ func NewAppKeeper(
 		appKeepers.FeeMarketKeeper = appKeepers.FeeMarketKeeper.WithEvmKeeper(appKeepers.EvmKeeper)
 	}
 
-	{ // Create Evermint keepers
+	{ // Create Everlast keepers
 		appKeepers.VAuthKeeper = vauthkeeper.NewKeeper(
 			appCodec,
 			keys[vauthtypes.StoreKey],
@@ -460,7 +460,7 @@ func initParamsKeeper(
 	// Ethermint subspaces
 	paramsKeeper.Subspace(evmtypes.ModuleName).WithKeyTable(evmtypes.ParamKeyTable()) //nolint: staticcheck
 	paramsKeeper.Subspace(feemarkettypes.ModuleName).WithKeyTable(feemarkettypes.ParamKeyTable())
-	// Evermint subspaces
+	// Everlast subspaces
 	// (none)
 	return paramsKeeper
 }

@@ -6,19 +6,19 @@ import (
 	"testing"
 	"time"
 
-	cmdcfg "github.com/EscanBE/evermint/v12/cmd/config"
+	cmdcfg "github.com/EscanBE/everlast/v12/cmd/config"
 
 	storemetrics "cosmossdk.io/store/metrics"
 
 	"github.com/cosmos/cosmos-sdk/codec/address"
 	"github.com/cosmos/cosmos-sdk/runtime"
 
-	"github.com/EscanBE/evermint/v12/constants"
-	"github.com/EscanBE/evermint/v12/rename_chain/marker"
-	evmkeeper "github.com/EscanBE/evermint/v12/x/evm/keeper"
-	evmtypes "github.com/EscanBE/evermint/v12/x/evm/types"
-	vauthkeeper "github.com/EscanBE/evermint/v12/x/vauth/keeper"
-	vauthtypes "github.com/EscanBE/evermint/v12/x/vauth/types"
+	"github.com/EscanBE/everlast/v12/constants"
+	
+	evmkeeper "github.com/EscanBE/everlast/v12/x/evm/keeper"
+	evmtypes "github.com/EscanBE/everlast/v12/x/evm/types"
+	vauthkeeper "github.com/EscanBE/everlast/v12/x/vauth/keeper"
+	vauthtypes "github.com/EscanBE/everlast/v12/x/vauth/types"
 	typesparams "github.com/cosmos/cosmos-sdk/x/params/types"
 	"github.com/ethereum/go-ethereum/crypto"
 
@@ -167,8 +167,8 @@ func (s *KeeperTestSuite) SetupTest() {
 	s.evmKeeper = ek
 	s.keeper = vk
 	s.privateKey = privateKey
-	s.accAddr = sdk.MustAccAddressFromBech32(marker.ReplaceAbleAddress("evm1jcsksjwyjdvtzqjhed2m9r4xq0y8fvz7zqvgem"))
-	s.submitterAccAddr = sdk.MustAccAddressFromBech32(marker.ReplaceAbleAddress("evm13zqksjwyjdvtzqjhed2m9r4xq0y8fvyg85jr6a"))
+	s.accAddr = sdk.MustAccAddressFromBech32("evl1jcsksjwyjdvtzqjhed2m9r4xq0y8fvz7f7mr5s")
+	s.submitterAccAddr = sdk.MustAccAddressFromBech32("evl13zqksjwyjdvtzqjhed2m9r4xq0y8fvygv29ghk")
 
 	// others
 

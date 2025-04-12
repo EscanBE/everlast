@@ -20,9 +20,9 @@ import (
 	"github.com/cosmos/cosmos-sdk/types/module"
 	simtypes "github.com/cosmos/cosmos-sdk/types/simulation"
 
-	evmcli "github.com/EscanBE/evermint/v12/x/evm/client/cli"
-	evmkeeper "github.com/EscanBE/evermint/v12/x/evm/keeper"
-	evmtypes "github.com/EscanBE/evermint/v12/x/evm/types"
+	evmcli "github.com/EscanBE/everlast/v12/x/evm/client/cli"
+	evmkeeper "github.com/EscanBE/everlast/v12/x/evm/keeper"
+	evmtypes "github.com/EscanBE/everlast/v12/x/evm/types"
 )
 
 var (
@@ -179,7 +179,7 @@ func (AppModule) ProposalContents(_ module.SimulationState) []simtypes.WeightedP
 func (AppModule) GenerateGenesisState(_ *module.SimulationState) {
 }
 
-// WeightedOperations returns the all the evm module operations with their respective weights.
+// WeightedOperations returns the all the evm module operations with their respective aevlghts.
 func (am AppModule) WeightedOperations(_ module.SimulationState) []simtypes.WeightedOperation {
 	return nil
 }

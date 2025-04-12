@@ -23,10 +23,10 @@ import (
 	banktypes "github.com/cosmos/cosmos-sdk/x/bank/types"
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 
-	chainapp "github.com/EscanBE/evermint/v12/app"
-	cmdcfg "github.com/EscanBE/evermint/v12/cmd/config"
-	"github.com/EscanBE/evermint/v12/constants"
-	feemarkettypes "github.com/EscanBE/evermint/v12/x/feemarket/types"
+	chainapp "github.com/EscanBE/everlast/v12/app"
+	cmdcfg "github.com/EscanBE/everlast/v12/cmd/config"
+	"github.com/EscanBE/everlast/v12/constants"
+	feemarkettypes "github.com/EscanBE/everlast/v12/x/feemarket/types"
 )
 
 func init() {
@@ -39,7 +39,7 @@ func init() {
 var DefaultTestingAppInit func(chainId string) func() (ibctesting.TestingApp, map[string]json.RawMessage) = SetupTestingApp
 
 // DefaultConsensusParams defines the default CometBFT consensus params used in
-// Evermint testing.
+// Everlast testing.
 var DefaultConsensusParams = &tmproto.ConsensusParams{
 	Block: &tmproto.BlockParams{
 		MaxBytes: 200000,
@@ -64,12 +64,12 @@ func init() {
 	cmdcfg.SetBip44CoinType(cfg)
 }
 
-// Setup initializes a new Evermint. A Nop logger is set in Evermint.
+// Setup initializes a new Everlast. A Nop logger is set in Everlast.
 func Setup(
 	isCheckTx bool,
 	feemarketGenesis *feemarkettypes.GenesisState,
 	chainID string,
-) *chainapp.Evermint {
+) *chainapp.Everlast {
 	privVal := mock.NewPV()
 	pubKey, _ := privVal.GetPubKey()
 	encodingConfig := chainapp.RegisterEncodingConfig()
@@ -88,7 +88,7 @@ func Setup(
 
 	db := sdkdb.NewMemDB()
 
-	chainApp := chainapp.NewEvermint(
+	chainApp := chainapp.NewEverlast(
 		log.NewNopLogger(),
 		db,
 		nil,
@@ -136,7 +136,7 @@ func Setup(
 	return chainApp
 }
 
-func GenesisStateWithValSet(chainApp *chainapp.Evermint, genesisState chainapp.GenesisState,
+func GenesisStateWithValSet(chainApp *chainapp.Everlast, genesisState chainapp.GenesisState,
 	valSet *cmttypes.ValidatorSet, genAccs []authtypes.GenesisAccount,
 	balances ...banktypes.Balance,
 ) chainapp.GenesisState {
@@ -204,7 +204,7 @@ func SetupTestingApp(chainID string) func() (ibctesting.TestingApp, map[string]j
 	return func() (ibctesting.TestingApp, map[string]json.RawMessage) {
 		db := sdkdb.NewMemDB()
 		encodingConfig := chainapp.RegisterEncodingConfig()
-		app := chainapp.NewEvermint(
+		app := chainapp.NewEverlast(
 			log.NewNopLogger(),
 			db,
 			nil,

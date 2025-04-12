@@ -4,9 +4,9 @@ import (
 	"encoding/json"
 	"math/big"
 
-	evmutils "github.com/EscanBE/evermint/v12/x/evm/utils"
+	evmutils "github.com/EscanBE/everlast/v12/x/evm/utils"
 
-	"github.com/EscanBE/evermint/v12/constants"
+	"github.com/EscanBE/everlast/v12/constants"
 
 	errorsmod "cosmossdk.io/errors"
 	sdkmath "cosmossdk.io/math"
@@ -20,9 +20,9 @@ import (
 	"github.com/ethereum/go-ethereum/common/hexutil"
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
 
-	chainapp "github.com/EscanBE/evermint/v12/app"
-	"github.com/EscanBE/evermint/v12/server/config"
-	evmtypes "github.com/EscanBE/evermint/v12/x/evm/types"
+	chainapp "github.com/EscanBE/everlast/v12/app"
+	"github.com/EscanBE/everlast/v12/server/config"
+	evmtypes "github.com/EscanBE/everlast/v12/x/evm/types"
 )
 
 // PrepareEthTx creates an ethereum tx and signs it with the provided message and private key.
@@ -30,7 +30,7 @@ import (
 func PrepareEthTx(
 	ctx sdk.Context,
 	txCfg client.TxConfig,
-	chainApp *chainapp.Evermint,
+	chainApp *chainapp.Everlast,
 	priv cryptotypes.PrivKey,
 	msg sdk.Msg,
 ) (authsigning.Tx, error) {
@@ -91,7 +91,7 @@ func PrepareEthTx(
 // Should this not be the case, just pass in zero.
 func CreateEthTx(
 	ctx sdk.Context,
-	chainApp *chainapp.Evermint,
+	chainApp *chainapp.Everlast,
 	privKey cryptotypes.PrivKey,
 	from sdk.AccAddress,
 	dest sdk.AccAddress,

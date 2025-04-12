@@ -4,9 +4,9 @@ import (
 	"math/big"
 	"testing"
 
-	chainapp "github.com/EscanBE/evermint/v12/app"
-	utiltx "github.com/EscanBE/evermint/v12/testutil/tx"
-	evmtypes "github.com/EscanBE/evermint/v12/x/evm/types"
+	chainapp "github.com/EscanBE/everlast/v12/app"
+	utiltx "github.com/EscanBE/everlast/v12/testutil/tx"
+	evmtypes "github.com/EscanBE/everlast/v12/x/evm/types"
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
 	"github.com/stretchr/testify/require"
 )

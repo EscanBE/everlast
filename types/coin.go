@@ -3,7 +3,7 @@ package types
 import (
 	"math/big"
 
-	"github.com/EscanBE/evermint/v12/constants"
+	"github.com/EscanBE/everlast/v12/constants"
 
 	sdkmath "cosmossdk.io/math"
 

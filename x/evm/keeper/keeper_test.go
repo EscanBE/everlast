@@ -4,17 +4,17 @@ import (
 	_ "embed"
 	"math/big"
 
-	"github.com/EscanBE/evermint/v12/testutil"
-	utiltx "github.com/EscanBE/evermint/v12/testutil/tx"
+	"github.com/EscanBE/everlast/v12/testutil"
+	utiltx "github.com/EscanBE/everlast/v12/testutil/tx"
 
 	storetypes "cosmossdk.io/store/types"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/EscanBE/evermint/v12/constants"
+	"github.com/EscanBE/everlast/v12/constants"
 	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
 
-	evmtypes "github.com/EscanBE/evermint/v12/x/evm/types"
+	evmtypes "github.com/EscanBE/everlast/v12/x/evm/types"
 
 	"github.com/ethereum/go-ethereum/common"
 )

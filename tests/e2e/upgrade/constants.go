@@ -1,7 +1,7 @@
 package upgrade
 
 import (
-	"github.com/EscanBE/evermint/v12/constants"
+	"github.com/EscanBE/everlast/v12/constants"
 )
 
 // The constants used in the upgrade tests are defined here
@@ -13,7 +13,7 @@ const (
 	LocalVersionTag = "latest"
 
 	// dockerRepo is the docker hub repository that contains our chain app's images pulled during tests
-	dockerRepo = "EscanBE/evermint"
+	dockerRepo = "EscanBE/everlast"
 
 	// upgradesPath is the relative path from this folder to the app/upgrades folder
 	upgradesPath = "../../../app/upgrades"

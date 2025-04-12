@@ -6,8 +6,8 @@ import (
 
 	sdkmath "cosmossdk.io/math"
 
-	chainapp "github.com/EscanBE/evermint/v12/app"
-	"github.com/EscanBE/evermint/v12/constants"
+	chainapp "github.com/EscanBE/everlast/v12/app"
+	"github.com/EscanBE/everlast/v12/constants"
 	"github.com/cosmos/cosmos-sdk/baseapp"
 	simtestutil "github.com/cosmos/cosmos-sdk/testutil/sims"
 
@@ -27,17 +27,17 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 )
 
-// EthSetup initializes a new Evermint app. A Nop logger is set in Evermint app.
-func EthSetup(isCheckTx bool, patchGenesis func(*chainapp.Evermint, chainapp.GenesisState) chainapp.GenesisState) *chainapp.Evermint {
+// EthSetup initializes a new Everlast app. A Nop logger is set in Everlast app.
+func EthSetup(isCheckTx bool, patchGenesis func(*chainapp.Everlast, chainapp.GenesisState) chainapp.GenesisState) *chainapp.Everlast {
 	return EthSetupWithDB(isCheckTx, patchGenesis, sdkdb.NewMemDB())
 }
 
-// EthSetupWithDB initializes a new Evermint app. A Nop logger is set in Evermint app.
-func EthSetupWithDB(isCheckTx bool, patchGenesis func(*chainapp.Evermint, chainapp.GenesisState) chainapp.GenesisState, db sdkdb.DB) *chainapp.Evermint {
+// EthSetupWithDB initializes a new Everlast app. A Nop logger is set in Everlast app.
+func EthSetupWithDB(isCheckTx bool, patchGenesis func(*chainapp.Everlast, chainapp.GenesisState) chainapp.GenesisState, db sdkdb.DB) *chainapp.Everlast {
 	encodingConfig := chainapp.RegisterEncodingConfig()
 
 	chainID := constants.TestnetFullChainId
-	chainApp := chainapp.NewEvermint(log.NewNopLogger(),
+	chainApp := chainapp.NewEverlast(log.NewNopLogger(),
 		db,
 		nil,
 		true,

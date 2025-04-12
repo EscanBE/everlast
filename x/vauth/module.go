@@ -9,9 +9,9 @@ import (
 
 	abci "github.com/cometbft/cometbft/abci/types"
 
-	vauthcli "github.com/EscanBE/evermint/v12/x/vauth/client/cli"
-	vauthkeeper "github.com/EscanBE/evermint/v12/x/vauth/keeper"
-	vauthtypes "github.com/EscanBE/evermint/v12/x/vauth/types"
+	vauthcli "github.com/EscanBE/everlast/v12/x/vauth/client/cli"
+	vauthkeeper "github.com/EscanBE/everlast/v12/x/vauth/keeper"
+	vauthtypes "github.com/EscanBE/everlast/v12/x/vauth/types"
 	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/codec"
 	codectypes "github.com/cosmos/cosmos-sdk/codec/types"

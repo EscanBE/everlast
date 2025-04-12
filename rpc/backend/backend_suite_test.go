@@ -7,7 +7,7 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/EscanBE/evermint/v12/constants"
+	"github.com/EscanBE/everlast/v12/constants"
 
 	sdkdb "github.com/cosmos/cosmos-db"
 
@@ -20,13 +20,13 @@ import (
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
 	"github.com/stretchr/testify/suite"
 
-	chainapp "github.com/EscanBE/evermint/v12/app"
-	"github.com/EscanBE/evermint/v12/crypto/hd"
-	"github.com/EscanBE/evermint/v12/indexer"
-	"github.com/EscanBE/evermint/v12/rpc/backend/mocks"
-	rpctypes "github.com/EscanBE/evermint/v12/rpc/types"
-	utiltx "github.com/EscanBE/evermint/v12/testutil/tx"
-	evmtypes "github.com/EscanBE/evermint/v12/x/evm/types"
+	chainapp "github.com/EscanBE/everlast/v12/app"
+	"github.com/EscanBE/everlast/v12/crypto/hd"
+	"github.com/EscanBE/everlast/v12/indexer"
+	"github.com/EscanBE/everlast/v12/rpc/backend/mocks"
+	rpctypes "github.com/EscanBE/everlast/v12/rpc/types"
+	utiltx "github.com/EscanBE/everlast/v12/testutil/tx"
+	evmtypes "github.com/EscanBE/everlast/v12/x/evm/types"
 )
 
 type BackendTestSuite struct {
@@ -51,7 +51,7 @@ func (suite *BackendTestSuite) SetupTest() {
 
 	baseDir := suite.T().TempDir()
 	nodeDirName := "node"
-	clientDir := filepath.Join(baseDir, nodeDirName, "evermintcli")
+	clientDir := filepath.Join(baseDir, nodeDirName, "everlastcli")
 	keyRing, err := suite.generateTestKeyring(clientDir)
 	if err != nil {
 		panic(err)

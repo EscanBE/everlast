@@ -3,7 +3,7 @@ package cli
 import (
 	"fmt"
 
-	cpctypes "github.com/EscanBE/evermint/v12/x/cpc/types"
+	cpctypes "github.com/EscanBE/everlast/v12/x/cpc/types"
 	clienttx "github.com/cosmos/cosmos-sdk/client/tx"
 
 	"github.com/cosmos/cosmos-sdk/client"
@@ -24,7 +24,7 @@ func NewDeployErc20ContractTxCmd() *cobra.Command {
 		Use:   "erc20",
 		Short: "Deploy a new ERC20 contract, can only be done by the whitelisted deployer",
 		Example: fmt.Sprintf(
-			"$ %s %s tx deploy erc20 --%s Wrapped-ETH --%s ETH --%s 18 --%s wei --%s authority",
+			"$ %s %s tx deploy erc20 --%s Wrapped-ETH --%s ETH --%s 18 --%s aevl --%s authority",
 			version.AppName, cpctypes.ModuleName,
 			flagErc20Name, flagErc20Symbol, flagErc20Decimals, flagErc20MinDenom,
 			flags.FlagFrom,

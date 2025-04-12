@@ -9,10 +9,10 @@ import (
 )
 
 var (
-	// DefaultBaseFee is 1B wei (1 Gwei)
+	// DefaultBaseFee is 1B aevl (1 Gaevl)
 	DefaultBaseFee uint64 = ethparams.InitialBaseFee
 
-	// DefaultMinGasPrice is 1B wei (1 Gwei)
+	// DefaultMinGasPrice is 1B aevl (1 Gaevl)
 	DefaultMinGasPrice = sdkmath.LegacyNewDec(1_000_000_000)
 )
 

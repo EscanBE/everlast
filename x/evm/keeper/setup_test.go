@@ -4,19 +4,19 @@ import (
 	"testing"
 	"time"
 
-	"github.com/EscanBE/evermint/v12/app/helpers"
-	"github.com/EscanBE/evermint/v12/constants"
+	"github.com/EscanBE/everlast/v12/app/helpers"
+	"github.com/EscanBE/everlast/v12/constants"
 
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 
 	sdkmath "cosmossdk.io/math"
-	chainapp "github.com/EscanBE/evermint/v12/app"
-	"github.com/EscanBE/evermint/v12/crypto/ethsecp256k1"
-	"github.com/EscanBE/evermint/v12/testutil"
-	utiltx "github.com/EscanBE/evermint/v12/testutil/tx"
-	evmtypes "github.com/EscanBE/evermint/v12/x/evm/types"
-	feemarkettypes "github.com/EscanBE/evermint/v12/x/feemarket/types"
+	chainapp "github.com/EscanBE/everlast/v12/app"
+	"github.com/EscanBE/everlast/v12/crypto/ethsecp256k1"
+	"github.com/EscanBE/everlast/v12/testutil"
+	utiltx "github.com/EscanBE/everlast/v12/testutil/tx"
+	evmtypes "github.com/EscanBE/everlast/v12/x/evm/types"
+	feemarkettypes "github.com/EscanBE/everlast/v12/x/feemarket/types"
 	abci "github.com/cometbft/cometbft/abci/types"
 	"github.com/cometbft/cometbft/crypto/tmhash"
 	tmjson "github.com/cometbft/cometbft/libs/json"
@@ -40,7 +40,7 @@ type KeeperTestSuite struct {
 	suite.Suite
 
 	ctx                         sdk.Context
-	app                         *chainapp.Evermint
+	app                         *chainapp.Everlast
 	queryClient                 evmtypes.QueryClient
 	address                     common.Address
 	pseudoCoinBaseForWarmUpTest common.Address // a random address to use as coinbase for warm up test
@@ -106,7 +106,7 @@ func (suite *KeeperTestSuite) SetupAppWithT(checkTx bool, t require.TestingT) {
 	require.NoError(t, err)
 	suite.consAddress = sdk.ConsAddress(priv.PubKey().Address())
 
-	suite.app = helpers.EthSetup(checkTx, func(chainApp *chainapp.Evermint, genesis chainapp.GenesisState) chainapp.GenesisState {
+	suite.app = helpers.EthSetup(checkTx, func(chainApp *chainapp.Everlast, genesis chainapp.GenesisState) chainapp.GenesisState {
 		feemarketGenesis := feemarkettypes.DefaultGenesisState()
 		if !suite.enableFeemarket {
 			feemarketGenesis.Params.BaseFee = sdkmath.ZeroInt()

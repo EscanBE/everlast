@@ -1,4 +1,4 @@
-module github.com/EscanBE/evermint/v12
+module github.com/EscanBE/everlast/v12
 
 go 1.22.4
 

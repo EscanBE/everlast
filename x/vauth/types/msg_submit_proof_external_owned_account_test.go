@@ -4,9 +4,9 @@ import (
 	"encoding/hex"
 	"testing"
 
-	cmdcfg "github.com/EscanBE/evermint/v12/cmd/config"
+	cmdcfg "github.com/EscanBE/everlast/v12/cmd/config"
 
-	"github.com/EscanBE/evermint/v12/rename_chain/marker"
+	
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/ethereum/go-ethereum/crypto"
 	"github.com/stretchr/testify/require"
@@ -17,8 +17,8 @@ func TestMsgSubmitProofExternalOwnedAccount_ValidateBasic(t *testing.T) {
 	privateKey, err := crypto.HexToECDSA("fad9c8855b740a0b7ed4c221dbad0f33a83a49cad6b3fe8d5817ac83d38b6a19")
 	require.NoError(t, err)
 
-	submitterBech32 := marker.ReplaceAbleAddress("evm13zqksjwyjdvtzqjhed2m9r4xq0y8fvyg85jr6a")
-	addressBech32 := marker.ReplaceAbleAddress("evm1jcsksjwyjdvtzqjhed2m9r4xq0y8fvz7zqvgem")
+	submitterBech32 := "evl13zqksjwyjdvtzqjhed2m9r4xq0y8fvygv29ghk"
+	addressBech32 := "evl1jcsksjwyjdvtzqjhed2m9r4xq0y8fvz7f7mr5s"
 
 	signature := func(message string) []byte {
 		signature, err := crypto.Sign(crypto.Keccak256([]byte(message)), privateKey)
@@ -52,7 +52,7 @@ func TestMsgSubmitProofExternalOwnedAccount_ValidateBasic(t *testing.T) {
 		{
 			name:            "fail - not address of the signature",
 			submitter:       submitterBech32,
-			address:         marker.ReplaceAbleAddress("evm13zqksjwyjdvtzqjhed2m9r4xq0y8fvz79xjsqd"),
+			address:         "evl13zqksjwyjdvtzqjhed2m9r4xq0y8fvz7wc9mdx",
 			signature:       "0x" + hex.EncodeToString(signature(MessageToSign)),
 			wantErr:         true,
 			wantErrContains: "mis-match signature with provided account:",

@@ -8,8 +8,8 @@ import (
 
 	"github.com/ethereum/go-ethereum/common"
 
-	evertypes "github.com/EscanBE/evermint/v12/types"
-	evmutils "github.com/EscanBE/evermint/v12/x/evm/utils"
+	evertypes "github.com/EscanBE/everlast/v12/types"
+	evmutils "github.com/EscanBE/everlast/v12/x/evm/utils"
 	errortypes "github.com/cosmos/cosmos-sdk/types/errors"
 
 	"google.golang.org/protobuf/proto"

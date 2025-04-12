@@ -1,12 +1,12 @@
 package ledger_test
 
 import (
-	chainapp "github.com/EscanBE/evermint/v12/app"
-	cmdcfg "github.com/EscanBE/evermint/v12/cmd/config"
-	"github.com/EscanBE/evermint/v12/constants"
-	"github.com/EscanBE/evermint/v12/ethereum/eip712"
-	"github.com/EscanBE/evermint/v12/wallets/accounts"
-	"github.com/EscanBE/evermint/v12/wallets/ledger"
+	chainapp "github.com/EscanBE/everlast/v12/app"
+	cmdcfg "github.com/EscanBE/everlast/v12/cmd/config"
+	"github.com/EscanBE/everlast/v12/constants"
+	"github.com/EscanBE/everlast/v12/ethereum/eip712"
+	"github.com/EscanBE/everlast/v12/wallets/accounts"
+	"github.com/EscanBE/everlast/v12/wallets/ledger"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	signingtypes "github.com/cosmos/cosmos-sdk/types/tx/signing"
 	gethaccounts "github.com/ethereum/go-ethereum/accounts"
@@ -27,7 +27,7 @@ func init() {
 	cmdcfg.SetBip44CoinType(cfg)
 }
 
-func (suite *LedgerTestSuite) TestEvermintLedgerDerivation() {
+func (suite *LedgerTestSuite) TestEverlastLedgerDerivation() {
 	testCases := []struct {
 		name     string
 		mockFunc func()

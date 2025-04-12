@@ -7,15 +7,15 @@ import (
 	feegrantmodule "cosmossdk.io/x/feegrant/module"
 	"cosmossdk.io/x/upgrade"
 	upgradetypes "cosmossdk.io/x/upgrade/types"
-	"github.com/EscanBE/evermint/v12/app/params"
-	"github.com/EscanBE/evermint/v12/x/cpc"
-	cpctypes "github.com/EscanBE/evermint/v12/x/cpc/types"
-	"github.com/EscanBE/evermint/v12/x/evm"
-	evmtypes "github.com/EscanBE/evermint/v12/x/evm/types"
-	"github.com/EscanBE/evermint/v12/x/feemarket"
-	feemarkettypes "github.com/EscanBE/evermint/v12/x/feemarket/types"
-	"github.com/EscanBE/evermint/v12/x/vauth"
-	vauthtypes "github.com/EscanBE/evermint/v12/x/vauth/types"
+	"github.com/EscanBE/everlast/v12/app/params"
+	"github.com/EscanBE/everlast/v12/x/cpc"
+	cpctypes "github.com/EscanBE/everlast/v12/x/cpc/types"
+	"github.com/EscanBE/everlast/v12/x/evm"
+	evmtypes "github.com/EscanBE/everlast/v12/x/evm/types"
+	"github.com/EscanBE/everlast/v12/x/feemarket"
+	feemarkettypes "github.com/EscanBE/everlast/v12/x/feemarket/types"
+	"github.com/EscanBE/everlast/v12/x/vauth"
+	vauthtypes "github.com/EscanBE/everlast/v12/x/vauth/types"
 	"github.com/cosmos/cosmos-sdk/types/module"
 	"github.com/cosmos/cosmos-sdk/x/auth"
 	authsims "github.com/cosmos/cosmos-sdk/x/auth/simulation"
@@ -108,7 +108,7 @@ var ModuleBasics = module.NewBasicManager(
 )
 
 func appModules(
-	chainApp *Evermint,
+	chainApp *Everlast,
 	encodingConfig params.EncodingConfig,
 	skipGenesisInvariants bool,
 ) []module.AppModule {
@@ -142,7 +142,7 @@ func appModules(
 		// Ethermint app modules
 		evm.NewAppModule(chainApp.EvmKeeper, chainApp.AccountKeeper, chainApp.GetSubspace(evmtypes.ModuleName)),
 		feemarket.NewAppModule(chainApp.FeeMarketKeeper, chainApp.GetSubspace(feemarkettypes.ModuleName)),
-		// Evermint app modules
+		// Everlast app modules
 		vauth.NewAppModule(appCodec, chainApp.VAuthKeeper),
 		cpc.NewAppModule(appCodec, chainApp.CPCKeeper, *chainApp.StakingKeeper),
 	}
@@ -151,7 +151,7 @@ func appModules(
 // ModuleBasics defines the module BasicManager that is in charge of setting up basic,
 // non-dependant module elements, such as codec registration
 // and genesis verification.
-func newBasicManagerFromManager(app *Evermint) module.BasicManager {
+func newBasicManagerFromManager(app *Everlast) module.BasicManager {
 	basicManager := module.NewBasicManagerFromManager(
 		app.mm,
 		map[string]module.AppModuleBasic{
@@ -182,7 +182,7 @@ func orderBeginBlockers() []string {
 		evidencetypes.ModuleName,
 		stakingtypes.ModuleName,
 		ibcexported.ModuleName,
-		// Evermint modules
+		// Everlast modules
 		evmtypes.ModuleName,
 		// no-op modules
 		ibctransfertypes.ModuleName,
@@ -197,7 +197,7 @@ func orderBeginBlockers() []string {
 		sdkparamstypes.ModuleName,
 		vestingtypes.ModuleName,
 		consensusparamtypes.ModuleName,
-		// Evermint no-op modules
+		// Everlast no-op modules
 		feemarkettypes.ModuleName,
 		vauthtypes.ModuleName,
 		cpctypes.ModuleName,
@@ -221,7 +221,7 @@ func orderEndBlockers() []string {
 		crisistypes.ModuleName,
 		govtypes.ModuleName,
 		stakingtypes.ModuleName,
-		// Evermint modules
+		// Everlast modules
 		evmtypes.ModuleName,       // must always run before fee market because it may uses base fee of current block
 		feemarkettypes.ModuleName, // fee market must be run last to compute base fee to use for next block
 		// no-op modules
@@ -242,7 +242,7 @@ func orderEndBlockers() []string {
 		sdkparamstypes.ModuleName,
 		upgradetypes.ModuleName,
 		consensusparamtypes.ModuleName,
-		// Evermint no-op modules
+		// Everlast no-op modules
 		vauthtypes.ModuleName,
 		cpctypes.ModuleName,
 	}
@@ -271,13 +271,13 @@ func orderInitBlockers() []string {
 		slashingtypes.ModuleName,
 		minttypes.ModuleName,
 		crisistypes.ModuleName,
-		// Evermint modules
+		// Everlast modules
 		evmtypes.ModuleName,
 		vauthtypes.ModuleName,
 		cpctypes.ModuleName,
 		// NOTE: fee market module needs to be initialized before genutil module as gentx transactions use MinGasPriceDecorator.AnteHandle
 		feemarkettypes.ModuleName,
-		// end of Evermint modules
+		// end of Everlast modules
 		genutiltypes.ModuleName,
 		ibctransfertypes.ModuleName,
 		ibcexported.ModuleName,

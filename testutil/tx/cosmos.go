@@ -5,7 +5,7 @@ import (
 
 	"google.golang.org/protobuf/proto"
 
-	"github.com/EscanBE/evermint/v12/constants"
+	"github.com/EscanBE/everlast/v12/constants"
 
 	sdkmath "cosmossdk.io/math"
 	"github.com/cosmos/cosmos-sdk/client"
@@ -15,7 +15,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/types/tx/signing"
 	authsigning "github.com/cosmos/cosmos-sdk/x/auth/signing"
 
-	chainapp "github.com/EscanBE/evermint/v12/app"
+	chainapp "github.com/EscanBE/everlast/v12/app"
 )
 
 var DefaultFee = sdk.NewCoin(
@@ -31,7 +31,7 @@ type CosmosTxArgs struct {
 	Priv cryptotypes.PrivKey
 	// Nonce is the nonce to be used on the tx, used to cache the account sequence
 	Nonce *uint64
-	// ChainID is the chain's id on cosmos format, e.g. 'evermint_80808-1'
+	// ChainID is the chain's id on cosmos format, e.g. 'everlast_80808-1'
 	ChainID string
 	// Gas to be used on the tx
 	Gas uint64
@@ -49,7 +49,7 @@ type CosmosTxArgs struct {
 // It returns the signed transaction and an error
 func PrepareCosmosTx(
 	ctx sdk.Context,
-	chainApp *chainapp.Evermint,
+	chainApp *chainapp.Everlast,
 	args CosmosTxArgs,
 ) (authsigning.Tx, error) {
 	txBuilder := args.TxCfg.NewTxBuilder()
@@ -82,7 +82,7 @@ func PrepareCosmosTx(
 // the provided private key
 func signCosmosTx(
 	ctx sdk.Context,
-	chainApp *chainapp.Evermint,
+	chainApp *chainapp.Everlast,
 	args CosmosTxArgs,
 	txBuilder client.TxBuilder,
 ) (authsigning.Tx, error) {

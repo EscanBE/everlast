@@ -4,7 +4,7 @@ import (
 	"math/big"
 	"testing"
 
-	evmutils "github.com/EscanBE/evermint/v12/x/evm/utils"
+	evmutils "github.com/EscanBE/everlast/v12/x/evm/utils"
 
 	sdkmath "cosmossdk.io/math"
 	"github.com/stretchr/testify/require"
@@ -13,8 +13,8 @@ import (
 	authante "github.com/cosmos/cosmos-sdk/x/auth/ante"
 	"github.com/ethereum/go-ethereum/common"
 
-	evertypes "github.com/EscanBE/evermint/v12/types"
-	evmtypes "github.com/EscanBE/evermint/v12/x/evm/types"
+	evertypes "github.com/EscanBE/everlast/v12/types"
+	evmtypes "github.com/EscanBE/everlast/v12/x/evm/types"
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
 )
 

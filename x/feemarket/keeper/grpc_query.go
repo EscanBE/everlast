@@ -5,7 +5,7 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	feemarkettypes "github.com/EscanBE/evermint/v12/x/feemarket/types"
+	feemarkettypes "github.com/EscanBE/everlast/v12/x/feemarket/types"
 )
 
 var _ feemarkettypes.QueryServer = Keeper{}

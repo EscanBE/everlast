@@ -7,9 +7,9 @@ import (
 
 	sdkmath "cosmossdk.io/math"
 
-	chainapp "github.com/EscanBE/evermint/v12/app"
-	"github.com/EscanBE/evermint/v12/app/helpers"
-	"github.com/EscanBE/evermint/v12/constants"
+	chainapp "github.com/EscanBE/everlast/v12/app"
+	"github.com/EscanBE/everlast/v12/app/helpers"
+	"github.com/EscanBE/everlast/v12/constants"
 	"github.com/cosmos/cosmos-sdk/baseapp"
 	simtestutil "github.com/cosmos/cosmos-sdk/testutil/sims"
 
@@ -27,7 +27,7 @@ import (
 	sdkdb "github.com/cosmos/cosmos-db"
 )
 
-func TestEvermintExport(t *testing.T) {
+func TestEverlastExport(t *testing.T) {
 	// create public key
 	privVal := mock.NewPV()
 	pubKey, err := privVal.GetPubKey()
@@ -48,7 +48,7 @@ func TestEvermintExport(t *testing.T) {
 
 	chainID := constants.TestnetFullChainId
 	db := sdkdb.NewMemDB()
-	chainApp := chainapp.NewEvermint(
+	chainApp := chainapp.NewEverlast(
 		log.NewLogger(os.Stdout), db, nil, true, map[int64]bool{}, chainapp.DefaultNodeHome, 0, encodingConfig,
 		simtestutil.NewAppOptionsWithFlagHome(chainapp.DefaultNodeHome),
 		baseapp.SetChainID(chainID),
