@@ -39,51 +39,51 @@ Ref: https://keepachangelog.com/en/1.0.0/
 
 ### Features
 
-- (ante) [#164](https://github.com/EscanBE/evermint/pull/164) Introduce Dual-Lane AnteHandler
-- (ante) [#165](https://github.com/EscanBE/evermint/pull/165) Simulate EVM txs before accept mempool
-- (evm) [#167](https://github.com/EscanBE/evermint/pull/167) Introduce Context-based StateDB
-- (evm) [#173](https://github.com/EscanBE/evermint/pull/173) Persist EIP-155 chain-id into store + simplify related logic
-- (evm) [#175](https://github.com/EscanBE/evermint/pull/175) Support precompiled contract using new module `x/cpc`
-- (evm) [#178](https://github.com/EscanBE/evermint/pull/178) Staking precompiled contract ESIP-179
-- (evm) [#182](https://github.com/EscanBE/evermint/pull/182) Bech32 precompiled contract ESIP-181
+- (ante) [Evermint#164](https://github.com/EscanBE/evermint/pull/164) Introduce Dual-Lane AnteHandler
+- (ante) [Evermint#165](https://github.com/EscanBE/evermint/pull/165) Simulate EVM txs before accept mempool
+- (evm) [Evermint#167](https://github.com/EscanBE/evermint/pull/167) Introduce Context-based StateDB
+- (evm) [Evermint#173](https://github.com/EscanBE/evermint/pull/173) Persist EIP-155 chain-id into store + simplify related logic
+- (evm) [Evermint#175](https://github.com/EscanBE/evermint/pull/175) Support precompiled contract using new module `x/cpc`
+- (evm) [Evermint#178](https://github.com/EscanBE/evermint/pull/178) Staking precompiled contract ESIP-179
+- (evm) [Evermint#182](https://github.com/EscanBE/evermint/pull/182) Bech32 precompiled contract ESIP-181
 
 ### Improvement
 
-- (test) [#150](https://github.com/EscanBE/evermint/pull/150) Improve readability for test
-- (evm) [#154](https://github.com/EscanBE/evermint/pull/154) Simplify code, force all ETH hardfork enabled
-- (evm) [#156](https://github.com/EscanBE/evermint/pull/156) Refactor `x/evm` state transition code, use go-ethereum code and make usage of `NoBaseFee` flag.
-- (ante) [#161](https://github.com/EscanBE/evermint/pull/161) Merge `EthBasicValidationDecorator` into `EthValidateBasicDecorator` with enhancement
-- (evm) [#163](https://github.com/EscanBE/evermint/pull/163) Remove support for unprotected txs and cleanup deprecated proto
-- (evm) [#170](https://github.com/EscanBE/evermint/pull/170) Minor improvement
-- (evm) [#171](https://github.com/EscanBE/evermint/pull/171) Refactor code relates to `proposer address` in `x/evm`
-- (evm) [#172](https://github.com/EscanBE/evermint/pull/172) Remove unnecessary `block-max-gas` arg in some requests (continue #127)
-- (evm) [#180](https://github.com/EscanBE/evermint/pull/180) Support EIP-712 message signing for ESIP-179 Staking precompiled contract
+- (test) [Evermint#150](https://github.com/EscanBE/evermint/pull/150) Improve readability for test
+- (evm) [Evermint#154](https://github.com/EscanBE/evermint/pull/154) Simplify code, force all ETH hardfork enabled
+- (evm) [Evermint#156](https://github.com/EscanBE/evermint/pull/156) Refactor `x/evm` state transition code, use go-ethereum code and make usage of `NoBaseFee` flag.
+- (ante) [Evermint#161](https://github.com/EscanBE/evermint/pull/161) Merge `EthBasicValidationDecorator` into `EthValidateBasicDecorator` with enhancement
+- (evm) [Evermint#163](https://github.com/EscanBE/evermint/pull/163) Remove support for unprotected txs and cleanup deprecated proto
+- (evm) [Evermint#170](https://github.com/EscanBE/evermint/pull/170) Minor improvement
+- (evm) [Evermint#171](https://github.com/EscanBE/evermint/pull/171) Refactor code relates to `proposer address` in `x/evm`
+- (evm) [Evermint#172](https://github.com/EscanBE/evermint/pull/172) Remove unnecessary `block-max-gas` arg in some requests (continue #127)
+- (evm) [Evermint#180](https://github.com/EscanBE/evermint/pull/180) Support EIP-712 message signing for ESIP-179 Staking precompiled contract
 
 ### Bug Fixes
 
-- (evm) [#153](https://github.com/EscanBE/evermint/pull/153) Adjustment logic of how sender nonce increased
-- (ante) [#162](https://github.com/EscanBE/evermint/pull/162) Fix `NewDynamicFeeChecker`, correct effective gas price calculation and minor improvement
-- (evm) [#166](https://github.com/EscanBE/evermint/pull/166) Prevent refund gas fee if sender wasn't paid for it
-- (evm) [#169](https://github.com/EscanBE/evermint/pull/169) Support 256 blocks for `GetHashFn`
-- (app) [#177](https://github.com/EscanBE/evermint/pull/177) Fix staking hooks not available in some keepers
-- (evm) [#184](https://github.com/EscanBE/evermint/pull/184) Warmup coinbase + custom-precompiled-contracts and fix some tests
-- (cpc) [#186](https://github.com/EscanBE/evermint/pull/186) Correct genesis import/export for `x/cpc`
-- (rename-chain) [#189](https://github.com/EscanBE/evermint/pull/189) Fix broken feature rename-chain
+- (evm) [Evermint#153](https://github.com/EscanBE/evermint/pull/153) Adjustment logic of how sender nonce increased
+- (ante) [Evermint#162](https://github.com/EscanBE/evermint/pull/162) Fix `NewDynamicFeeChecker`, correct effective gas price calculation and minor improvement
+- (evm) [Evermint#166](https://github.com/EscanBE/evermint/pull/166) Prevent refund gas fee if sender wasn't paid for it
+- (evm) [Evermint#169](https://github.com/EscanBE/evermint/pull/169) Support 256 blocks for `GetHashFn`
+- (app) [Evermint#177](https://github.com/EscanBE/evermint/pull/177) Fix staking hooks not available in some keepers
+- (evm) [Evermint#184](https://github.com/EscanBE/evermint/pull/184) Warmup coinbase + custom-precompiled-contracts and fix some tests
+- (cpc) [Evermint#186](https://github.com/EscanBE/evermint/pull/186) Correct genesis import/export for `x/cpc`
+- (rename-chain) [Evermint#189](https://github.com/EscanBE/evermint/pull/189) Fix broken feature rename-chain
 
 ### API Breaking
 
-- (evm) [#149](https://github.com/EscanBE/evermint/pull/149) Improve how block bloom emitted and include bloom to block returned by subscription to filter system
+- (evm) [Evermint#149](https://github.com/EscanBE/evermint/pull/149) Improve how block bloom emitted and include bloom to block returned by subscription to filter system
 
 ### State Machine Breaking
 
-- (deps) [#148](https://github.com/EscanBE/evermint/pull/148) Bumps Cosmos-SDK v0.50, CometBFT v0.38, IBC v8
-- (feemarket) [#155](https://github.com/EscanBE/evermint/pull/155) Deprecate usage of `x/feemarket` `NoBaseFee`
-- (eip712) [#158](https://github.com/EscanBE/evermint/pull/158) Cleanup EIP-712, remove `ExtensionOptionsWeb3Tx` and the custom Cosmos AnteHandler
-- (eip712) [#159](https://github.com/EscanBE/evermint/pull/159) Cleanup EIP-712, remove the legacy handler
-- (evm) [#160](https://github.com/EscanBE/evermint/pull/160) Use Ethereum Tx marshalled binary instead of local maintained TxData
-- (evm) [#168](https://github.com/EscanBE/evermint/pull/168) Remove empty account upon commit (EIP-158)
-- (deps) [#174](https://github.com/EscanBE/evermint/pull/174) Bumps Cosmos-SDK v0.50.10, IBC v8.5.1
-- (erc20) [#176](https://github.com/EscanBE/evermint/pull/176) Remove unnecessary `x/erc20` module
+- (deps) [Evermint#148](https://github.com/EscanBE/evermint/pull/148) Bumps Cosmos-SDK v0.50, CometBFT v0.38, IBC v8
+- (feemarket) [Evermint#155](https://github.com/EscanBE/evermint/pull/155) Deprecate usage of `x/feemarket` `NoBaseFee`
+- (eip712) [Evermint#158](https://github.com/EscanBE/evermint/pull/158) Cleanup EIP-712, remove `ExtensionOptionsWeb3Tx` and the custom Cosmos AnteHandler
+- (eip712) [Evermint#159](https://github.com/EscanBE/evermint/pull/159) Cleanup EIP-712, remove the legacy handler
+- (evm) [Evermint#160](https://github.com/EscanBE/evermint/pull/160) Use Ethereum Tx marshalled binary instead of local maintained TxData
+- (evm) [Evermint#168](https://github.com/EscanBE/evermint/pull/168) Remove empty account upon commit (EIP-158)
+- (deps) [Evermint#174](https://github.com/EscanBE/evermint/pull/174) Bumps Cosmos-SDK v0.50.10, IBC v8.5.1
+- (erc20) [Evermint#176](https://github.com/EscanBE/evermint/pull/176) Remove unnecessary `x/erc20` module
 
 # Cosmos-SDK v0.47
 
@@ -91,86 +91,86 @@ Ref: https://keepachangelog.com/en/1.0.0/
 
 ### Features
 
-- (store) [#12](https://github.com/EscanBE/evermint/pull/12) Add local `snapshots` management commands
-- (store) [#14](https://github.com/EscanBE/evermint/pull/14) Add `inspect` command and sub-commands
-- (test+rpc) [#74](https://github.com/EscanBE/evermint/pull/74) Add integration test util + add IT skeleton for Json-RPC
-- (vesting) [#144](https://github.com/EscanBE/evermint/pull/144) Support vesting account creation via new module `x/vauth`
+- (store) [Evermint#12](https://github.com/EscanBE/evermint/pull/12) Add local `snapshots` management commands
+- (store) [Evermint#14](https://github.com/EscanBE/evermint/pull/14) Add `inspect` command and sub-commands
+- (test+rpc) [Evermint#74](https://github.com/EscanBE/evermint/pull/74) Add integration test util + add IT skeleton for Json-RPC
+- (vesting) [Evermint#144](https://github.com/EscanBE/evermint/pull/144) Support vesting account creation via new module `x/vauth`
 
 ### Improvement
 
-- (test) [#10](https://github.com/EscanBE/evermint/pull/10) Use Testnet chain-id instead of Mainnet chain-id for tests
-- (flags) [#22](https://github.com/EscanBE/evermint/pull/22) Change default gas adjustment to 1.2 and update default value of some flags
-- (fee) [#37](https://github.com/EscanBE/evermint/pull/37) Reject cosmos txs that fee denom is not evm denom
-- (test) [#46](https://github.com/EscanBE/evermint/pull/46) Use static mnemonic for scripts init nodes and `evmd testnet init-files`
-- (ante) [#64](https://github.com/EscanBE/evermint/pull/64) Add EvmTx sender override protection in ante and correct changelog
-- (lint) [#83](https://github.com/EscanBE/evermint/pull/83) Update lint rules and fix lint issues
-- (cleanup) [#92](https://github.com/EscanBE/evermint/pull/92) Cleanup un-used `x/evm` and `x/erc20` types
-- (indexer) [#96](https://github.com/EscanBE/evermint/pull/96) Make EVMTxIndexer mandatory service, starts before Json-RPC
-- (test) [#100](https://github.com/EscanBE/evermint/pull/100) Add some edge test cases + benchmark tests
-- (evm) [#103](https://github.com/EscanBE/evermint/pull/103) General use zero gas config for EVM exec
-- (ante) [#110](https://github.com/EscanBE/evermint/pull/110) Reject EVM txs which having negative value
-- (ante) [#112](https://github.com/EscanBE/evermint/pull/112) Add some validation relates to number range for EVM txs
-- (ante) [#121](https://github.com/EscanBE/evermint/pull/121) Remove logic automatically claims staking rewards
-- (feemarket) [#122](https://github.com/EscanBE/evermint/pull/122) Remove unnecessary `x/feemarket` params
-- (evm) [#125](https://github.com/EscanBE/evermint/pull/125) Remove tx fee refunds for EVM txs and min-gas-multiplier logic
-- (feemarket) [#127](https://github.com/EscanBE/evermint/pull/127) Move base fee calculation to end blocker
-- (evm) [#130](https://github.com/EscanBE/evermint/pull/130) Allow one and only one Ethereum Tx per tx execution
-- (misc) [#131](https://github.com/EscanBE/evermint/pull/131) Miscellaneous refactor and improve code logic
-- (rpc+indexer) [#138](https://github.com/EscanBE/evermint/pull/138) Improve check txs dropped pre-AnteHandle
-- (rpc) [#142](https://github.com/EscanBE/evermint/pull/142) Support flag `--allow-insecure-unlock` to protect local accounts on node
-- (refactor) [#146](https://github.com/EscanBE/evermint/pull/146) Refactor application
-- (deps) [#147](https://github.com/EscanBE/evermint/pull/147) Minor dependency refactor, remove `cosmossdk.io/simapp`
+- (test) [Evermint#10](https://github.com/EscanBE/evermint/pull/10) Use Testnet chain-id instead of Mainnet chain-id for tests
+- (flags) [Evermint#22](https://github.com/EscanBE/evermint/pull/22) Change default gas adjustment to 1.2 and update default value of some flags
+- (fee) [Evermint#37](https://github.com/EscanBE/evermint/pull/37) Reject cosmos txs that fee denom is not evm denom
+- (test) [Evermint#46](https://github.com/EscanBE/evermint/pull/46) Use static mnemonic for scripts init nodes and `evmd testnet init-files`
+- (ante) [Evermint#64](https://github.com/EscanBE/evermint/pull/64) Add EvmTx sender override protection in ante and correct changelog
+- (lint) [Evermint#83](https://github.com/EscanBE/evermint/pull/83) Update lint rules and fix lint issues
+- (cleanup) [Evermint#92](https://github.com/EscanBE/evermint/pull/92) Cleanup un-used `x/evm` and `x/erc20` types
+- (indexer) [Evermint#96](https://github.com/EscanBE/evermint/pull/96) Make EVMTxIndexer mandatory service, starts before Json-RPC
+- (test) [Evermint#100](https://github.com/EscanBE/evermint/pull/100) Add some edge test cases + benchmark tests
+- (evm) [Evermint#103](https://github.com/EscanBE/evermint/pull/103) General use zero gas config for EVM exec
+- (ante) [Evermint#110](https://github.com/EscanBE/evermint/pull/110) Reject EVM txs which having negative value
+- (ante) [Evermint#112](https://github.com/EscanBE/evermint/pull/112) Add some validation relates to number range for EVM txs
+- (ante) [Evermint#121](https://github.com/EscanBE/evermint/pull/121) Remove logic automatically claims staking rewards
+- (feemarket) [Evermint#122](https://github.com/EscanBE/evermint/pull/122) Remove unnecessary `x/feemarket` params
+- (evm) [Evermint#125](https://github.com/EscanBE/evermint/pull/125) Remove tx fee refunds for EVM txs and min-gas-multiplier logic
+- (feemarket) [Evermint#127](https://github.com/EscanBE/evermint/pull/127) Move base fee calculation to end blocker
+- (evm) [Evermint#130](https://github.com/EscanBE/evermint/pull/130) Allow one and only one Ethereum Tx per tx execution
+- (misc) [Evermint#131](https://github.com/EscanBE/evermint/pull/131) Miscellaneous refactor and improve code logic
+- (rpc+indexer) [Evermint#138](https://github.com/EscanBE/evermint/pull/138) Improve check txs dropped pre-AnteHandle
+- (rpc) [Evermint#142](https://github.com/EscanBE/evermint/pull/142) Support flag `--allow-insecure-unlock` to protect local accounts on node
+- (refactor) [Evermint#146](https://github.com/EscanBE/evermint/pull/146) Refactor application
+- (deps) [Evermint#147](https://github.com/EscanBE/evermint/pull/147) Minor dependency refactor, remove `cosmossdk.io/simapp`
 
 ### Bug Fixes
 
-- (rename-chain) [#18](https://github.com/EscanBE/evermint/pull/18) Check network chain-id string must contain EVM chain-id
-- (gov) [#21](https://github.com/EscanBE/evermint/pull/21) Setting max metadata length for gov proposals submission
-- (gas) [#28](https://github.com/EscanBE/evermint/pull/28) Adjust max-gas computation logic to prevent potential out of gas issue
-- (fee) [#30](https://github.com/EscanBE/evermint/pull/30) Handle deduct zero fee of zero fee tx when x/feemarket disabled and min gas price is zero
-- (rpc+store) [#32](https://github.com/EscanBE/evermint/pull/32) Fix some concurrency issue in rpc and correct iavl tag
-- (test) [#50](https://github.com/EscanBE/evermint/pull/50) Set chain-id into client.toml during init testnet
-- (ante) [#59](https://github.com/EscanBE/evermint/pull/59) Prevent panic when building error message of fee which overflow int64
-- (swagger) [#66](https://github.com/EscanBE/evermint/pull/66) Correct script gen swagger after switched to use vanilla Cosmos-SDK
-- (rename-chain) [#80](https://github.com/EscanBE/evermint/pull/80) Handle new cases of rename-chain with recent changes
-- (rpc) [#85](https://github.com/EscanBE/evermint/pull/85) Compute and return correct `transactionsRoot` and `receiptsRoot` hashes
-- (rename-chain) [#108](https://github.com/EscanBE/evermint/pull/108) Resolve compile error `*_test.go` after run rename chain
-- (proto) [#119](https://github.com/EscanBE/evermint/pull/119) Use `cosmos/gogoproto` in some missed-to-replace places
-- (rpc) [#135](https://github.com/EscanBE/evermint/pull/135) Build tx receipt to response for txs aborted due to block gas limit
-- (evm) [#136](https://github.com/EscanBE/evermint/pull/136) Correct block bloom, receipt bloom computation and some other minor issues of transient data
-- (rpc+indexer) [#137](https://github.com/EscanBE/evermint/pull/137) Exclude txs dropped pre-AnteHandle due to gas limit from RPC results
-- (rpc) [#145](https://github.com/EscanBE/evermint/pull/145) Fix broken tests caused by `--allow-insecure-unlock` and minor refactor RPC backend
+- (rename-chain) [Evermint#18](https://github.com/EscanBE/evermint/pull/18) Check network chain-id string must contain EVM chain-id
+- (gov) [Evermint#21](https://github.com/EscanBE/evermint/pull/21) Setting max metadata length for gov proposals submission
+- (gas) [Evermint#28](https://github.com/EscanBE/evermint/pull/28) Adjust max-gas computation logic to prevent potential out of gas issue
+- (fee) [Evermint#30](https://github.com/EscanBE/evermint/pull/30) Handle deduct zero fee of zero fee tx when x/feemarket disabled and min gas price is zero
+- (rpc+store) [Evermint#32](https://github.com/EscanBE/evermint/pull/32) Fix some concurrency issue in rpc and correct iavl tag
+- (test) [Evermint#50](https://github.com/EscanBE/evermint/pull/50) Set chain-id into client.toml during init testnet
+- (ante) [Evermint#59](https://github.com/EscanBE/evermint/pull/59) Prevent panic when building error message of fee which overflow int64
+- (swagger) [Evermint#66](https://github.com/EscanBE/evermint/pull/66) Correct script gen swagger after switched to use vanilla Cosmos-SDK
+- (rename-chain) [Evermint#80](https://github.com/EscanBE/evermint/pull/80) Handle new cases of rename-chain with recent changes
+- (rpc) [Evermint#85](https://github.com/EscanBE/evermint/pull/85) Compute and return correct `transactionsRoot` and `receiptsRoot` hashes
+- (rename-chain) [Evermint#108](https://github.com/EscanBE/evermint/pull/108) Resolve compile error `*_test.go` after run rename chain
+- (proto) [Evermint#119](https://github.com/EscanBE/evermint/pull/119) Use `cosmos/gogoproto` in some missed-to-replace places
+- (rpc) [Evermint#135](https://github.com/EscanBE/evermint/pull/135) Build tx receipt to response for txs aborted due to block gas limit
+- (evm) [Evermint#136](https://github.com/EscanBE/evermint/pull/136) Correct block bloom, receipt bloom computation and some other minor issues of transient data
+- (rpc+indexer) [Evermint#137](https://github.com/EscanBE/evermint/pull/137) Exclude txs dropped pre-AnteHandle due to gas limit from RPC results
+- (rpc) [Evermint#145](https://github.com/EscanBE/evermint/pull/145) Fix broken tests caused by `--allow-insecure-unlock` and minor refactor RPC backend
 
 ### Client Breaking
 
-- (docs) [#43](https://github.com/EscanBE/evermint/pull/43) Fix proto dependencies + rebuild swagger
+- (docs) [Evermint#43](https://github.com/EscanBE/evermint/pull/43) Fix proto dependencies + rebuild swagger
 
 ### State Machine Breaking
 
-- (deps) [#8](https://github.com/EscanBE/evermint/pull/8) Bump cosmos-sdk v0.47.5 and ibc v7.3.1
-- (evm) [#25](https://github.com/EscanBE/evermint/pull/25) Enable [EIP-3855](https://eips.ethereum.org/EIPS/eip-3855) by default
-- (deps) [#36](https://github.com/EscanBE/evermint/pull/36) Bump CometBFT to v0.37.4
-- (evm) [#39](https://github.com/EscanBE/evermint/pull/39) Consume all gas upon `ApplyTransaction` failure without VM error
-- (inflation) [#54](https://github.com/EscanBE/evermint/pull/54) Replace `x/inflation` module by Cosmos-SDK `x/mint` module
-- (deps) [#57](https://github.com/EscanBE/evermint/pull/57) Use vanilla Cosmos-SDK v0.47.5
-- (deps) [#58](https://github.com/EscanBE/evermint/pull/58) Bump Cosmos-SDK from v0.47.5 to v0.47.7
-- (ante) [#62](https://github.com/EscanBE/evermint/pull/62) Disable more authz msgs + refactor optimize AuthzLimiterDecorator
-- (incentives) [#67](https://github.com/EscanBE/evermint/pull/67) Remove `x/incentives` module
-- (revenue) [#68](https://github.com/EscanBE/evermint/pull/68) Remove `x/revenue` module
-- (recovery) [#69](https://github.com/EscanBE/evermint/pull/69) Remove `x/recovery` module
-- (epochs) [#70](https://github.com/EscanBE/evermint/pull/70) Remove `x/epochs` module
-- (claims) [#73](https://github.com/EscanBE/evermint/pull/73) Remove `x/claims` module
-- (evm) [#76](https://github.com/EscanBE/evermint/pull/76) Fix wrong Ethereum Tx type when convert to `MsgEthereumTx`
-- (deps) [#106](https://github.com/EscanBE/evermint/pull/106) Bump cosmos-sdk v0.47.8 and ibc v7.3.2
-- (deps) [#114](https://github.com/EscanBE/evermint/pull/114) Bump cosmos-sdk v0.47.10
-- (deps) [#117](https://github.com/EscanBE/evermint/pull/117) Bumps ibc-go to v7.4.0 which include patch for ASA-2024-007
-- (deps) [#120](https://github.com/EscanBE/evermint/pull/120) Bump cosmos-sdk v0.47.13, ibc-go v7.8.0, cometbft v0.37.5
-- (vesting) [#128](https://github.com/EscanBE/evermint/pull/128) Remove `x/vesting` module and disable vesting
-- (evm) [#129](https://github.com/EscanBE/evermint/pull/129) Use generic base account instead of EthAccount
-- (evm) [#132](https://github.com/EscanBE/evermint/pull/132) Emit tx receipt and miscellaneous deprecation
-- (evm) [#133](https://github.com/EscanBE/evermint/pull/133) Remove some fields from EVM tx indexer and adjust emits legacy events
-- (evm) [#134](https://github.com/EscanBE/evermint/pull/134) Remove the 2nd ethereum event, use receipt event only
-- (evm+erc20) [#140](https://github.com/EscanBE/evermint/pull/140) Remove EVM Hooks logic
-- (erc20) [#141](https://github.com/EscanBE/evermint/pull/141) Remove `x/erc20` auto-convert logic
+- (deps) [Evermint#8](https://github.com/EscanBE/evermint/pull/8) Bump cosmos-sdk v0.47.5 and ibc v7.3.1
+- (evm) [Evermint#25](https://github.com/EscanBE/evermint/pull/25) Enable [EIP-3855](https://eips.ethereum.org/EIPS/eip-3855) by default
+- (deps) [Evermint#36](https://github.com/EscanBE/evermint/pull/36) Bump CometBFT to v0.37.4
+- (evm) [Evermint#39](https://github.com/EscanBE/evermint/pull/39) Consume all gas upon `ApplyTransaction` failure without VM error
+- (inflation) [Evermint#54](https://github.com/EscanBE/evermint/pull/54) Replace `x/inflation` module by Cosmos-SDK `x/mint` module
+- (deps) [Evermint#57](https://github.com/EscanBE/evermint/pull/57) Use vanilla Cosmos-SDK v0.47.5
+- (deps) [Evermint#58](https://github.com/EscanBE/evermint/pull/58) Bump Cosmos-SDK from v0.47.5 to v0.47.7
+- (ante) [Evermint#62](https://github.com/EscanBE/evermint/pull/62) Disable more authz msgs + refactor optimize AuthzLimiterDecorator
+- (incentives) [Evermint#67](https://github.com/EscanBE/evermint/pull/67) Remove `x/incentives` module
+- (revenue) [Evermint#68](https://github.com/EscanBE/evermint/pull/68) Remove `x/revenue` module
+- (recovery) [Evermint#69](https://github.com/EscanBE/evermint/pull/69) Remove `x/recovery` module
+- (epochs) [Evermint#70](https://github.com/EscanBE/evermint/pull/70) Remove `x/epochs` module
+- (claims) [Evermint#73](https://github.com/EscanBE/evermint/pull/73) Remove `x/claims` module
+- (evm) [Evermint#76](https://github.com/EscanBE/evermint/pull/76) Fix wrong Ethereum Tx type when convert to `MsgEthereumTx`
+- (deps) [Evermint#106](https://github.com/EscanBE/evermint/pull/106) Bump cosmos-sdk v0.47.8 and ibc v7.3.2
+- (deps) [Evermint#114](https://github.com/EscanBE/evermint/pull/114) Bump cosmos-sdk v0.47.10
+- (deps) [Evermint#117](https://github.com/EscanBE/evermint/pull/117) Bumps ibc-go to v7.4.0 which include patch for ASA-2024-007
+- (deps) [Evermint#120](https://github.com/EscanBE/evermint/pull/120) Bump cosmos-sdk v0.47.13, ibc-go v7.8.0, cometbft v0.37.5
+- (vesting) [Evermint#128](https://github.com/EscanBE/evermint/pull/128) Remove `x/vesting` module and disable vesting
+- (evm) [Evermint#129](https://github.com/EscanBE/evermint/pull/129) Use generic base account instead of EthAccount
+- (evm) [Evermint#132](https://github.com/EscanBE/evermint/pull/132) Emit tx receipt and miscellaneous deprecation
+- (evm) [Evermint#133](https://github.com/EscanBE/evermint/pull/133) Remove some fields from EVM tx indexer and adjust emits legacy events
+- (evm) [Evermint#134](https://github.com/EscanBE/evermint/pull/134) Remove the 2nd ethereum event, use receipt event only
+- (evm+erc20) [Evermint#140](https://github.com/EscanBE/evermint/pull/140) Remove EVM Hooks logic
+- (erc20) [Evermint#141](https://github.com/EscanBE/evermint/pull/141) Remove `x/erc20` auto-convert logic
 
 # Evermint changelog
 
@@ -180,80 +180,80 @@ Ref: https://keepachangelog.com/en/1.0.0/
 
 ### State Machine Breaking
 
-- (deps) [#116](https://github.com/EscanBE/evermint/pull/116) Bumps ibc-go to v6.3.0 which include patch for ASA-2024-007
+- (deps) [Evermint#116](https://github.com/EscanBE/evermint/pull/116) Bumps ibc-go to v6.3.0 which include patch for ASA-2024-007
 
 ## [v12.2.5] - 2024-03-14
 
 ### Improvements
 
-- (ante) [#111](https://github.com/EscanBE/evermint/pull/111) Reject EVM txs which having negative value (backport #110)
-- (ante) [#113](https://github.com/EscanBE/evermint/pull/113) Add some validation relates to number range for EVM txs (backport #112)
+- (ante) [Evermint#111](https://github.com/EscanBE/evermint/pull/111) Reject EVM txs which having negative value (backport #110)
+- (ante) [Evermint#113](https://github.com/EscanBE/evermint/pull/113) Add some validation relates to number range for EVM txs (backport #112)
 
 ### Bug Fixes
 
-- (rename-chain) [#109](https://github.com/EscanBE/evermint/pull/109) Resolve compile error `*_test.go` after run rename chain (backport #108)
+- (rename-chain) [Evermint#109](https://github.com/EscanBE/evermint/pull/109) Resolve compile error `*_test.go` after run rename chain (backport #108)
 
 ## [v12.2.4] - 2024-01-31
 
 ### Improvements
 
-- (rename-chain) [#81](https://github.com/EscanBE/evermint/pull/81) Sync new changes of function `rename-chain` from `main` branch
-- (indexer) [#98](https://github.com/EscanBE/evermint/pull/98) Skip pruned blocks & drop multiple failed-to-index blocks during indexer boot-up process (cherry-pick partially #96)
-- (evm) [#104](https://github.com/EscanBE/evermint/pull/104) General use zero gas config for EVM exec (backport #103)
+- (rename-chain) [Evermint#81](https://github.com/EscanBE/evermint/pull/81) Sync new changes of function `rename-chain` from `main` branch
+- (indexer) [Evermint#98](https://github.com/EscanBE/evermint/pull/98) Skip pruned blocks & drop multiple failed-to-index blocks during indexer boot-up process (cherry-pick partially #96)
+- (evm) [Evermint#104](https://github.com/EscanBE/evermint/pull/104) General use zero gas config for EVM exec (backport #103)
 
 ## [v12.2.3] - 2024-01-12
 
 ### Improvements
 
-- (test) [#51](https://github.com/EscanBE/evermint/pull/51) Set chain-id into client.toml during init testnet
-- (ante) [#65](https://github.com/EscanBE/evermint/pull/65) Add EvmTx sender override protection in ante and correct changelog (backport #64)
+- (test) [Evermint#51](https://github.com/EscanBE/evermint/pull/51) Set chain-id into client.toml during init testnet
+- (ante) [Evermint#65](https://github.com/EscanBE/evermint/pull/65) Add EvmTx sender override protection in ante and correct changelog (backport #64)
 
 ### Bug Fixes
 
-- (ante) [#60](https://github.com/EscanBE/evermint/pull/60) Prevent panic when building error message of fee which overflow int64 (backport #59)
+- (ante) [Evermint#60](https://github.com/EscanBE/evermint/pull/60) Prevent panic when building error message of fee which overflow int64 (backport #59)
 
 ### State Machine Breaking
 
-- (ante) [#63](https://github.com/EscanBE/evermint/pull/63) Disable more authz msgs + refactor optimize AuthzLimiterDecorator (backport #62)
-- (evm) [#77](https://github.com/EscanBE/evermint/pull/77) Fix wrong Ethereum Tx type when convert to `MsgEthereumTx` (backport #76)
+- (ante) [Evermint#63](https://github.com/EscanBE/evermint/pull/63) Disable more authz msgs + refactor optimize AuthzLimiterDecorator (backport #62)
+- (evm) [Evermint#77](https://github.com/EscanBE/evermint/pull/77) Fix wrong Ethereum Tx type when convert to `MsgEthereumTx` (backport #76)
 
 ## [v12.2.2] - 2024-01-03
 
 ### Improvements
 
-- (flags) [#23](https://github.com/EscanBE/evermint/pull/23) ~~Change default gas adjustment to 1.2 and~~ update default value of some flags (backport #22), partially reverted by [#27](https://github.com/EscanBE/evermint/pull/27)
-- (fee) [#38](https://github.com/EscanBE/evermint/pull/38) Reject cosmos txs that fee denom is not evm denom (backport #37)
-- (test) [#47](https://github.com/EscanBE/evermint/pull/47) Use static mnemonic for scripts init nodes and `evmd testnet init-files` (backport #46)
+- (flags) [Evermint#23](https://github.com/EscanBE/evermint/pull/23) ~~Change default gas adjustment to 1.2 and~~ update default value of some flags (backport #22), partially reverted by [#27](https://github.com/EscanBE/evermint/pull/27)
+- (fee) [Evermint#38](https://github.com/EscanBE/evermint/pull/38) Reject cosmos txs that fee denom is not evm denom (backport #37)
+- (test) [Evermint#47](https://github.com/EscanBE/evermint/pull/47) Use static mnemonic for scripts init nodes and `evmd testnet init-files` (backport #46)
 
 ### Bug Fixes
 
-- (gas) [#29](https://github.com/EscanBE/evermint/pull/29) Adjust max-gas computation logic to prevent potential out of gas issue (backport #28)
-- (fee) [#31](https://github.com/EscanBE/evermint/pull/31) Handle deduct zero fee of zero fee tx when x/feemarket disabled and min gas price is zero (backport #30)
-- (rpc+store) [#33](https://github.com/EscanBE/evermint/pull/33) Fix some concurrency issue in rpc and iavl (partially backport #32)
+- (gas) [Evermint#29](https://github.com/EscanBE/evermint/pull/29) Adjust max-gas computation logic to prevent potential out of gas issue (backport #28)
+- (fee) [Evermint#31](https://github.com/EscanBE/evermint/pull/31) Handle deduct zero fee of zero fee tx when x/feemarket disabled and min gas price is zero (backport #30)
+- (rpc+store) [Evermint#33](https://github.com/EscanBE/evermint/pull/33) Fix some concurrency issue in rpc and iavl (partially backport #32)
 
 ### API Breaking
 
-- (proto+docs) [#44](https://github.com/EscanBE/evermint/pull/44) Fix proto dependencies + rebuild proto + rebuild swagger (partially backport #43)
+- (proto+docs) [Evermint#44](https://github.com/EscanBE/evermint/pull/44) Fix proto dependencies + rebuild proto + rebuild swagger (partially backport #43)
 
 ### State Machine Breaking
 
-- (evm) [#26](https://github.com/EscanBE/evermint/pull/26) Enable [EIP-3855](https://eips.ethereum.org/EIPS/eip-3855) by default (backport #25)
-- (evm) [#40](https://github.com/EscanBE/evermint/pull/40) Consume all gas upon `ApplyTransaction` failure without VM error (backport #39)
+- (evm) [Evermint#26](https://github.com/EscanBE/evermint/pull/26) Enable [EIP-3855](https://eips.ethereum.org/EIPS/eip-3855) by default (backport #25)
+- (evm) [Evermint#40](https://github.com/EscanBE/evermint/pull/40) Consume all gas upon `ApplyTransaction` failure without VM error (backport #39)
 
 ## [v12.2.1] - 2024-01-01
 
 ### Features
 
-- (store) [#13](https://github.com/EscanBE/evermint/pull/13) Add local `snapshots` management commands (backport #12)
-- (store) [#15](https://github.com/EscanBE/evermint/pull/15) Add `inspect` command and sub-commands (backport #14)
+- (store) [Evermint#13](https://github.com/EscanBE/evermint/pull/13) Add local `snapshots` management commands (backport #12)
+- (store) [Evermint#15](https://github.com/EscanBE/evermint/pull/15) Add `inspect` command and sub-commands (backport #14)
 
 ### Improvement
 
-- (test) [#11](https://github.com/EscanBE/evermint/pull/11) Use Testnet chain-id instead of Mainnet chain-id for tests (backport #10)
+- (test) [Evermint#11](https://github.com/EscanBE/evermint/pull/11) Use Testnet chain-id instead of Mainnet chain-id for tests (backport #10)
 
 ### Bug Fixes
 
-- (rename-chain) [#19](https://github.com/EscanBE/evermint/pull/19) Check network chain-id string must contain EVM chain-id (backport #18)
+- (rename-chain) [Evermint#19](https://github.com/EscanBE/evermint/pull/19) Check network chain-id string must contain EVM chain-id (backport #18)
 
 ## [v12.2.0] - 2023-12-31
 
@@ -266,12 +266,12 @@ Ref: https://keepachangelog.com/en/1.0.0/
 
 ### Improvement
 
-- (rename-chain) [#4](https://github.com/EscanBE/evermint/pull/4) Restore files that should not be changed after rename chain
+- (rename-chain) [Evermint#4](https://github.com/EscanBE/evermint/pull/4) Restore files that should not be changed after rename chain
 
 ### Bug Fixes
 
-- (evm) [#3](https://github.com/EscanBE/evermint/pull/3) Correct context block height when trace transaction
-- (evm) [#5](https://github.com/EscanBE/evermint/pull/5) Re-calculate base-fee & adjust gas-meter reset behavior when trace transaction/block
+- (evm) [Evermint#3](https://github.com/EscanBE/evermint/pull/3) Correct context block height when trace transaction
+- (evm) [Evermint#5](https://github.com/EscanBE/evermint/pull/5) Re-calculate base-fee & adjust gas-meter reset behavior when trace transaction/block
 
 ## [Evermint v12] - 2023-12-30
 
