@@ -6,8 +6,8 @@ import (
 	"math/big"
 	"time"
 
-	"github.com/EscanBE/evermint/v12/app/helpers"
-	"github.com/EscanBE/evermint/v12/constants"
+	"github.com/EscanBE/everlast/v12/app/helpers"
+	"github.com/EscanBE/everlast/v12/constants"
 	simtestutil "github.com/cosmos/cosmos-sdk/testutil/sims"
 
 	sdkmath "cosmossdk.io/math"
@@ -18,12 +18,12 @@ import (
 	stakingkeeper "github.com/cosmos/cosmos-sdk/x/staking/keeper"
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 
-	chainapp "github.com/EscanBE/evermint/v12/app"
-	"github.com/EscanBE/evermint/v12/crypto/ethsecp256k1"
-	"github.com/EscanBE/evermint/v12/testutil"
-	utiltx "github.com/EscanBE/evermint/v12/testutil/tx"
-	evmtypes "github.com/EscanBE/evermint/v12/x/evm/types"
-	feemarkettypes "github.com/EscanBE/evermint/v12/x/feemarket/types"
+	chainapp "github.com/EscanBE/everlast/v12/app"
+	"github.com/EscanBE/everlast/v12/crypto/ethsecp256k1"
+	"github.com/EscanBE/everlast/v12/testutil"
+	utiltx "github.com/EscanBE/everlast/v12/testutil/tx"
+	evmtypes "github.com/EscanBE/everlast/v12/x/evm/types"
+	feemarkettypes "github.com/EscanBE/everlast/v12/x/feemarket/types"
 	"github.com/ethereum/go-ethereum/common"
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
 
@@ -147,7 +147,7 @@ func setupChain(localMinGasPricesStr string) {
 	// Initialize the app, so we can use SetMinGasPrices to set the
 	// validator-specific min-gas-prices setting
 	db := sdkdb.NewMemDB()
-	chainApp := chainapp.NewEvermint(
+	chainApp := chainapp.NewEverlast(
 		log.NewNopLogger(),
 		db,
 		nil,

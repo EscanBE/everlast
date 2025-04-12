@@ -4,10 +4,10 @@ import (
 	"strings"
 
 	storetypes "cosmossdk.io/store/types"
-	"github.com/EscanBE/evermint/v12/constants"
+	"github.com/EscanBE/everlast/v12/constants"
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
 
-	"github.com/EscanBE/evermint/v12/crypto/ethsecp256k1"
+	"github.com/EscanBE/everlast/v12/crypto/ethsecp256k1"
 
 	errorsmod "cosmossdk.io/errors"
 	"github.com/cosmos/cosmos-sdk/crypto/keys/ed25519"
@@ -60,11 +60,11 @@ func IsSupportedKey(pubkey cryptotypes.PubKey) bool {
 	}
 }
 
-// GetEvermintAddressFromBech32 returns the sdk.Account address of given address,
+// GetEverlastAddressFromBech32 returns the sdk.Account address of given address,
 // while also changing bech32 human read-able prefix (HRP) to the value set on
 // the global sdk.Config.
 // The function fails if the provided bech32 address is invalid.
-func GetEvermintAddressFromBech32(address string) (sdk.AccAddress, error) {
+func GetEverlastAddressFromBech32(address string) (sdk.AccAddress, error) {
 	bech32Prefix := strings.SplitN(address, "1", 2)[0]
 	if bech32Prefix == address {
 		return nil, errorsmod.Wrapf(errortypes.ErrInvalidAddress, "invalid bech32 address: %s", address)

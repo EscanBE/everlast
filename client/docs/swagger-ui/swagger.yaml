@@ -1,6 +1,6 @@
 swagger: '2.0'
 info:
-  title: Evermint Chain - gRPC Gateway docs
+  title: Everlast Chain - gRPC Gateway docs
   description: A REST interface for state queries and transactions
   version: 1.0.0
 paths:
@@ -3334,7 +3334,7 @@ paths:
                       format: byte
       tags:
         - Query
-  /evermint/vauth/v1/proof_external_owned_account:
+  /everlast/vauth/v1/proof_external_owned_account:
     get:
       summary: ProofExternalOwnedAccount returns proof of external owned account (EOA)
       operationId: ProofExternalOwnedAccount
@@ -3392,7 +3392,7 @@ paths:
           type: string
       tags:
         - Query
-  /evermint/cpc/v1/custom_precompiled_contract/{address}:
+  /everlast/cpc/v1/custom_precompiled_contract/{address}:
     get:
       summary: >-
         CustomPrecompiledContract queries the list of deployed custom
@@ -3488,7 +3488,7 @@ paths:
           type: string
       tags:
         - Query
-  /evermint/cpc/v1/custom_precompiled_contracts:
+  /everlast/cpc/v1/custom_precompiled_contracts:
     get:
       summary: >-
         CustomPrecompiledContracts queries the list of deployed custom
@@ -3654,7 +3654,7 @@ paths:
           type: boolean
       tags:
         - Query
-  /evermint/cpc/v1/erc20_custom_precompiled_contract_by_denom/{min_denom}:
+  /everlast/cpc/v1/erc20_custom_precompiled_contract_by_denom/{min_denom}:
     get:
       summary: >-
         Erc20CustomPrecompiledContractByDenom queries the list of deployed
@@ -3749,7 +3749,7 @@ paths:
           type: string
       tags:
         - Query
-  /evermint/cpc/v1/params:
+  /everlast/cpc/v1/params:
     get:
       summary: Params queries the parameters of x/cpc module.
       operationId: CpcParams
@@ -45451,7 +45451,7 @@ definitions:
     description: >-
       QueryParamsResponse defines the response type for querying x/evm
       parameters.
-  evermint.vauth.v1.ProofExternalOwnedAccount:
+  everlast.vauth.v1.ProofExternalOwnedAccount:
     type: object
     properties:
       account:
@@ -45466,7 +45466,7 @@ definitions:
     title: >-
       ProofExternalOwnedAccount store the proof that account is external owned
       account (EOA)
-  evermint.vauth.v1.QueryProofExternalOwnedAccountResponse:
+  everlast.vauth.v1.QueryProofExternalOwnedAccountResponse:
     type: object
     properties:
       proof:
@@ -45562,7 +45562,7 @@ definitions:
                repeated Bar results = 1;
                PageResponse page = 2;
        }
-  evermint.cpc.v1.CustomPrecompiledContractMeta:
+  everlast.cpc.v1.CustomPrecompiledContractMeta:
     type: object
     properties:
       address:
@@ -45591,7 +45591,7 @@ definitions:
       contract.
 
       It is used to define the custom precompiled contract and its metadata.
-  evermint.cpc.v1.Params:
+  everlast.cpc.v1.Params:
     type: object
     properties:
       protocol_version:
@@ -45606,7 +45606,7 @@ definitions:
           whitelisted_deployers is the address of the accounts permitted to
           deploy the Custom Precompiled Contracts
     title: Params defines the cpc module params
-  evermint.cpc.v1.QueryCustomPrecompiledContractResponse:
+  everlast.cpc.v1.QueryCustomPrecompiledContractResponse:
     type: object
     properties:
       contract:
@@ -45659,7 +45659,7 @@ definitions:
       Query/CustomPrecompiledContract RPC
 
       method.
-  evermint.cpc.v1.QueryCustomPrecompiledContractsResponse:
+  everlast.cpc.v1.QueryCustomPrecompiledContractsResponse:
     type: object
     properties:
       contracts:
@@ -45733,7 +45733,7 @@ definitions:
       Query/CustomPrecompiledContracts RPC
 
       method.
-  evermint.cpc.v1.QueryErc20CustomPrecompiledContractByDenomResponse:
+  everlast.cpc.v1.QueryErc20CustomPrecompiledContractByDenomResponse:
     type: object
     properties:
       contract:
@@ -45785,7 +45785,7 @@ definitions:
       for the Query/Erc20CustomPrecompiledContractByDenom RPC
 
       method.
-  evermint.cpc.v1.QueryParamsResponse:
+  everlast.cpc.v1.QueryParamsResponse:
     type: object
     properties:
       params:
@@ -45807,7 +45807,7 @@ definitions:
     description: >-
       QueryParamsResponse defines the response type for querying x/cpc module
       parameters.
-  evermint.cpc.v1.WrappedCustomPrecompiledContractMeta:
+  everlast.cpc.v1.WrappedCustomPrecompiledContractMeta:
     type: object
     properties:
       address:

@@ -1,0 +1,10 @@
+syntax = "proto3";
+package everlast.vauth.v1;
+
+import "gogoproto/gogo.proto";
+
+option go_package = "github.com/EscanBE/everlast/v12/x/vauth/types";
+
+// GenesisState defines the module's genesis state.
+message GenesisState {
+}

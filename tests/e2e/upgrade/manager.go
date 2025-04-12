@@ -11,7 +11,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/EscanBE/evermint/v12/constants"
+	"github.com/EscanBE/everlast/v12/constants"
 
 	"github.com/ory/dockertest/v3"
 	"github.com/ory/dockertest/v3/docker"
@@ -72,7 +72,7 @@ func (m *Manager) BuildImage(name, version, dockerFile, contextDir string, args 
 		// rebuild the image every time in case there were changes
 		// and the image is cached
 		NoCache: true,
-		// name with tag, e.g. evermint:v12.0.0
+		// name with tag, e.g. everlast:v12.0.0
 		Name:         fmt.Sprintf("%s:%s", name, version),
 		OutputStream: io.Discard,
 		ErrorStream:  os.Stdout,

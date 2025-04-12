@@ -8,9 +8,9 @@ import (
 	"slices"
 	"strings"
 
-	"github.com/EscanBE/evermint/v12/x/cpc/eip712"
+	"github.com/EscanBE/everlast/v12/x/cpc/eip712"
 
-	"github.com/EscanBE/evermint/v12/x/cpc/abi"
+	"github.com/EscanBE/everlast/v12/x/cpc/abi"
 
 	distkeeper "github.com/cosmos/cosmos-sdk/x/distribution/keeper"
 	disttypes "github.com/cosmos/cosmos-sdk/x/distribution/types"
@@ -28,8 +28,8 @@ import (
 	errorsmod "cosmossdk.io/errors"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	cpctypes "github.com/EscanBE/evermint/v12/x/cpc/types"
-	cpcutils "github.com/EscanBE/evermint/v12/x/cpc/utils"
+	cpctypes "github.com/EscanBE/everlast/v12/x/cpc/types"
+	cpcutils "github.com/EscanBE/everlast/v12/x/cpc/utils"
 	"github.com/ethereum/go-ethereum/common"
 )
 
@@ -63,7 +63,7 @@ func (k Keeper) DeployStakingCustomPrecompiledContract(ctx sdk.Context, stakingM
 
 var _ CustomPrecompiledContractI = &stakingCustomPrecompiledContract{}
 
-// stakingCustomPrecompiledContract is ESIP-179: https://github.com/EscanBE/evermint/issues/179
+// stakingCustomPrecompiledContract is ESIP-179: https://github.com/EscanBE/everlast/issues/179
 type stakingCustomPrecompiledContract struct {
 	metadata             cpctypes.CustomPrecompiledContractMeta
 	keeper               Keeper

@@ -7,7 +7,7 @@ import (
 
 	"github.com/cosmos/cosmos-sdk/client"
 
-	vauthtypes "github.com/EscanBE/evermint/v12/x/vauth/types"
+	vauthtypes "github.com/EscanBE/everlast/v12/x/vauth/types"
 )
 
 // GetQueryCmd returns the cli query commands for this module

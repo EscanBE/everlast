@@ -17,9 +17,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/EscanBE/evermint/v12/app/params"
+	"github.com/EscanBE/everlast/v12/app/params"
 
-	"github.com/EscanBE/evermint/v12/constants"
+	"github.com/EscanBE/everlast/v12/constants"
 	sdktunetwork "github.com/cosmos/cosmos-sdk/testutil/network"
 	simtestutil "github.com/cosmos/cosmos-sdk/testutil/sims"
 
@@ -34,8 +34,8 @@ import (
 	"google.golang.org/grpc"
 
 	pruningtypes "cosmossdk.io/store/pruning/types"
-	chainapp "github.com/EscanBE/evermint/v12/app"
-	"github.com/EscanBE/evermint/v12/crypto/hd"
+	chainapp "github.com/EscanBE/everlast/v12/app"
+	"github.com/EscanBE/everlast/v12/crypto/hd"
 	"github.com/cosmos/cosmos-sdk/baseapp"
 	"github.com/cosmos/cosmos-sdk/client"
 	clienttx "github.com/cosmos/cosmos-sdk/client/tx"
@@ -54,8 +54,8 @@ import (
 	"github.com/cosmos/cosmos-sdk/x/genutil"
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 
-	"github.com/EscanBE/evermint/v12/server/config"
-	evertypes "github.com/EscanBE/evermint/v12/types"
+	"github.com/EscanBE/everlast/v12/server/config"
+	evertypes "github.com/EscanBE/everlast/v12/types"
 )
 
 // package-wide network lock to only allow one test network at a time
@@ -124,10 +124,10 @@ func DefaultConfig() Config {
 	}
 }
 
-// NewAppConstructor returns a new Evermint AppConstructor
+// NewAppConstructor returns a new Everlast AppConstructor
 func NewAppConstructor(encodingCfg params.EncodingConfig) AppConstructor {
 	return func(val Validator) servertypes.Application {
-		return chainapp.NewEvermint(
+		return chainapp.NewEverlast(
 			val.Ctx.Logger, sdkdb.NewMemDB(), nil, true, make(map[int64]bool), val.Ctx.Config.RootDir, 0,
 			encodingCfg,
 			simtestutil.EmptyAppOptions{},
@@ -328,7 +328,7 @@ func New(l Logger, baseDir string, cfg Config) (*Network, error) {
 
 		nodeDirName := fmt.Sprintf("node%d", i)
 		nodeDir := filepath.Join(network.BaseDir, nodeDirName, constants.ApplicationHome)
-		clientDir := filepath.Join(network.BaseDir, nodeDirName, "evermintcli")
+		clientDir := filepath.Join(network.BaseDir, nodeDirName, "everlastcli")
 		gentxsDir := filepath.Join(network.BaseDir, "gentxs")
 
 		err := os.MkdirAll(filepath.Join(nodeDir, "config"), 0o750)

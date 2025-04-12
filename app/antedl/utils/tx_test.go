@@ -16,11 +16,11 @@ import (
 	banktypes "github.com/cosmos/cosmos-sdk/x/bank/types"
 	"github.com/cosmos/gogoproto/proto"
 
-	chainapp "github.com/EscanBE/evermint/v12/app"
-	anteutils "github.com/EscanBE/evermint/v12/app/antedl/utils"
-	"github.com/EscanBE/evermint/v12/constants"
-	evertypes "github.com/EscanBE/evermint/v12/types"
-	evmtypes "github.com/EscanBE/evermint/v12/x/evm/types"
+	chainapp "github.com/EscanBE/everlast/v12/app"
+	anteutils "github.com/EscanBE/everlast/v12/app/antedl/utils"
+	"github.com/EscanBE/everlast/v12/constants"
+	evertypes "github.com/EscanBE/everlast/v12/types"
+	evmtypes "github.com/EscanBE/everlast/v12/x/evm/types"
 )
 
 func TestIsEthereumTx(t *testing.T) {

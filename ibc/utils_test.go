@@ -3,18 +3,18 @@ package ibc
 import (
 	"testing"
 
-	cmdcfg "github.com/EscanBE/evermint/v12/cmd/config"
+	cmdcfg "github.com/EscanBE/everlast/v12/cmd/config"
 
 	sdkmath "cosmossdk.io/math"
 
-	"github.com/EscanBE/evermint/v12/constants"
-	"github.com/EscanBE/evermint/v12/rename_chain/marker"
+	"github.com/EscanBE/everlast/v12/constants"
+	
 
 	"github.com/stretchr/testify/require"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	teststypes "github.com/EscanBE/evermint/v12/types/tests"
+	teststypes "github.com/EscanBE/everlast/v12/types/tests"
 	transfertypes "github.com/cosmos/ibc-go/v8/modules/apps/transfer/types"
 	channeltypes "github.com/cosmos/ibc-go/v8/modules/core/04-channel/types"
 	ibctesting "github.com/cosmos/ibc-go/v8/testing"
@@ -67,7 +67,7 @@ func TestGetTransferSenderRecipient(t *testing.T) {
 				Data: transfertypes.ModuleCdc.MustMarshalJSON(
 					&transfertypes.FungibleTokenPacketData{
 						Sender:   "cosmos1",
-						Receiver: marker.ReplaceAbleAddress("evm1x2w87cvt5mqjncav4lxy8yfreynn273xe08fl7"),
+						Receiver: "evl1x2w87cvt5mqjncav4lxy8yfreynn273xj3szj4",
 						Amount:   "123456",
 					},
 				),
@@ -92,48 +92,48 @@ func TestGetTransferSenderRecipient(t *testing.T) {
 			expError:     true,
 		},
 		{
-			name: "pass - valid cosmos sender, evermint recipient",
+			name: "pass - valid cosmos sender, everlast recipient",
 			packet: channeltypes.Packet{
 				Data: transfertypes.ModuleCdc.MustMarshalJSON(
 					&transfertypes.FungibleTokenPacketData{
 						Sender:   "cosmos1qql8ag4cluz6r4dz28p3w00dnc9w8ueulg2gmc",
-						Receiver: marker.ReplaceAbleAddress("evm1x2w87cvt5mqjncav4lxy8yfreynn273xe08fl7"),
+						Receiver: "evl1x2w87cvt5mqjncav4lxy8yfreynn273xj3szj4",
 						Amount:   "123456",
 					},
 				),
 			},
-			expSender:    marker.ReplaceAbleAddress("evm1qql8ag4cluz6r4dz28p3w00dnc9w8ueuhjd72z"),
-			expRecipient: marker.ReplaceAbleAddress("evm1x2w87cvt5mqjncav4lxy8yfreynn273xe08fl7"),
+			expSender:    "evl1qql8ag4cluz6r4dz28p3w00dnc9w8ueuuv648f",
+			expRecipient: "evl1x2w87cvt5mqjncav4lxy8yfreynn273xj3szj4",
 			expError:     false,
 		},
 		{
-			name: "pass - valid evermint sender, cosmos recipient",
+			name: "pass - valid everlast sender, cosmos recipient",
 			packet: channeltypes.Packet{
 				Data: transfertypes.ModuleCdc.MustMarshalJSON(
 					&transfertypes.FungibleTokenPacketData{
-						Sender:   marker.ReplaceAbleAddress("evm1x2w87cvt5mqjncav4lxy8yfreynn273xe08fl7"),
+						Sender:   "evl1x2w87cvt5mqjncav4lxy8yfreynn273xj3szj4",
 						Receiver: "cosmos1qql8ag4cluz6r4dz28p3w00dnc9w8ueulg2gmc",
 						Amount:   "123456",
 					},
 				),
 			},
-			expSender:    marker.ReplaceAbleAddress("evm1x2w87cvt5mqjncav4lxy8yfreynn273xe08fl7"),
-			expRecipient: marker.ReplaceAbleAddress("evm1qql8ag4cluz6r4dz28p3w00dnc9w8ueuhjd72z"),
+			expSender:    "evl1x2w87cvt5mqjncav4lxy8yfreynn273xj3szj4",
+			expRecipient: "evl1qql8ag4cluz6r4dz28p3w00dnc9w8ueuuv648f",
 			expError:     false,
 		},
 		{
-			name: "pass - valid osmosis sender, evermint recipient",
+			name: "pass - valid osmosis sender, everlast recipient",
 			packet: channeltypes.Packet{
 				Data: transfertypes.ModuleCdc.MustMarshalJSON(
 					&transfertypes.FungibleTokenPacketData{
 						Sender:   "osmo1qql8ag4cluz6r4dz28p3w00dnc9w8ueuhnecd2",
-						Receiver: marker.ReplaceAbleAddress("evm1x2w87cvt5mqjncav4lxy8yfreynn273xe08fl7"),
+						Receiver: "evl1x2w87cvt5mqjncav4lxy8yfreynn273xj3szj4",
 						Amount:   "123456",
 					},
 				),
 			},
-			expSender:    marker.ReplaceAbleAddress("evm1qql8ag4cluz6r4dz28p3w00dnc9w8ueuhjd72z"),
-			expRecipient: marker.ReplaceAbleAddress("evm1x2w87cvt5mqjncav4lxy8yfreynn273xe08fl7"),
+			expSender:    "evl1qql8ag4cluz6r4dz28p3w00dnc9w8ueuuv648f",
+			expRecipient: "evl1x2w87cvt5mqjncav4lxy8yfreynn273xj3szj4",
 			expError:     false,
 		},
 	}
@@ -180,7 +180,7 @@ func TestGetTransferAmount(t *testing.T) {
 				Data: transfertypes.ModuleCdc.MustMarshalJSON(
 					&transfertypes.FungibleTokenPacketData{
 						Sender:   "cosmos1qql8ag4cluz6r4dz28p3w00dnc9w8ueulg2gmc",
-						Receiver: marker.ReplaceAbleAddress("evm1x2w87cvt5mqjncav4lxy8yfreynn273xe08fl7"),
+						Receiver: "evl1x2w87cvt5mqjncav4lxy8yfreynn273xj3szj4",
 						Amount:   "",
 					},
 				),
@@ -194,7 +194,7 @@ func TestGetTransferAmount(t *testing.T) {
 				Data: transfertypes.ModuleCdc.MustMarshalJSON(
 					&transfertypes.FungibleTokenPacketData{
 						Sender:   "cosmos1qql8ag4cluz6r4dz28p3w00dnc9w8ueulg2gmc",
-						Receiver: marker.ReplaceAbleAddress("evm1x2w87cvt5mqjncav4lxy8yfreynn273xe08fl7"),
+						Receiver: "evl1x2w87cvt5mqjncav4lxy8yfreynn273xj3szj4",
 						Amount:   "test",
 					},
 				),
@@ -208,7 +208,7 @@ func TestGetTransferAmount(t *testing.T) {
 				Data: transfertypes.ModuleCdc.MustMarshalJSON(
 					&transfertypes.FungibleTokenPacketData{
 						Sender:   "cosmos1qql8ag4cluz6r4dz28p3w00dnc9w8ueulg2gmc",
-						Receiver: marker.ReplaceAbleAddress("evm1x2w87cvt5mqjncav4lxy8yfreynn273xe08fl7"),
+						Receiver: "evl1x2w87cvt5mqjncav4lxy8yfreynn273xj3szj4",
 						Amount:   "10000",
 					},
 				),
@@ -222,7 +222,7 @@ func TestGetTransferAmount(t *testing.T) {
 				Data: transfertypes.ModuleCdc.MustMarshalJSON(
 					&transfertypes.FungibleTokenPacketData{
 						Sender:   "cosmos1qql8ag4cluz6r4dz28p3w00dnc9w8ueulg2gmc",
-						Receiver: marker.ReplaceAbleAddress("evm1x2w87cvt5mqjncav4lxy8yfreynn273xe08fl7"),
+						Receiver: "evl1x2w87cvt5mqjncav4lxy8yfreynn273xj3szj4",
 						Amount:   "1",
 					},
 				),

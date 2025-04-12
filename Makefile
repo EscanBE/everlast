@@ -6,12 +6,12 @@ TMVERSION := $(shell go list -m github.com/cometbft/cometbft | sed 's:.* ::')
 COMMIT := $(shell git log -1 --format='%H')
 LEDGER_ENABLED ?= true
 BINDIR ?= $(GOPATH)/bin
-APP_BINARY = evmd
+APP_BINARY = evld
 BUILDDIR ?= $(CURDIR)/build
-HTTPS_GIT := https://github.com/EscanBE/evermint.git
+HTTPS_GIT := https://github.com/EscanBE/everlast.git
 DOCKER := $(shell which docker)
-NAMESPACE := evermint
-PROJECT := evermint
+NAMESPACE := everlast
+PROJECT := everlast
 DOCKER_IMAGE := $(NAMESPACE)/$(PROJECT)
 COMMIT_HASH := $(shell git rev-parse --short=7 HEAD)
 DOCKER_TAG := $(COMMIT_HASH)
@@ -66,7 +66,7 @@ build_tags := $(strip $(build_tags))
 
 # process linker flags
 
-ldflags = -X github.com/cosmos/cosmos-sdk/version.Name=evermint \
+ldflags = -X github.com/cosmos/cosmos-sdk/version.Name=everlast \
           -X github.com/cosmos/cosmos-sdk/version.AppName=$(APP_BINARY) \
           -X github.com/cosmos/cosmos-sdk/version.Version=$(VERSION) \
           -X github.com/cosmos/cosmos-sdk/version.Commit=$(COMMIT) \
@@ -138,7 +138,7 @@ build-reproducible: go.sum
 	$(DOCKER) rm latest-build || true
 	$(DOCKER) run --volume=$(CURDIR):/sources:ro \
         --env TARGET_PLATFORMS='linux/amd64' \
-        --env APP=evmd \
+        --env APP=evld \
         --env VERSION=$(VERSION) \
         --env COMMIT=$(COMMIT) \
         --env CGO_ENABLED=1 \
@@ -153,12 +153,12 @@ build-docker:
 	$(DOCKER) tag ${DOCKER_IMAGE}:${DOCKER_TAG} ${DOCKER_IMAGE}:latest
 	# docker tag ${DOCKER_IMAGE}:${DOCKER_TAG} ${DOCKER_IMAGE}:${COMMIT_HASH}
 	# update old container
-	$(DOCKER) rm evermint || true
+	$(DOCKER) rm everlast || true
 	# create a new container from the latest image
-	$(DOCKER) create --name evermint -t -i ${DOCKER_IMAGE}:latest evermint
+	$(DOCKER) create --name everlast -t -i ${DOCKER_IMAGE}:latest everlast
 	# move the binaries to the ./build directory
 	mkdir -p ./build/
-	$(DOCKER) cp evermint:/usr/bin/evmd ./build/
+	$(DOCKER) cp everlast:/usr/bin/evld ./build/
 
 push-docker: build-docker
 	$(DOCKER) push ${DOCKER_IMAGE}:${DOCKER_TAG}
@@ -268,7 +268,7 @@ vulncheck: $(BUILDDIR)/
 ###############################################################################
 
 godocs:
-	@echo "--> Wait a few seconds and visit http://localhost:6060/pkg/github.com/EscanBE/evermint"
+	@echo "--> Wait a few seconds and visit http://localhost:6060/pkg/github.com/EscanBE/everlast"
 	godoc -http=:6060
 
 ###############################################################################
@@ -302,7 +302,7 @@ test-e2e:
 		make build-docker; \
 	fi
 	@mkdir -p ./build
-	@rm -rf build/.evermint
+	@rm -rf build/.everlast
 	@INITIAL_VERSION=$(INITIAL_VERSION) TARGET_VERSION=$(TARGET_VERSION) \
 	E2E_SKIP_CLEANUP=$(E2E_SKIP_CLEANUP) MOUNT_PATH=$(MOUNT_PATH) CHAIN_ID=$(CHAIN_ID) \
 	go test -v ./tests/e2e -run ^TestIntegrationTestSuite$
@@ -463,7 +463,7 @@ localnet-remake: localnet-stop localnet-build localnet-start
 
 # Start testnet with 4 nodes
 localnet-start: localnet-stop
-	@if ! [ -f build/node0/$(APP_BINARY)/config/genesis.json ]; then docker run --rm -v $(CURDIR)/build:/evermint:Z evermint/node "./evmd testnet init-files --v 4 -o /evermint --keyring-backend=test --starting-ip-address 192.167.10.2"; fi
+	@if ! [ -f build/node0/$(APP_BINARY)/config/genesis.json ]; then docker run --rm -v $(CURDIR)/build:/everlast:Z everlast/node "./evld testnet init-files --v 4 -o /everlast --keyring-backend=test --starting-ip-address 192.167.10.2"; fi
 	docker-compose up -d
 
 # Stop testnet
@@ -479,15 +479,15 @@ localnet-clean:
 localnet-unsafe-reset:
 	docker-compose down
 ifeq ($(OS),Windows_NT)
-	@docker run --rm -v $(CURDIR)\build\node0\evmd:/evermint\Z evermint/node "./evmd cometbft unsafe-reset-all --home=/evermint"
-	@docker run --rm -v $(CURDIR)\build\node1\evmd:/evermint\Z evermint/node "./evmd cometbft unsafe-reset-all --home=/evermint"
-	@docker run --rm -v $(CURDIR)\build\node2\evmd:/evermint\Z evermint/node "./evmd cometbft unsafe-reset-all --home=/evermint"
-	@docker run --rm -v $(CURDIR)\build\node3\evmd:/evermint\Z evermint/node "./evmd cometbft unsafe-reset-all --home=/evermint"
+	@docker run --rm -v $(CURDIR)\build\node0\evld:/everlast\Z everlast/node "./evld cometbft unsafe-reset-all --home=/everlast"
+	@docker run --rm -v $(CURDIR)\build\node1\evld:/everlast\Z everlast/node "./evld cometbft unsafe-reset-all --home=/everlast"
+	@docker run --rm -v $(CURDIR)\build\node2\evld:/everlast\Z everlast/node "./evld cometbft unsafe-reset-all --home=/everlast"
+	@docker run --rm -v $(CURDIR)\build\node3\evld:/everlast\Z everlast/node "./evld cometbft unsafe-reset-all --home=/everlast"
 else
-	@docker run --rm -v $(CURDIR)/build/node0/evmd:/evermint:Z evermint/node "./evmd cometbft unsafe-reset-all --home=/evermint"
-	@docker run --rm -v $(CURDIR)/build/node1/evmd:/evermint:Z evermint/node "./evmd cometbft unsafe-reset-all --home=/evermint"
-	@docker run --rm -v $(CURDIR)/build/node2/evmd:/evermint:Z evermint/node "./evmd cometbft unsafe-reset-all --home=/evermint"
-	@docker run --rm -v $(CURDIR)/build/node3/evmd:/evermint:Z evermint/node "./evmd cometbft unsafe-reset-all --home=/evermint"
+	@docker run --rm -v $(CURDIR)/build/node0/evld:/everlast:Z everlast/node "./evld cometbft unsafe-reset-all --home=/everlast"
+	@docker run --rm -v $(CURDIR)/build/node1/evld:/everlast:Z everlast/node "./evld cometbft unsafe-reset-all --home=/everlast"
+	@docker run --rm -v $(CURDIR)/build/node2/evld:/everlast:Z everlast/node "./evld cometbft unsafe-reset-all --home=/everlast"
+	@docker run --rm -v $(CURDIR)/build/node3/evld:/everlast:Z everlast/node "./evld cometbft unsafe-reset-all --home=/everlast"
 endif
 
 # Clean testnet
@@ -500,7 +500,7 @@ localnet-show-logstream:
 ###                                Releasing                                ###
 ###############################################################################
 
-PACKAGE_NAME:=github.com/EscanBE/evermint
+PACKAGE_NAME:=github.com/EscanBE/everlast
 GOLANG_CROSS_VERSION  = v1.20
 GOPATH ?= '$(HOME)/go'
 release-dry-run:

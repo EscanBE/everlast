@@ -12,9 +12,9 @@ import (
 	"github.com/ethereum/go-ethereum/crypto"
 	"github.com/ethereum/go-ethereum/signer/core/apitypes"
 
-	chainapp "github.com/EscanBE/evermint/v12/app"
-	"github.com/EscanBE/evermint/v12/ethereum/eip712"
-	evertypes "github.com/EscanBE/evermint/v12/types"
+	chainapp "github.com/EscanBE/everlast/v12/app"
+	"github.com/EscanBE/everlast/v12/ethereum/eip712"
+	evertypes "github.com/EscanBE/everlast/v12/types"
 	cryptotypes "github.com/cosmos/cosmos-sdk/crypto/types"
 )
 
@@ -33,7 +33,7 @@ type signatureV2Args struct {
 // It returns the signed transaction and an error
 func CreateEIP712CosmosTx(
 	ctx sdk.Context,
-	chainApp *chainapp.Evermint,
+	chainApp *chainapp.Everlast,
 	args EIP712TxArgs,
 ) (sdk.Tx, error) {
 	builder, err := PrepareEIP712CosmosTx(
@@ -49,7 +49,7 @@ func CreateEIP712CosmosTx(
 // It returns the tx builder with the signed transaction and an error
 func PrepareEIP712CosmosTx(
 	ctx sdk.Context,
-	chainApp *chainapp.Evermint,
+	chainApp *chainapp.Everlast,
 	args EIP712TxArgs,
 ) (client.TxBuilder, error) {
 	txArgs := &args.CosmosTxArgs
@@ -114,7 +114,7 @@ func PrepareEIP712CosmosTx(
 // the provided private key and the typed data
 func signCosmosEIP712Tx(
 	ctx sdk.Context,
-	chainApp *chainapp.Evermint,
+	chainApp *chainapp.Everlast,
 	args EIP712TxArgs,
 	builder authtx.ExtensionOptionsTxBuilder,
 	chainID uint64,

@@ -15,16 +15,16 @@ import (
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
 	"github.com/ethereum/go-ethereum/crypto"
 
-	chainapp "github.com/EscanBE/evermint/v12/app"
-	"github.com/EscanBE/evermint/v12/testutil/tx"
-	evm "github.com/EscanBE/evermint/v12/x/evm/types"
+	chainapp "github.com/EscanBE/everlast/v12/app"
+	"github.com/EscanBE/everlast/v12/testutil/tx"
+	evm "github.com/EscanBE/everlast/v12/x/evm/types"
 )
 
 // DeployContract deploys a contract with the provided private key,
 // compiled contract data and constructor arguments
 func DeployContract(
 	ctx sdk.Context,
-	chainApp *chainapp.Evermint,
+	chainApp *chainapp.Everlast,
 	priv cryptotypes.PrivKey,
 	queryClientEvm evm.QueryClient,
 	contract evm.CompiledContract,
@@ -73,7 +73,7 @@ func DeployContract(
 // with the provided factoryAddress
 func DeployContractWithFactory(
 	ctx sdk.Context,
-	chainApp *chainapp.Evermint,
+	chainApp *chainapp.Everlast,
 	priv cryptotypes.PrivKey,
 	factoryAddress common.Address,
 ) (sdk.Context, common.Address, abci.ExecTxResult, error) {

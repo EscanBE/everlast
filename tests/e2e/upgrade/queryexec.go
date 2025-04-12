@@ -3,7 +3,7 @@ package upgrade
 import (
 	"fmt"
 
-	"github.com/EscanBE/evermint/v12/constants"
+	"github.com/EscanBE/everlast/v12/constants"
 )
 
 // CreateModuleQueryExec creates a module query for out chain

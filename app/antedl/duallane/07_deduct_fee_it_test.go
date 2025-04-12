@@ -3,15 +3,15 @@ package duallane_test
 import (
 	"math/big"
 
-	evertypes "github.com/EscanBE/evermint/v12/types"
+	evertypes "github.com/EscanBE/everlast/v12/types"
 
 	sdkmath "cosmossdk.io/math"
-	"github.com/EscanBE/evermint/v12/constants"
-	evmtypes "github.com/EscanBE/evermint/v12/x/evm/types"
+	"github.com/EscanBE/everlast/v12/constants"
+	evmtypes "github.com/EscanBE/everlast/v12/x/evm/types"
 	"github.com/ethereum/go-ethereum/common/math"
 
-	"github.com/EscanBE/evermint/v12/app/antedl/duallane"
-	itutiltypes "github.com/EscanBE/evermint/v12/integration_test_util/types"
+	"github.com/EscanBE/everlast/v12/app/antedl/duallane"
+	itutiltypes "github.com/EscanBE/everlast/v12/integration_test_util/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkauthante "github.com/cosmos/cosmos-sdk/x/auth/ante"
 	ethtypes "github.com/ethereum/go-ethereum/core/types"

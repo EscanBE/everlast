@@ -22,7 +22,7 @@ import (
 	"fmt"
 	"math/big"
 
-	evmtypes "github.com/EscanBE/evermint/v12/x/evm/types"
+	evmtypes "github.com/EscanBE/everlast/v12/x/evm/types"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/core"
 	corevm "github.com/ethereum/go-ethereum/core/vm"
@@ -61,7 +61,7 @@ type StateTransition struct {
 	state      corevm.StateDB
 	evm        *corevm.EVM
 
-	// extra fields for Evermint
+	// extra fields for Everlast
 
 	/**
 	 * SenderPaidTheFee is a flag that indicates if the sender paid the fee in the AnteHandle.
@@ -274,7 +274,7 @@ func (st *StateTransition) TransitionDb() (*core.ExecutionResult, error) {
 		// are 0. This avoids a negative effectiveTip being applied to
 		// the coinbase when simulating calls.
 	} else {
-		/* This logic was disabled because it was not on Evermint
+		/* This logic was disabled because it was not on Everlast
 		// TODO ES: consider make this work
 
 		effectiveTip := st.gasPrice

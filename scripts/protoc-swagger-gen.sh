@@ -11,7 +11,7 @@ cp ./proto/buf.gen.swagger.yaml "$SWAGGER_DIR/proto/buf.gen.swagger.yaml"
 
 # copy existing proto files
 cp -r ./proto/ethermint "$SWAGGER_DIR/proto"
-cp -r ./proto/evermint "$SWAGGER_DIR/proto"
+cp -r ./proto/everlast "$SWAGGER_DIR/proto"
 
 # create temporary folder to store intermediate results from `buf generate`
 mkdir -p ./tmp-swagger-gen

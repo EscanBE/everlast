@@ -48,16 +48,16 @@ import (
 	ibctesting "github.com/cosmos/ibc-go/v8/testing"
 	ibctestingtypes "github.com/cosmos/ibc-go/v8/testing/types"
 
-	"github.com/EscanBE/evermint/v12/app/antedl"
-	"github.com/EscanBE/evermint/v12/app/antedl/duallane"
-	"github.com/EscanBE/evermint/v12/app/keepers"
-	"github.com/EscanBE/evermint/v12/app/params"
-	"github.com/EscanBE/evermint/v12/app/upgrades"
-	"github.com/EscanBE/evermint/v12/client/docs"
-	"github.com/EscanBE/evermint/v12/constants"
-	"github.com/EscanBE/evermint/v12/ethereum/eip712"
-	evertypes "github.com/EscanBE/evermint/v12/types"
-	"github.com/EscanBE/evermint/v12/utils"
+	"github.com/EscanBE/everlast/v12/app/antedl"
+	"github.com/EscanBE/everlast/v12/app/antedl/duallane"
+	"github.com/EscanBE/everlast/v12/app/keepers"
+	"github.com/EscanBE/everlast/v12/app/params"
+	"github.com/EscanBE/everlast/v12/app/upgrades"
+	"github.com/EscanBE/everlast/v12/client/docs"
+	"github.com/EscanBE/everlast/v12/constants"
+	"github.com/EscanBE/everlast/v12/ethereum/eip712"
+	evertypes "github.com/EscanBE/everlast/v12/types"
+	"github.com/EscanBE/everlast/v12/utils"
 
 	// Force-load the tracer engines to trigger registration due to Go-Ethereum v1.10.15 changes
 	_ "github.com/ethereum/go-ethereum/eth/tracers/js"
@@ -73,14 +73,14 @@ var (
 )
 
 var (
-	_ servertypes.Application = (*Evermint)(nil)
-	_ ibctesting.TestingApp   = (*Evermint)(nil)
+	_ servertypes.Application = (*Everlast)(nil)
+	_ ibctesting.TestingApp   = (*Everlast)(nil)
 )
 
-// Evermint implements an extended ABCI application.
+// Everlast implements an extended ABCI application.
 // It is an application that may process transactions
 // through Ethereum's EVM running atop of CometBFT consensus.
-type Evermint struct {
+type Everlast struct {
 	*baseapp.BaseApp
 	keepers.AppKeepers
 
@@ -111,8 +111,8 @@ func init() {
 	sdk.DefaultPowerReduction = evertypes.PowerReduction // 10^18
 }
 
-// NewEvermint returns a reference to a new initialized Evermint application.
-func NewEvermint(
+// NewEverlast returns a reference to a new initialized Everlast application.
+func NewEverlast(
 	logger log.Logger,
 	db sdkdb.DB,
 	traceStore io.Writer,
@@ -123,7 +123,7 @@ func NewEvermint(
 	encodingConfig params.EncodingConfig,
 	appOpts servertypes.AppOptions,
 	baseAppOptions ...func(*baseapp.BaseApp),
-) *Evermint {
+) *Everlast {
 	appCodec := encodingConfig.Codec
 	legacyAmino := encodingConfig.Amino
 	interfaceRegistry := encodingConfig.InterfaceRegistry
@@ -150,7 +150,7 @@ func NewEvermint(
 	baseApp.SetInterfaceRegistry(interfaceRegistry)
 	baseApp.SetTxEncoder(txConfig.TxEncoder())
 
-	chainApp := &Evermint{
+	chainApp := &Everlast{
 		BaseApp:           baseApp,
 		legacyAmino:       legacyAmino,
 		txConfig:          txConfig,
@@ -253,24 +253,24 @@ func NewEvermint(
 }
 
 // Name returns the name of the App
-func (app *Evermint) Name() string { return app.BaseApp.Name() }
+func (app *Everlast) Name() string { return app.BaseApp.Name() }
 
 // BeginBlocker runs the CometBFT ABCI BeginBlock logic. It executes state changes at the beginning
 // of the new block for every registered module. If there is a registered fork at the current height,
 // BeginBlocker will schedule the upgrade plan and perform the state migration (if any).
-func (app *Evermint) BeginBlocker(ctx sdk.Context) (sdk.BeginBlock, error) {
+func (app *Everlast) BeginBlocker(ctx sdk.Context) (sdk.BeginBlock, error) {
 	// Perform any scheduled forks before executing the modules logic
 	app.scheduleForkUpgrade(ctx)
 	return app.mm.BeginBlock(ctx)
 }
 
 // EndBlocker updates every end block
-func (app *Evermint) EndBlocker(ctx sdk.Context) (sdk.EndBlock, error) {
+func (app *Everlast) EndBlocker(ctx sdk.Context) (sdk.EndBlock, error) {
 	return app.mm.EndBlock(ctx)
 }
 
 // InitChainer updates at chain initialization
-func (app *Evermint) InitChainer(ctx sdk.Context, req *abci.RequestInitChain) (*abci.ResponseInitChain, error) {
+func (app *Everlast) InitChainer(ctx sdk.Context, req *abci.RequestInitChain) (*abci.ResponseInitChain, error) {
 	var genesisState GenesisState
 	if err := json.Unmarshal(req.AppStateBytes, &genesisState); err != nil {
 		panic(err)
@@ -289,12 +289,12 @@ func (app *Evermint) InitChainer(ctx sdk.Context, req *abci.RequestInitChain) (*
 }
 
 // LoadHeight loads state at a particular height
-func (app *Evermint) LoadHeight(height int64) error {
+func (app *Everlast) LoadHeight(height int64) error {
 	return app.LoadVersion(height)
 }
 
 // ModuleAccountAddrs returns all the app's module account addresses.
-func (app *Evermint) ModuleAccountAddrs() map[string]bool {
+func (app *Everlast) ModuleAccountAddrs() map[string]bool {
 	modAccAddrs := make(map[string]bool)
 	for acc := range maccPerms {
 		modAccAddrs[authtypes.NewModuleAddress(acc).String()] = true
@@ -305,7 +305,7 @@ func (app *Evermint) ModuleAccountAddrs() map[string]bool {
 
 // BlockedModuleAccountAddrs returns all the app's module account addresses that are not
 // allowed to receive external tokens.
-func (app *Evermint) BlockedModuleAccountAddrs(modAccAddrs map[string]bool) map[string]bool {
+func (app *Everlast) BlockedModuleAccountAddrs(modAccAddrs map[string]bool) map[string]bool {
 	blockedAddrs := make(map[string]bool)
 
 	for acc := range modAccAddrs {
@@ -315,30 +315,30 @@ func (app *Evermint) BlockedModuleAccountAddrs(modAccAddrs map[string]bool) map[
 	return blockedAddrs
 }
 
-// LegacyAmino returns Evermint's amino codec.
+// LegacyAmino returns Everlast's amino codec.
 //
 // NOTE: This is solely to be used for testing purposes as it may be desirable
 // for modules to register their own custom testing types.
-func (app *Evermint) LegacyAmino() *codec.LegacyAmino {
+func (app *Everlast) LegacyAmino() *codec.LegacyAmino {
 	return app.legacyAmino
 }
 
-// AppCodec returns Evermint's app codec.
+// AppCodec returns Everlast's app codec.
 //
 // NOTE: This is solely to be used for testing purposes as it may be desirable
 // for modules to register their own custom testing types.
-func (app *Evermint) AppCodec() codec.Codec {
+func (app *Everlast) AppCodec() codec.Codec {
 	return app.appCodec
 }
 
-// InterfaceRegistry returns Evermint's InterfaceRegistry
-func (app *Evermint) InterfaceRegistry() codectypes.InterfaceRegistry {
+// InterfaceRegistry returns Everlast's InterfaceRegistry
+func (app *Everlast) InterfaceRegistry() codectypes.InterfaceRegistry {
 	return app.interfaceRegistry
 }
 
 // RegisterAPIRoutes registers all application module routes with the provided
 // API server.
-func (app *Evermint) RegisterAPIRoutes(apiSvr *api.Server, apiConfig srvconfig.APIConfig) {
+func (app *Everlast) RegisterAPIRoutes(apiSvr *api.Server, apiConfig srvconfig.APIConfig) {
 	clientCtx := apiSvr.ClientCtx
 	// Register new tx routes from grpc-gateway.
 	authtx.RegisterGRPCGatewayRoutes(clientCtx, apiSvr.GRPCGatewayRouter)
@@ -358,17 +358,17 @@ func (app *Evermint) RegisterAPIRoutes(apiSvr *api.Server, apiConfig srvconfig.A
 }
 
 // RegisterNodeService allows query minimum-gas-prices in app.toml
-func (app *Evermint) RegisterNodeService(clientCtx client.Context, cfg srvconfig.Config) {
+func (app *Everlast) RegisterNodeService(clientCtx client.Context, cfg srvconfig.Config) {
 	node.RegisterNodeService(clientCtx, app.GRPCQueryRouter(), cfg)
 }
 
 // RegisterTxService implements the Application.RegisterTxService method.
-func (app *Evermint) RegisterTxService(clientCtx client.Context) {
+func (app *Everlast) RegisterTxService(clientCtx client.Context) {
 	authtx.RegisterTxService(app.BaseApp.GRPCQueryRouter(), clientCtx, app.BaseApp.Simulate, app.interfaceRegistry)
 }
 
 // RegisterTendermintService implements the Application.RegisterTendermintService method.
-func (app *Evermint) RegisterTendermintService(clientCtx client.Context) {
+func (app *Everlast) RegisterTendermintService(clientCtx client.Context) {
 	cmtservice.RegisterTendermintService(
 		clientCtx,
 		app.BaseApp.GRPCQueryRouter(),
@@ -377,7 +377,7 @@ func (app *Evermint) RegisterTendermintService(clientCtx client.Context) {
 	)
 }
 
-func (app *Evermint) setDualLaneAnteHandler(txConfig client.TxConfig) {
+func (app *Everlast) setDualLaneAnteHandler(txConfig client.TxConfig) {
 	options := antedl.HandlerOptions{
 		Cdc:                    app.appCodec,
 		AccountKeeper:          &app.AccountKeeper,
@@ -402,7 +402,7 @@ func (app *Evermint) setDualLaneAnteHandler(txConfig client.TxConfig) {
 	app.SetAnteHandler(antedl.NewAnteHandler(options))
 }
 
-func (app *Evermint) setPostHandler() {
+func (app *Everlast) setPostHandler() {
 	postHandler, err := NewPostHandler()
 	if err != nil {
 		panic(err)
@@ -411,7 +411,7 @@ func (app *Evermint) setPostHandler() {
 	app.SetPostHandler(postHandler)
 }
 
-func (app *Evermint) setupUpgradeHandlers() {
+func (app *Everlast) setupUpgradeHandlers() {
 	for _, upgrade := range Upgrades {
 		app.UpgradeKeeper.SetUpgradeHandler(
 			upgrade.UpgradeName, // Sample v13.0.0 upgrade handler
@@ -424,7 +424,7 @@ func (app *Evermint) setupUpgradeHandlers() {
 	}
 }
 
-func (app *Evermint) setupUpgradeStoreLoaders() {
+func (app *Everlast) setupUpgradeStoreLoaders() {
 	// When a planned update height is reached, the old binary will panic
 	// writing on disk the height and name of the update that triggered it
 	// This will read that value, and execute the preparations for the upgrade.
@@ -449,17 +449,17 @@ func (app *Evermint) setupUpgradeStoreLoaders() {
 // IBC Go TestingApp functions
 
 // GetBaseApp implements the TestingApp interface.
-func (app *Evermint) GetBaseApp() *baseapp.BaseApp {
+func (app *Everlast) GetBaseApp() *baseapp.BaseApp {
 	return app.BaseApp
 }
 
 // GetTxConfig implements the TestingApp interface.
-func (app *Evermint) GetTxConfig() client.TxConfig {
+func (app *Everlast) GetTxConfig() client.TxConfig {
 	return app.txConfig
 }
 
 // AutoCliOpts returns the autocli options for the app.
-func (app *Evermint) AutoCliOpts() autocli.AppOptions {
+func (app *Everlast) AutoCliOpts() autocli.AppOptions {
 	modules := make(map[string]appmodule.AppModule, 0)
 	for _, m := range app.mm.Modules {
 		if moduleWithName, ok := m.(module.HasName); ok {
@@ -480,22 +480,22 @@ func (app *Evermint) AutoCliOpts() autocli.AppOptions {
 }
 
 // GetStakingKeeper implements the TestingApp interface.
-func (app *Evermint) GetStakingKeeper() ibctestingtypes.StakingKeeper {
+func (app *Everlast) GetStakingKeeper() ibctestingtypes.StakingKeeper {
 	return app.StakingKeeper
 }
 
 // GetStakingKeeperSDK implements the TestingApp interface.
-func (app *Evermint) GetStakingKeeperSDK() stakingkeeper.Keeper {
+func (app *Everlast) GetStakingKeeperSDK() stakingkeeper.Keeper {
 	return *app.StakingKeeper
 }
 
 // GetIBCKeeper implements the TestingApp interface.
-func (app *Evermint) GetIBCKeeper() *ibckeeper.Keeper {
+func (app *Everlast) GetIBCKeeper() *ibckeeper.Keeper {
 	return app.IBCKeeper
 }
 
 // GetScopedIBCKeeper implements the TestingApp interface.
-func (app *Evermint) GetScopedIBCKeeper() capabilitykeeper.ScopedKeeper {
+func (app *Everlast) GetScopedIBCKeeper() capabilitykeeper.ScopedKeeper {
 	return app.ScopedIBCKeeper
 }
 

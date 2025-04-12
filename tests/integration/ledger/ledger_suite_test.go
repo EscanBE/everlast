@@ -27,18 +27,18 @@ import (
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/spf13/cobra"
 
-	chainapp "github.com/EscanBE/evermint/v12/app"
-	"github.com/EscanBE/evermint/v12/app/helpers"
-	"github.com/EscanBE/evermint/v12/app/params"
-	"github.com/EscanBE/evermint/v12/constants"
-	"github.com/EscanBE/evermint/v12/crypto/hd"
-	"github.com/EscanBE/evermint/v12/tests/integration/ledger/mocks"
-	utiltx "github.com/EscanBE/evermint/v12/testutil/tx"
-	"github.com/EscanBE/evermint/v12/utils"
+	chainapp "github.com/EscanBE/everlast/v12/app"
+	"github.com/EscanBE/everlast/v12/app/helpers"
+	"github.com/EscanBE/everlast/v12/app/params"
+	"github.com/EscanBE/everlast/v12/constants"
+	"github.com/EscanBE/everlast/v12/crypto/hd"
+	"github.com/EscanBE/everlast/v12/tests/integration/ledger/mocks"
+	utiltx "github.com/EscanBE/everlast/v12/testutil/tx"
+	"github.com/EscanBE/everlast/v12/utils"
 
-	clientkeys "github.com/EscanBE/evermint/v12/client/keys"
-	appkeyring "github.com/EscanBE/evermint/v12/crypto/keyring"
-	feemarkettypes "github.com/EscanBE/evermint/v12/x/feemarket/types"
+	clientkeys "github.com/EscanBE/everlast/v12/client/keys"
+	appkeyring "github.com/EscanBE/everlast/v12/crypto/keyring"
+	feemarkettypes "github.com/EscanBE/everlast/v12/x/feemarket/types"
 	cosmosledger "github.com/cosmos/cosmos-sdk/crypto/ledger"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
@@ -51,7 +51,7 @@ var s *LedgerTestSuite
 type LedgerTestSuite struct {
 	suite.Suite
 
-	app *chainapp.Evermint
+	app *chainapp.Everlast
 	ctx sdk.Context
 
 	ledger       *mocks.SECP256K1

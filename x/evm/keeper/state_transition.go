@@ -5,7 +5,7 @@ import (
 	"math/big"
 
 	errorsmod "cosmossdk.io/errors"
-	cpckeeper "github.com/EscanBE/evermint/v12/x/cpc/keeper"
+	cpckeeper "github.com/EscanBE/everlast/v12/x/cpc/keeper"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
 	"github.com/ethereum/go-ethereum/common"
@@ -13,9 +13,9 @@ import (
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
 	corevm "github.com/ethereum/go-ethereum/core/vm"
 
-	evertypes "github.com/EscanBE/evermint/v12/types"
-	evmtypes "github.com/EscanBE/evermint/v12/x/evm/types"
-	evmvm "github.com/EscanBE/evermint/v12/x/evm/vm"
+	evertypes "github.com/EscanBE/everlast/v12/types"
+	evmtypes "github.com/EscanBE/everlast/v12/x/evm/types"
+	evmvm "github.com/EscanBE/everlast/v12/x/evm/vm"
 )
 
 // NewEVM generates a go-ethereum VM from the provided Message fields and the chain parameters
@@ -95,7 +95,7 @@ func (k *Keeper) NewEVM(
 	return evm
 }
 
-// GetHashFn implements vm.GetHashFunc for Evermint.
+// GetHashFn implements vm.GetHashFunc for Everlast.
 func (k Keeper) GetHashFn(ctx sdk.Context) corevm.GetHashFunc {
 	return func(height uint64) common.Hash {
 		h, err := evertypes.SafeInt64(height)

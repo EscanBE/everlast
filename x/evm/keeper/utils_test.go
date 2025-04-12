@@ -5,12 +5,12 @@ import (
 	"math/big"
 	"time"
 
-	evertypes "github.com/EscanBE/evermint/v12/types"
-	evmvm "github.com/EscanBE/evermint/v12/x/evm/vm"
+	evertypes "github.com/EscanBE/everlast/v12/types"
+	evmvm "github.com/EscanBE/everlast/v12/x/evm/vm"
 
-	"github.com/EscanBE/evermint/v12/server/config"
-	"github.com/EscanBE/evermint/v12/testutil"
-	evmtypes "github.com/EscanBE/evermint/v12/x/evm/types"
+	"github.com/EscanBE/everlast/v12/server/config"
+	"github.com/EscanBE/everlast/v12/testutil"
+	evmtypes "github.com/EscanBE/everlast/v12/x/evm/types"
 	"github.com/cosmos/cosmos-sdk/baseapp"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/ethereum/go-ethereum/common"

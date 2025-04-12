@@ -16,10 +16,10 @@ import (
 
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
 
-	dlanteutils "github.com/EscanBE/evermint/v12/app/antedl/utils"
-	"github.com/EscanBE/evermint/v12/crypto/ethsecp256k1"
-	evmkeeper "github.com/EscanBE/evermint/v12/x/evm/keeper"
-	evmtypes "github.com/EscanBE/evermint/v12/x/evm/types"
+	dlanteutils "github.com/EscanBE/everlast/v12/app/antedl/utils"
+	"github.com/EscanBE/everlast/v12/crypto/ethsecp256k1"
+	evmkeeper "github.com/EscanBE/everlast/v12/x/evm/keeper"
+	evmtypes "github.com/EscanBE/everlast/v12/x/evm/types"
 )
 
 var _ sdkauthante.SignatureVerificationGasConsumer = SigVerificationGasConsumer

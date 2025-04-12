@@ -9,11 +9,11 @@ import (
 // App
 
 const (
-	ApplicationName = "evermint"
+	ApplicationName = "everlast"
 
-	ApplicationBinaryName = "evmd"
+	ApplicationBinaryName = "evld"
 
-	ApplicationHome = ".evermint"
+	ApplicationHome = ".everlast"
 
 	GitHubRepo = "https://github.com/EscanBE/" + ApplicationName // must be well-formed url pattern: "https://github.com/owner/repo"
 )
@@ -31,11 +31,11 @@ const (
 	//
 	// During code, we will use the term 'native coin' for this denomination
 	// so other developers can take advantage of renaming constants when forking this project.
-	BaseDenom = "wei"
+	BaseDenom = "aevl"
 
-	DisplayDenom = "ether"
+	DisplayDenom = "everlast"
 
-	SymbolDenom = "ETH"
+	SymbolDenom = "EVL"
 
 	BaseDenomExponent = 18
 )
@@ -44,7 +44,7 @@ const (
 
 const (
 	// Bech32Prefix is the HRP (human-readable part) of the Bech32 encoded address of this chain
-	Bech32Prefix = "evm"
+	Bech32Prefix = "evl"
 
 	// Bech32PrefixAccAddr defines the Bech32 prefix of an account's address
 	Bech32PrefixAccAddr = Bech32Prefix
@@ -68,20 +68,20 @@ const (
 // Chain ID
 
 const (
-	ChainIdPrefix = "evermint"
+	ChainIdPrefix = "everlast"
 
 	// MainnetChainID defines the Cosmos-style EIP155 chain ID for mainnet
-	MainnetChainID = ChainIdPrefix + "_90909"
+	MainnetChainID = ChainIdPrefix + "_97"
 	// TestnetChainID defines the Cosmos-style EIP155 chain ID for testnet
-	TestnetChainID = ChainIdPrefix + "_80808"
+	TestnetChainID = ChainIdPrefix + "_970"
 	// DevnetChainID defines the Cosmos-style EIP155 chain ID for devnet
-	DevnetChainID = ChainIdPrefix + "_70707"
+	DevnetChainID = ChainIdPrefix + "_9700"
 
 	MainnetFullChainId = MainnetChainID + "-1"
 	TestnetFullChainId = TestnetChainID + "-1"
 	DevnetFullChainId  = DevnetChainID + "-1"
 
-	MainnetEIP155ChainId = 90909
-	TestnetEIP155ChainId = 80808
-	DevnetEIP155ChainId  = 70707
+	MainnetEIP155ChainId = 97
+	TestnetEIP155ChainId = 970
+	DevnetEIP155ChainId  = 9700
 )

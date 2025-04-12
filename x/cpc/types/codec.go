@@ -8,9 +8,9 @@ import (
 
 // RegisterCodec registers the necessary types and interfaces for the module
 func RegisterCodec(cdc *codec.LegacyAmino) {
-	cdc.RegisterConcrete(&MsgUpdateParams{}, "evermint/cpc/MsgUpdateParams", nil)
-	cdc.RegisterConcrete(&MsgDeployErc20ContractRequest{}, "evermint/cpc/MsgDeployErc20ContractRequest", nil)
-	cdc.RegisterConcrete(&MsgDeployStakingContractRequest{}, "evermint/cpc/MsgDeployStakingContractRequest", nil)
+	cdc.RegisterConcrete(&MsgUpdateParams{}, "everlast/cpc/MsgUpdateParams", nil)
+	cdc.RegisterConcrete(&MsgDeployErc20ContractRequest{}, "everlast/cpc/MsgDeployErc20ContractRequest", nil)
+	cdc.RegisterConcrete(&MsgDeployStakingContractRequest{}, "everlast/cpc/MsgDeployStakingContractRequest", nil)
 }
 
 // RegisterInterfaces registers implementations by its interface, for the module

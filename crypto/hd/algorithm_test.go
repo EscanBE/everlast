@@ -5,8 +5,8 @@ import (
 	"strings"
 	"testing"
 
-	chainapp "github.com/EscanBE/evermint/v12/app"
-	"github.com/EscanBE/evermint/v12/constants"
+	chainapp "github.com/EscanBE/everlast/v12/app"
+	"github.com/EscanBE/everlast/v12/constants"
 
 	"github.com/stretchr/testify/require"
 
@@ -16,8 +16,8 @@ import (
 	codectypes "github.com/cosmos/cosmos-sdk/codec/types"
 	"github.com/cosmos/cosmos-sdk/crypto/keyring"
 
-	cryptocodec "github.com/EscanBE/evermint/v12/crypto/codec"
-	evertypes "github.com/EscanBE/evermint/v12/types"
+	cryptocodec "github.com/EscanBE/everlast/v12/crypto/codec"
+	evertypes "github.com/EscanBE/everlast/v12/types"
 )
 
 var TestCodec codec.Codec
@@ -118,15 +118,15 @@ func TestDerivation(t *testing.T) {
 	require.Equal(t, badAccount.Address.String(), "0xF8D6FDf2B8b488ea37e54903750dcd13F67E71cb")
 	// Inequality of wrong derivation path address
 	require.NotEqual(t, account.Address.String(), badAccount.Address.String())
-	// Equality of Evermint implementation
+	// Equality of Everlast implementation
 	require.Equal(t, common.BytesToAddress(privkey.PubKey().Address().Bytes()).String(), "0xA588C66983a81e800Db4dF74564F09f91c026351")
 	require.Equal(t, common.BytesToAddress(badPrivKey.PubKey().Address().Bytes()).String(), "0xF8D6FDf2B8b488ea37e54903750dcd13F67E71cb")
 
-	// Equality of Eth and Evermint implementation
+	// Equality of Eth and Everlast implementation
 	require.Equal(t, common.BytesToAddress(privkey.PubKey().Address()).String(), account.Address.String())
 	require.Equal(t, common.BytesToAddress(badPrivKey.PubKey().Address()).String(), badAccount.Address.String())
 
-	// Inequality of wrong derivation path of Eth and Evermint implementation
+	// Inequality of wrong derivation path of Eth and Everlast implementation
 	require.NotEqual(t, common.BytesToAddress(privkey.PubKey().Address()).String(), badAccount.Address.String())
 	require.NotEqual(t, common.BytesToAddress(badPrivKey.PubKey().Address()).String(), account.Address.Hex())
 }

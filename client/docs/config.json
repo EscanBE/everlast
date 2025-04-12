@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "Evermint Chain - gRPC Gateway docs",
+    "title": "Everlast Chain - gRPC Gateway docs",
     "description": "A REST interface for state queries and transactions",
     "version": "1.0.0"
   },
@@ -24,10 +24,10 @@
       }
     },
     {
-      "url": "./tmp-swagger-gen/evermint/vauth/v1/query.swagger.json"
+      "url": "./tmp-swagger-gen/everlast/vauth/v1/query.swagger.json"
     },
     {
-      "url": "./tmp-swagger-gen/evermint/cpc/v1/query.swagger.json",
+      "url": "./tmp-swagger-gen/everlast/cpc/v1/query.swagger.json",
       "operationIds": {
         "rename": {
           "Params": "CpcParams",

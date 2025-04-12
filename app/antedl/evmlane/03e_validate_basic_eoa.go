@@ -8,9 +8,9 @@ import (
 
 	"github.com/ethereum/go-ethereum/common"
 
-	dlanteutils "github.com/EscanBE/evermint/v12/app/antedl/utils"
-	evmkeeper "github.com/EscanBE/evermint/v12/x/evm/keeper"
-	evmtypes "github.com/EscanBE/evermint/v12/x/evm/types"
+	dlanteutils "github.com/EscanBE/everlast/v12/app/antedl/utils"
+	evmkeeper "github.com/EscanBE/everlast/v12/x/evm/keeper"
+	evmtypes "github.com/EscanBE/everlast/v12/x/evm/types"
 )
 
 type ELValidateBasicEoaDecorator struct {

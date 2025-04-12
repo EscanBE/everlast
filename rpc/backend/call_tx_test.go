@@ -6,10 +6,10 @@ import (
 
 	sdkmath "cosmossdk.io/math"
 
-	"github.com/EscanBE/evermint/v12/rpc/backend/mocks"
-	rpctypes "github.com/EscanBE/evermint/v12/rpc/types"
-	utiltx "github.com/EscanBE/evermint/v12/testutil/tx"
-	evmtypes "github.com/EscanBE/evermint/v12/x/evm/types"
+	"github.com/EscanBE/everlast/v12/rpc/backend/mocks"
+	rpctypes "github.com/EscanBE/everlast/v12/rpc/types"
+	utiltx "github.com/EscanBE/everlast/v12/testutil/tx"
+	evmtypes "github.com/EscanBE/everlast/v12/x/evm/types"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/common/hexutil"
 	ethtypes "github.com/ethereum/go-ethereum/core/types"

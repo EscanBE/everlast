@@ -9,8 +9,8 @@ import (
 
 	addresscodec "github.com/cosmos/cosmos-sdk/codec/address"
 
-	"github.com/EscanBE/evermint/v12/constants"
-	"github.com/EscanBE/evermint/v12/rename_chain/marker"
+	"github.com/EscanBE/everlast/v12/constants"
+	
 
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/stretchr/testify/require"
@@ -427,7 +427,7 @@ func Test_Staking(t *testing.T) {
 			{
 				Action:       "Delegate",
 				Delegator:    common.BytesToAddress([]byte("delegator")),
-				Validator:    marker.ReplaceAbleAddress("evmvaloper1cqetlv987ntelz7s6ntvv95ltrns9qt6et40np"),
+				Validator:    "evlvaloper1cqetlv987ntelz7s6ntvv95ltrns9qt6f63s47",
 				Amount:       big.NewInt(1),
 				Denom:        constants.BaseDenom,
 				OldValidator: stakingMessageEmptyOldValidatorValue,
@@ -435,7 +435,7 @@ func Test_Staking(t *testing.T) {
 			{
 				Action:       "Undelegate",
 				Delegator:    common.BytesToAddress([]byte("delegator")),
-				Validator:    marker.ReplaceAbleAddress("evmvaloper1cqetlv987ntelz7s6ntvv95ltrns9qt6et40np"),
+				Validator:    "evlvaloper1cqetlv987ntelz7s6ntvv95ltrns9qt6f63s47",
 				Amount:       big.NewInt(1),
 				Denom:        constants.BaseDenom,
 				OldValidator: stakingMessageEmptyOldValidatorValue,
@@ -443,10 +443,10 @@ func Test_Staking(t *testing.T) {
 			{
 				Action:       "Redelegate",
 				Delegator:    common.BytesToAddress([]byte("delegator")),
-				Validator:    marker.ReplaceAbleAddress("evmvaloper1cqetlv987ntelz7s6ntvv95ltrns9qt6et40np"),
+				Validator:    "evlvaloper1cqetlv987ntelz7s6ntvv95ltrns9qt6f63s47",
 				Amount:       big.NewInt(1),
 				Denom:        constants.BaseDenom,
-				OldValidator: marker.ReplaceAbleAddress("evmvaloper1cqetlv987ntelz7s6ntvv95ltrns9qtmyap6wn"),
+				OldValidator: "evlvaloper1cqetlv987ntelz7s6ntvv95ltrns9qtm5v99gv",
 			},
 		}
 		for _, message := range messages {
@@ -495,7 +495,7 @@ func Test_Staking(t *testing.T) {
 	t.Run("withdrawRewardsByMessage(WithdrawRewardMessage,bytes32,bytes32,uint8)", func(t *testing.T) {
 		withdrawStruct := WithdrawRewardMessage{
 			Delegator:     common.BytesToAddress([]byte("delegator")),
-			FromValidator: marker.ReplaceAbleAddress("evmvaloper1cqetlv987ntelz7s6ntvv95ltrns9qt6et40np"),
+			FromValidator: "evlvaloper1cqetlv987ntelz7s6ntvv95ltrns9qt6f63s47",
 		}
 		require.Nil(t, withdrawStruct.Validate(addresscodec.NewBech32Codec(constants.Bech32PrefixValAddr)))
 		bz, err := cpcInfo.ABI.Methods["withdrawRewardsByMessage"].Inputs.Pack(withdrawStruct, toByte32(bigIntMaxInt64Bz), toByte32(bigIntMaxUint64Bz), uint8(math.MaxUint8))

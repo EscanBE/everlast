@@ -1,7 +1,7 @@
 package keeper
 
 import (
-	evmtypes "github.com/EscanBE/evermint/v12/x/evm/types"
+	evmtypes "github.com/EscanBE/everlast/v12/x/evm/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 )
 

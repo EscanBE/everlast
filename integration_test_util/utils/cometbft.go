@@ -10,7 +10,7 @@ import (
 	cmtcfg "github.com/cometbft/cometbft/config"
 
 	"cosmossdk.io/log"
-	"github.com/EscanBE/evermint/v12/constants"
+	"github.com/EscanBE/everlast/v12/constants"
 	abci "github.com/cometbft/cometbft/abci/types"
 	tmcrypto "github.com/cometbft/cometbft/crypto"
 	cmtnode "github.com/cometbft/cometbft/node"

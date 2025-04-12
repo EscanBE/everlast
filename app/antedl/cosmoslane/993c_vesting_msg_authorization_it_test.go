@@ -12,11 +12,11 @@ import (
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
 	"github.com/ethereum/go-ethereum/crypto"
 
-	"github.com/EscanBE/evermint/v12/app/antedl/cosmoslane"
-	"github.com/EscanBE/evermint/v12/constants"
-	itutiltypes "github.com/EscanBE/evermint/v12/integration_test_util/types"
-	"github.com/EscanBE/evermint/v12/rename_chain/marker"
-	vauthtypes "github.com/EscanBE/evermint/v12/x/vauth/types"
+	"github.com/EscanBE/everlast/v12/app/antedl/cosmoslane"
+	"github.com/EscanBE/everlast/v12/constants"
+	itutiltypes "github.com/EscanBE/everlast/v12/integration_test_util/types"
+	
+	vauthtypes "github.com/EscanBE/everlast/v12/x/vauth/types"
 )
 
 func (s *CLTestSuite) Test_CLVestingMessagesAuthorizationDecorator() {
@@ -24,7 +24,7 @@ func (s *CLTestSuite) Test_CLVestingMessagesAuthorizationDecorator() {
 	acc2 := s.ATS.CITS.WalletAccounts.Number(2)
 
 	proof := vauthtypes.ProofExternalOwnedAccount{
-		Account:   marker.ReplaceAbleAddress("evm1xx2enpw8wzlr64xkdz2gh3c7epucfdftnqtcem"),
+		Account:   "evl1xx2enpw8wzlr64xkdz2gh3c7epucfdftc7un5s",
 		Hash:      "0x" + hex.EncodeToString(crypto.Keccak256([]byte(vauthtypes.MessageToSign))),
 		Signature: "0xe665110439b1d18002ef866285f7e532090065ad74274560db5e8373d0cdb6297afefc70a5dd46c23e74bd3f0f262195f089b2923242a14e8e0791f4b0621a2c00",
 	}

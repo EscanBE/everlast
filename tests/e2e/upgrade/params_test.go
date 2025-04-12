@@ -4,7 +4,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/EscanBE/evermint/v12/constants"
+	"github.com/EscanBE/everlast/v12/constants"
 
 	"github.com/stretchr/testify/require"
 )
@@ -44,10 +44,10 @@ func TestLoadUpgradeParams(t *testing.T) {
 				targetVersion:  "v0.2.0",
 				chainID:        constants.DevnetChainID,
 				skipCleanup:    "true",
-				mountPath:      "/tmp/evermint",
+				mountPath:      "/tmp/everlast",
 			},
 			want: Params{
-				MountPath: "/tmp/evermint",
+				MountPath: "/tmp/everlast",
 				Versions: []VersionConfig{
 					{"v0.1.0", "v0.1.0", dockerRepo},
 					{"v0.2.0", "v0.2.0", dockerRepo},

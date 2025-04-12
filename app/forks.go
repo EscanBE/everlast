@@ -15,7 +15,7 @@ import (
 //
 //  1. Release a non-breaking patch version so that the chain can set the scheduled upgrade plan at upgrade-height.
 //  2. Release the software defined in the upgrade-info
-func (app *Evermint) scheduleForkUpgrade(ctx sdk.Context) {
+func (app *Everlast) scheduleForkUpgrade(ctx sdk.Context) {
 	for _, hardFork := range HardForks {
 		if hardFork.UpgradeHeight == ctx.BlockHeight() {
 			upgradePlan := upgradetypes.Plan{
