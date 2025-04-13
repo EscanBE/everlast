@@ -215,6 +215,7 @@ You gonna get "data/application.db" unpacked
 		}(),
 		inspect.Cmd(),
 		NewConvertAddressCmd(),
+		NewImproveGenesisCmd(),
 	}
 
 	rootCmd.AddCommand(commands...)
