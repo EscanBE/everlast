@@ -58,6 +58,7 @@ Ref: https://keepachangelog.com/en/1.0.0/
 - (evm) [Evermint#171](https://github.com/EscanBE/evermint/pull/171) Refactor code relates to `proposer address` in `x/evm`
 - (evm) [Evermint#172](https://github.com/EscanBE/evermint/pull/172) Remove unnecessary `block-max-gas` arg in some requests (continue #127)
 - (evm) [Evermint#180](https://github.com/EscanBE/evermint/pull/180) Support EIP-712 message signing for ESIP-179 Staking precompiled contract
+- (evm) [#3](https://github.com/EscanBE/everlast/pull/3) Prevent state from being overwhelmed by too many contracts created
 
 ### Bug Fixes
 
