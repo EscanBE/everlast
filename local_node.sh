@@ -78,10 +78,18 @@ if [[ $overwrite == "y" || $overwrite == "Y" ]]; then
 	# Change parameter token denominations to native coin base denom
 	jq '.app_state["staking"]["params"]["bond_denom"]="'$MIN_DENOM'"' "$GENESIS" >"$TMP_GENESIS" && mv "$TMP_GENESIS" "$GENESIS"
 	jq '.app_state["crisis"]["constant_fee"]["denom"]="'$MIN_DENOM'"' "$GENESIS" >"$TMP_GENESIS" && mv "$TMP_GENESIS" "$GENESIS"
-	jq '.app_state["gov"]["deposit_params"]["min_deposit"][0]["denom"]="'$MIN_DENOM'"' "$GENESIS" >"$TMP_GENESIS" && mv "$TMP_GENESIS" "$GENESIS" # legacy gov
-	jq '.app_state["gov"]["params"]["min_deposit"][0]["denom"]="'$MIN_DENOM'"' "$GENESIS" >"$TMP_GENESIS" && mv "$TMP_GENESIS" "$GENESIS" # v0.47
+	jq '.app_state["gov"]["params"]["min_deposit"][0]["denom"]="'$MIN_DENOM'"' "$GENESIS" >"$TMP_GENESIS" && mv "$TMP_GENESIS" "$GENESIS"
+	jq '.app_state["gov"]["params"]["expedited_min_deposit"][0]["denom"]="'$MIN_DENOM'"' "$GENESIS" >"$TMP_GENESIS" && mv "$TMP_GENESIS" "$GENESIS"
 	jq '.app_state["evm"]["params"]["evm_denom"]="'$MIN_DENOM'"' "$GENESIS" >"$TMP_GENESIS" && mv "$TMP_GENESIS" "$GENESIS"
 	jq '.app_state["mint"]["params"]["mint_denom"]="'$MIN_DENOM'"' "$GENESIS" >"$TMP_GENESIS" && mv "$TMP_GENESIS" "$GENESIS"
+
+	# Change proposal periods to pass within a reasonable time for local testing
+	sed -i.bak 's/"max_deposit_period": "172800s"/"max_deposit_period": "30s"/g' "$HOMEDIR"/config/genesis.json
+	sed -i.bak 's/"voting_period": "172800s"/"voting_period": "30s"/g' "$HOMEDIR"/config/genesis.json
+	sed -i.bak 's/"expedited_voting_period": "86400s"/"expedited_voting_period": "15s"/g' "$HOMEDIR"/config/genesis.json
+
+	# Increase crisis fee
+	jq '.app_state["crisis"]["constant_fee"]["amount"]="100000000000000000000"' "$GENESIS" >"$TMP_GENESIS" && mv "$TMP_GENESIS" "$GENESIS"
 
 	# Set gas limit in genesis
 	jq '.consensus_params["block"]["max_gas"]="10000000"' "$GENESIS" >"$TMP_GENESIS" && mv "$TMP_GENESIS" "$GENESIS"
@@ -93,59 +101,12 @@ if [[ $overwrite == "y" || $overwrite == "Y" ]]; then
 	jq '.app_state["cpc"]["deploy_erc20_native"]=true' "$GENESIS" >"$TMP_GENESIS" && mv "$TMP_GENESIS" "$GENESIS"
 	jq '.app_state["cpc"]["deploy_staking_contract"]=true' "$GENESIS" >"$TMP_GENESIS" && mv "$TMP_GENESIS" "$GENESIS"
 
-	if [[ $1 == "pending" ]]; then
-		if [[ "$OSTYPE" == "darwin"* ]]; then
-			sed -i '' 's/timeout_propose = "3s"/timeout_propose = "30s"/g' "$CONFIG"
-			sed -i '' 's/timeout_propose_delta = "500ms"/timeout_propose_delta = "5s"/g' "$CONFIG"
-			sed -i '' 's/timeout_prevote = "1s"/timeout_prevote = "10s"/g' "$CONFIG"
-			sed -i '' 's/timeout_prevote_delta = "500ms"/timeout_prevote_delta = "5s"/g' "$CONFIG"
-			sed -i '' 's/timeout_precommit = "1s"/timeout_precommit = "10s"/g' "$CONFIG"
-			sed -i '' 's/timeout_precommit_delta = "500ms"/timeout_precommit_delta = "5s"/g' "$CONFIG"
-			sed -i '' 's/timeout_commit = "5s"/timeout_commit = "150s"/g' "$CONFIG"
-			sed -i '' 's/timeout_broadcast_tx_commit = "10s"/timeout_broadcast_tx_commit = "150s"/g' "$CONFIG"
-		else
-			sed -i 's/timeout_propose = "3s"/timeout_propose = "30s"/g' "$CONFIG"
-			sed -i 's/timeout_propose_delta = "500ms"/timeout_propose_delta = "5s"/g' "$CONFIG"
-			sed -i 's/timeout_prevote = "1s"/timeout_prevote = "10s"/g' "$CONFIG"
-			sed -i 's/timeout_prevote_delta = "500ms"/timeout_prevote_delta = "5s"/g' "$CONFIG"
-			sed -i 's/timeout_precommit = "1s"/timeout_precommit = "10s"/g' "$CONFIG"
-			sed -i 's/timeout_precommit_delta = "500ms"/timeout_precommit_delta = "5s"/g' "$CONFIG"
-			sed -i 's/timeout_commit = "5s"/timeout_commit = "150s"/g' "$CONFIG"
-			sed -i 's/timeout_broadcast_tx_commit = "10s"/timeout_broadcast_tx_commit = "150s"/g' "$CONFIG"
-		fi
-	fi
-
-    # enable prometheus metrics
-    if [[ "$OSTYPE" == "darwin"* ]]; then
-        sed -i '' 's/prometheus = false/prometheus = true/' "$CONFIG"
-        sed -i '' 's/prometheus-retention-time = 0/prometheus-retention-time  = 1000000000000/g' "$APP_TOML"
-        sed -i '' 's/enabled = false/enabled = true/g' "$APP_TOML"
-    else
-        sed -i 's/prometheus = false/prometheus = true/' "$CONFIG"
-        sed -i 's/prometheus-retention-time  = "0"/prometheus-retention-time  = "1000000000000"/g' "$APP_TOML"
-        sed -i 's/enabled = false/enabled = true/g' "$APP_TOML"
-    fi
-	
-	# Change proposal periods to pass within a reasonable time for local testing
-	sed -i.bak 's/"max_deposit_period": "172800s"/"max_deposit_period": "30s"/g' "$HOMEDIR"/config/genesis.json
-	sed -i.bak 's/"voting_period": "172800s"/"voting_period": "30s"/g' "$HOMEDIR"/config/genesis.json
-	sed -i.bak 's/"expedited_voting_period": "86400s"/"expedited_voting_period": "15s"/g' "$HOMEDIR"/config/genesis.json
-
-	# set custom pruning settings
-	sed -i.bak 's/pruning = "default"/pruning = "custom"/g' "$APP_TOML"
-	sed -i.bak 's/pruning-keep-recent = "0"/pruning-keep-recent = "2"/g' "$APP_TOML"
-	sed -i.bak 's/pruning-interval = "0"/pruning-interval = "10"/g' "$APP_TOML"
-
 	# Allocate genesis accounts (cosmos formatted addresses)
 	GENESIS_BALANCE="100000000000000000000000000"
   "$BINARY" add-genesis-account "${KEYS[0]}" "$GENESIS_BALANCE$MIN_DENOM" --keyring-backend $KEYRING --home "$HOMEDIR"
   "$BINARY" add-genesis-account "${KEYS[1]}" "$GENESIS_BALANCE$MIN_DENOM" --keyring-backend $KEYRING --home "$HOMEDIR"
   "$BINARY" add-genesis-account "${KEYS[2]}" "$GENESIS_BALANCE$MIN_DENOM" --keyring-backend $KEYRING --home "$HOMEDIR"
   "$BINARY" add-genesis-account "${KEYS[3]}" "$GENESIS_BALANCE$MIN_DENOM" --keyring-backend $KEYRING --home "$HOMEDIR"
-
-	# bc is required to add these big numbers
-	total_supply=$(echo "${#KEYS[@]} * $GENESIS_BALANCE" | bc)
-	jq -r --arg total_supply "$total_supply" '.app_state["bank"]["supply"][0]["amount"]=$total_supply' "$GENESIS" >"$TMP_GENESIS" && mv "$TMP_GENESIS" "$GENESIS"
 
 	# Sign genesis transaction
 	BASE_FEE="$(cat "$GENESIS" | jq -r .app_state.feemarket.params.base_fee)"
@@ -163,9 +124,19 @@ if [[ $overwrite == "y" || $overwrite == "Y" ]]; then
 	# Run this to ensure everything worked and that the genesis file is setup correctly
 	"$BINARY" validate-genesis --home "$HOMEDIR"
 
-	if [[ $1 == "pending" ]]; then
-		echo "pending mode is on, please wait for the first block committed."
-	fi
+  # enable prometheus metrics
+  if [[ "$OSTYPE" == "darwin"* ]]; then
+    sed -i '' 's/prometheus = false/prometheus = true/' "$CONFIG"
+    sed -i '' 's/prometheus-retention-time = 0/prometheus-retention-time  = 1000000000000/g' "$APP_TOML"
+    sed -i '' 's/enabled = false/enabled = true/g' "$APP_TOML"
+  else
+    sed -i 's/prometheus = false/prometheus = true/' "$CONFIG"
+    sed -i 's/prometheus-retention-time  = "0"/prometheus-retention-time  = "1000000000000"/g' "$APP_TOML"
+    sed -i 's/enabled = false/enabled = true/g' "$APP_TOML"
+  fi
+
+	# set custom pruning settings
+	sed -i.bak 's/pruning = "default"/pruning = "nothing"/g' "$APP_TOML"
 fi
 
 # Fix the initial height format
@@ -174,8 +145,8 @@ sed -i.bak 's/"initial_height": 1,/"initial_height": "1",/g' "$HOMEDIR"/config/g
 # Start the node (remove the --pruning=nothing flag if historical queries are not needed)
 "$BINARY" start \
   --metrics "$TRACE" --log_level "$LOGLEVEL" \
-  --minimum-gas-prices="0.0001$MIN_DENOM" \
-  --json-rpc.api eth,txpool,personal,net,debug,web3 \
+  --minimum-gas-prices="1$MIN_DENOM" \
+  --json-rpc.api eth,net,web3,debug \
   --allow-insecure-unlock true \
   --api.enable \
   --grpc.enable true \
