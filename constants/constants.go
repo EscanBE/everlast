@@ -31,7 +31,7 @@ const (
 	// so other developers can take advantage of renaming constants when forking this project.
 	BaseDenom = "aevl"
 
-	DisplayDenom = "everlast"
+	DisplayDenom = "EverLast"
 
 	SymbolDenom = "EVL"
 
