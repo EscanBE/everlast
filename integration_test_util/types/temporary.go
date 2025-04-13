@@ -19,7 +19,7 @@ func NewTemporaryHolder() *TemporaryHolder {
 
 func (h *TemporaryHolder) AddTempFile(file string) {
 	// Note: this does not work on Windows
-	
+
 	if len(file) < 1 {
 		return
 	}
