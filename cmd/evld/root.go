@@ -8,6 +8,8 @@ import (
 	"path/filepath"
 	"time"
 
+	"github.com/EscanBE/everlast/v12/cmd/evld/genesis"
+
 	"cosmossdk.io/client/v2/autocli"
 
 	storetypes "cosmossdk.io/store/types"
@@ -215,7 +217,7 @@ You gonna get "data/application.db" unpacked
 		}(),
 		inspect.Cmd(),
 		NewConvertAddressCmd(),
-		NewImproveGenesisCmd(),
+		genesis.Cmd(),
 	}
 
 	rootCmd.AddCommand(commands...)

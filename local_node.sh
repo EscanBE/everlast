@@ -76,7 +76,7 @@ if [[ $overwrite == "y" || $overwrite == "Y" ]]; then
 	"$BINARY" init $MONIKER -o --chain-id $CHAINID --home "$HOMEDIR"
 
 	# Improve genesis
-	"$BINARY" improve-genesis --home "$HOMEDIR"
+	"$BINARY" genesis improve --home "$HOMEDIR"
 
 	# Change proposal periods to pass within a reasonable time for local testing
 	sed -i.bak 's/"max_deposit_period": "172800s"/"max_deposit_period": "30s"/g' "$HOMEDIR"/config/genesis.json

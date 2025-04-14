@@ -1,4 +1,4 @@
-package main
+package genesis
 
 import (
 	"encoding/json"
@@ -27,7 +27,7 @@ import (
 
 func NewImproveGenesisCmd() *cobra.Command {
 	cmd := &cobra.Command{
-		Use:   "improve-genesis",
+		Use:   "improve",
 		Short: "Improve genesis by update the genesis.json file with necessary changes",
 		Args:  cobra.NoArgs,
 		RunE: func(cmd *cobra.Command, args []string) error {
