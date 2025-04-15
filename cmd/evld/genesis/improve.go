@@ -3,6 +3,7 @@ package genesis
 import (
 	"encoding/json"
 	"fmt"
+	slashingtypes "github.com/cosmos/cosmos-sdk/x/slashing/types"
 	"math/big"
 
 	sdkmath "cosmossdk.io/math"
@@ -65,6 +66,7 @@ func NewImproveGenesisCmd() *cobra.Command {
 					appState["evm"] = improveGenesisOfEvm(appState["evm"], clientCtx.Codec)
 					appState["crisis"] = improveGenesisOfCrisis(appState["crisis"], clientCtx.Codec)
 					appState["gov"] = improveGenesisOfGov(appState["gov"], clientCtx.Codec)
+					appState["slashing"] = improveGenesisOfSlashing(appState["slashing"], clientCtx.Codec)
 
 					// Marshal the updated app state back to genesis
 					updatedAppState, err := json.Marshal(appState)
@@ -166,4 +168,14 @@ func improveGenesisOfGov(rawGenesisState json.RawMessage, codec codec.Codec) jso
 	govGenesisState.Params.ExpeditedMinDeposit = sdk.NewCoins(sdk.NewCoin(constants.BaseDenom, amountOfNative(2_000)))
 
 	return codec.MustMarshalJSON(&govGenesisState)
+}
+
+// improveGenesisOfSlashing updates slashing params, increase the signed blocks window.
+func improveGenesisOfSlashing(rawGenesisState json.RawMessage, codec codec.Codec) json.RawMessage {
+	var slashingGenesisState slashingtypes.GenesisState
+	codec.MustUnmarshalJSON(rawGenesisState, &slashingGenesisState)
+
+	slashingGenesisState.Params.SignedBlocksWindow = 10_000
+
+	return codec.MustMarshalJSON(&slashingGenesisState)
 }
