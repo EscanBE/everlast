@@ -19,6 +19,7 @@ func Cmd() *cobra.Command {
 	cmd.AddCommand(
 		NewImproveGenesisCmd(),
 		NewAddEvmosSnapshotCmd(),
+		NewAddVestingAccountCmd(),
 	)
 
 	return cmd
