@@ -108,7 +108,10 @@ if [[ $overwrite == "y" || $overwrite == "Y" ]]; then
 	## 5. Copy the `gentx-*` folders under `~/.clonedHome/config/gentx/` folders into the original `~/.everlast/config/gentx`
 
 	# Collect genesis tx
-	"$BINARY" collect-gentxs --home "$HOMEDIR"
+	"$BINARY" collect-gentxs --home "$HOMEDIR" >/dev/null 2>&1
+
+	## Import balance from snapshot
+	"$BINARY" genesis add-evmos-snapshot --home "$HOMEDIR"
 
 	# Run this to ensure everything worked and that the genesis file is setup correctly
 	"$BINARY" validate-genesis --home "$HOMEDIR"
@@ -129,7 +132,7 @@ if [[ $overwrite == "y" || $overwrite == "Y" ]]; then
 fi
 
 # Fix the initial height format
-sed -i.bak 's/"initial_height": 1,/"initial_height": "1",/g' "$HOMEDIR"/config/genesis.json
+sed -i.bak 's/"initial_height": 1/"initial_height": "1"/g' "$HOMEDIR"/config/genesis.json
 
 # Start the node (remove the --pruning=nothing flag if historical queries are not needed)
 "$BINARY" start \

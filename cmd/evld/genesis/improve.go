@@ -4,7 +4,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"math/big"
-	"os"
 
 	sdkmath "cosmossdk.io/math"
 
@@ -31,81 +30,52 @@ func NewImproveGenesisCmd() *cobra.Command {
 		Short: "Improve genesis by update the genesis.json file with necessary changes",
 		Args:  cobra.NoArgs,
 		RunE: func(cmd *cobra.Command, args []string) error {
-			clientCtx := client.GetClientContextFromCmd(cmd)
-			if homeDir := clientCtx.HomeDir; homeDir == "" {
-				return fmt.Errorf("home dir not set")
-			}
+			return generalGenesisUpdateFunc(cmd, func(genesis map[string]json.RawMessage, clientCtx client.Context) error {
+				{ // Update block max gas
+					consensusGenesis := &genutiltypes.ConsensusGenesis{}
+					err := consensusGenesis.UnmarshalJSON(genesis["consensus"])
+					if err != nil {
+						return fmt.Errorf("failed to unmarshal consensus genesis: %w", err)
+					}
 
-			// Load the genesis file
-			genesisFile := fmt.Sprintf("%s/config/genesis.json", clientCtx.HomeDir)
-			genesisData, err := os.ReadFile(genesisFile)
-			if err != nil {
-				return fmt.Errorf("failed to read genesis file: %w", err)
-			}
+					if consensusGenesis.Params == nil {
+						consensusGenesis.Params = &cmttypes.ConsensusParams{}
+					}
+					consensusGenesis.Params.Block.MaxGas = 36_000_000
 
-			// Parse the genesis file
-			var genesis map[string]json.RawMessage
-			err = json.Unmarshal(genesisData, &genesis)
-			if err != nil {
-				return fmt.Errorf("failed to unmarshal genesis file: %w", err)
-			}
-
-			{ // Update block max gas
-				consensusGenesis := &genutiltypes.ConsensusGenesis{}
-				err = consensusGenesis.UnmarshalJSON(genesis["consensus"])
-				if err != nil {
-					return fmt.Errorf("failed to unmarshal consensus genesis: %w", err)
+					// Marshal the updated consensus genesis back to genesis
+					updatedConsensusGenesis, err := consensusGenesis.MarshalJSON()
+					if err != nil {
+						return fmt.Errorf("failed to marshal updated consensus genesis: %w", err)
+					}
+					genesis["consensus"] = updatedConsensusGenesis
 				}
 
-				if consensusGenesis.Params == nil {
-					consensusGenesis.Params = &cmttypes.ConsensusParams{}
+				{ // Update the app state
+					var appState map[string]json.RawMessage
+					err := json.Unmarshal(genesis["app_state"], &appState)
+					if err != nil {
+						return fmt.Errorf("failed to unmarshal app state: %w", err)
+					}
+
+					// Update genesis state for each module
+					appState["bank"] = improveGenesisOfBank(appState["bank"], clientCtx.Codec)
+					appState["staking"] = improveGenesisOfStaking(appState["staking"], clientCtx.Codec)
+					appState["mint"] = improveGenesisOfMint(appState["mint"], clientCtx.Codec)
+					appState["evm"] = improveGenesisOfEvm(appState["evm"], clientCtx.Codec)
+					appState["crisis"] = improveGenesisOfCrisis(appState["crisis"], clientCtx.Codec)
+					appState["gov"] = improveGenesisOfGov(appState["gov"], clientCtx.Codec)
+
+					// Marshal the updated app state back to genesis
+					updatedAppState, err := json.Marshal(appState)
+					if err != nil {
+						return fmt.Errorf("failed to marshal updated app state: %w", err)
+					}
+					genesis["app_state"] = updatedAppState
 				}
-				consensusGenesis.Params.Block.MaxGas = 36_000_000
 
-				// Marshal the updated consensus genesis back to genesis
-				updatedConsensusGenesis, err := consensusGenesis.MarshalJSON()
-				if err != nil {
-					return fmt.Errorf("failed to marshal updated consensus genesis: %w", err)
-				}
-				genesis["consensus"] = updatedConsensusGenesis
-			}
-
-			{ // Update the app state
-				var appState map[string]json.RawMessage
-				err = json.Unmarshal(genesis["app_state"], &appState)
-				if err != nil {
-					return fmt.Errorf("failed to unmarshal app state: %w", err)
-				}
-
-				// Update genesis state for each module
-				appState["bank"] = improveGenesisOfBank(appState["bank"], clientCtx.Codec)
-				appState["staking"] = improveGenesisOfStaking(appState["staking"], clientCtx.Codec)
-				appState["mint"] = improveGenesisOfMint(appState["mint"], clientCtx.Codec)
-				appState["evm"] = improveGenesisOfEvm(appState["evm"], clientCtx.Codec)
-				appState["crisis"] = improveGenesisOfCrisis(appState["crisis"], clientCtx.Codec)
-				appState["gov"] = improveGenesisOfGov(appState["gov"], clientCtx.Codec)
-
-				// Marshal the updated app state back to genesis
-				updatedAppState, err := json.Marshal(appState)
-				if err != nil {
-					return fmt.Errorf("failed to marshal updated app state: %w", err)
-				}
-				genesis["app_state"] = updatedAppState
-			}
-
-			// Marshal the updated genesis back to JSON
-			updatedGenesisData, err := json.MarshalIndent(genesis, "", "  ")
-			if err != nil {
-				return fmt.Errorf("failed to marshal updated genesis: %w", err)
-			}
-
-			// Write the updated genesis back to the file
-			err = os.WriteFile(genesisFile, updatedGenesisData, 0o644)
-			if err != nil {
-				return fmt.Errorf("failed to write updated genesis file: %w", err)
-			}
-
-			return nil
+				return nil
+			})
 		},
 	}
 

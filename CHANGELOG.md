@@ -47,6 +47,7 @@ Ref: https://keepachangelog.com/en/1.0.0/
 - (evm) [Evermint#178](https://github.com/EscanBE/evermint/pull/178) Staking precompiled contract ESIP-179
 - (evm) [Evermint#182](https://github.com/EscanBE/evermint/pull/182) Bech32 precompiled contract ESIP-181
 - (genesis) [#4](https://github.com/EscanBE/everlast/pull/4) Add command to update necessary genesis content
+- (genesis) [#5](https://github.com/EscanBE/everlast/pull/5) Add command to update genesis with balance snapshot
 
 ### Improvement
 

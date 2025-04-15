@@ -8,3 +8,9 @@ Make the EVM-enabled blockchain great again:
 
 EverLast builds on top of Evmos v12.1.6, and adds a lot of magic to it.
 EverLast support [stateful precompiled contracts](https://github.com/EscanBE/evermint/pull/175) in a real way to allow expanding to all Cosmos-SDK modules.
+
+### Snapshot from Evmos
+- Snapshot 1 at block 21302452 at June 5th, 2024 ([snapshot code](https://github.com/EscanBE/fork-evmos-for-snapshot/tree/snapshot/v18.1.0))
+- Snapshot 2 at block 28318578 at April 14th, 2025 ([snapshot code](https://github.com/EscanBE/fork-evmos-for-snapshot/tree/snapshot/v20.0.0))
+
+Total 3,249,247 EVL for users from both snapshots.
