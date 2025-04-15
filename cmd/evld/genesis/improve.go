@@ -120,12 +120,15 @@ func improveGenesisOfStaking(rawGenesisState json.RawMessage, codec codec.Codec)
 	return codec.MustMarshalJSON(&stakingGenesisState)
 }
 
-// improveGenesisOfMint updates mint denom.
+// improveGenesisOfMint updates mint denom, goal bonded and inflation.
 func improveGenesisOfMint(rawGenesisState json.RawMessage, codec codec.Codec) json.RawMessage {
 	var mintGenesisState minttypes.GenesisState
 	codec.MustUnmarshalJSON(rawGenesisState, &mintGenesisState)
 
 	mintGenesisState.Params.MintDenom = constants.BaseDenom
+	mintGenesisState.Params.GoalBonded = sdkmath.LegacyNewDecWithPrec(50, 2)   // 50%
+	mintGenesisState.Params.InflationMax = sdkmath.LegacyNewDecWithPrec(10, 2) // 10%
+	mintGenesisState.Params.InflationMin = sdkmath.LegacyNewDecWithPrec(03, 2) // 3%
 
 	return codec.MustMarshalJSON(&mintGenesisState)
 }
