@@ -96,6 +96,9 @@ if [[ $overwrite == "y" || $overwrite == "Y" ]]; then
   "$BINARY" add-genesis-account "${KEYS[1]}" "$GENESIS_BALANCE$MIN_DENOM" --keyring-backend $KEYRING --home "$HOMEDIR"
   "$BINARY" add-genesis-account "${KEYS[2]}" "$GENESIS_BALANCE$MIN_DENOM" --keyring-backend $KEYRING --home "$HOMEDIR"
   "$BINARY" add-genesis-account "${KEYS[3]}" "$GENESIS_BALANCE$MIN_DENOM" --keyring-backend $KEYRING --home "$HOMEDIR"
+  "$BINARY" genesis add-vesting-account "0x1000000000000000000000000000000000000001" "$GENESIS_BALANCE$MIN_DENOM" --home "$HOMEDIR" --continuous-vesting
+  "$BINARY" genesis add-vesting-account "0x2000000000000000000000000000000000000002" "$GENESIS_BALANCE$MIN_DENOM" --home "$HOMEDIR" --delayed-vesting
+  "$BINARY" genesis add-vesting-account "0x3000000000000000000000000000000000000003" "$GENESIS_BALANCE$MIN_DENOM" --home "$HOMEDIR" --permanent-locked
 
 	# Sign genesis transaction
 	BASE_FEE="$(cat "$GENESIS" | jq -r .app_state.feemarket.params.base_fee)"
