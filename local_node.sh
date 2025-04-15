@@ -13,7 +13,7 @@ MNEMONICS[2]="coral drink glow assist canyon ankle hole buffalo vendor foster vo
 # 0x6479D25261A74B1b058778d3F69Ad7cC557341A8
 MNEMONICS[3]="depth skull anxiety weasel pulp interest seek junk trumpet orbit glance drink comfort much alarm during lady strong matrix enable write pledge alcohol buzz"
 
-CHAINID="everlast_70707-1" # devnet
+CHAINID="everlast_9700-1" # devnet
 MONIKER="localtestnet"
 BINARY="evld"
 MIN_DENOM="aevl"
@@ -91,14 +91,14 @@ if [[ $overwrite == "y" || $overwrite == "Y" ]]; then
 	jq '.app_state["cpc"]["deploy_staking_contract"]=true' "$GENESIS" >"$TMP_GENESIS" && mv "$TMP_GENESIS" "$GENESIS"
 
 	# Allocate genesis accounts (cosmos formatted addresses)
-	GENESIS_BALANCE="100000000000000000000000000"
+	GENESIS_BALANCE="1000000000000000000000000"
   "$BINARY" add-genesis-account "${KEYS[0]}" "$GENESIS_BALANCE$MIN_DENOM" --keyring-backend $KEYRING --home "$HOMEDIR"
   "$BINARY" add-genesis-account "${KEYS[1]}" "$GENESIS_BALANCE$MIN_DENOM" --keyring-backend $KEYRING --home "$HOMEDIR"
   "$BINARY" add-genesis-account "${KEYS[2]}" "$GENESIS_BALANCE$MIN_DENOM" --keyring-backend $KEYRING --home "$HOMEDIR"
-  "$BINARY" add-genesis-account "${KEYS[3]}" "$GENESIS_BALANCE$MIN_DENOM" --keyring-backend $KEYRING --home "$HOMEDIR"
-  "$BINARY" genesis add-vesting-account "0x1000000000000000000000000000000000000001" "$GENESIS_BALANCE$MIN_DENOM" --home "$HOMEDIR" --continuous-vesting
-  "$BINARY" genesis add-vesting-account "0x2000000000000000000000000000000000000002" "$GENESIS_BALANCE$MIN_DENOM" --home "$HOMEDIR" --delayed-vesting
-  "$BINARY" genesis add-vesting-account "0x3000000000000000000000000000000000000003" "$GENESIS_BALANCE$MIN_DENOM" --home "$HOMEDIR" --permanent-locked
+  "$BINARY" genesis add-vesting-account "0x6479D25261A74B1b058778d3F69Ad7cC557341A8" "$GENESIS_BALANCE$MIN_DENOM" --home "$HOMEDIR" --continuous-vesting
+  # Add some dummy vesting accounts for testing
+  "$BINARY" genesis add-vesting-account "0x1000000000000000000000000000000000000001" "1000$MIN_DENOM" --home "$HOMEDIR" --delayed-vesting
+  "$BINARY" genesis add-vesting-account "0x2000000000000000000000000000000000000002" "1000$MIN_DENOM" --home "$HOMEDIR" --permanent-locked
 
 	# Sign genesis transaction
 	BASE_FEE="$(cat "$GENESIS" | jq -r .app_state.feemarket.params.base_fee)"
@@ -130,14 +130,14 @@ if [[ $overwrite == "y" || $overwrite == "Y" ]]; then
     sed -i 's/enabled = false/enabled = true/g' "$APP_TOML"
   fi
 
-	# set custom pruning settings
+	# disable pruning
 	sed -i.bak 's/pruning = "default"/pruning = "nothing"/g' "$APP_TOML"
 fi
 
 # Fix the initial height format
 sed -i.bak 's/"initial_height": 1/"initial_height": "1"/g' "$HOMEDIR"/config/genesis.json
 
-# Start the node (remove the --pruning=nothing flag if historical queries are not needed)
+# Start the node
 "$BINARY" start \
   --metrics "$TRACE" --log_level "$LOGLEVEL" \
   --minimum-gas-prices="1$MIN_DENOM" \

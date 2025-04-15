@@ -31,8 +31,10 @@ func NewAddVestingAccountCmd() *cobra.Command {
 
 	cmd := &cobra.Command{
 		Use:   "add-vesting-account [bech32/0xAddress] [amount]",
-		Short: "Add a vesting account",
-		Args:  cobra.ExactArgs(2),
+		Short: "Add a continuous/delayed/permanent-locked vesting account.",
+		Long: `Add a continuous/delayed/permanent-locked vesting account.
+The periodic vesting account type is not supported since it is complex in setting unlock schedule.`,
+		Args: cobra.ExactArgs(2),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var bech32Addr string
 			inputAddr := strings.ToLower(strings.TrimSpace(args[0]))
