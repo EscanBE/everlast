@@ -48,6 +48,7 @@ Ref: https://keepachangelog.com/en/1.0.0/
 - (evm) [Evermint#182](https://github.com/EscanBE/evermint/pull/182) Bech32 precompiled contract ESIP-181
 - (genesis) [#4](https://github.com/EscanBE/everlast/pull/4) Add command to update necessary genesis content
 - (genesis) [#5](https://github.com/EscanBE/everlast/pull/5) Add command to update genesis with balance snapshot
+- (genesis) [#6](https://github.com/EscanBE/everlast/pull/6) Add command to add continuous/delayed vesting and permanent locked account to genesis
 
 ### Improvement
 
