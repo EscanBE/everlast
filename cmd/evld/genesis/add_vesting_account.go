@@ -64,6 +64,8 @@ The periodic vesting account type is not supported since it is complex in settin
 				return fmt.Errorf("invalid amount %s: %w", rawAmount, err)
 			} else if !coins.IsAllPositive() {
 				return fmt.Errorf("invalid amount: %s", rawAmount)
+			} else if len(coins) != 1 || coins[0].Denom != constants.BaseDenom {
+				return fmt.Errorf("can only add only one coin of native: %s", rawAmount)
 			}
 
 			sumBool := func(bs ...bool) int {
@@ -179,10 +181,26 @@ The periodic vesting account type is not supported since it is complex in settin
 					var bankGenesisState banktypes.GenesisState
 					codec.MustUnmarshalJSON(appState["bank"], &bankGenesisState)
 
-					bankGenesisState.Balances = append(bankGenesisState.Balances, banktypes.Balance{
-						Address: bech32Addr,
-						Coins:   coins,
-					})
+					var foundExistingBalances bool
+					for i, balance := range bankGenesisState.Balances {
+						if balance.Address != bech32Addr {
+							continue
+						}
+
+						// update to the existing balances
+						balance.Coins = balance.Coins.Add(coins...)
+						bankGenesisState.Balances[i] = balance
+
+						foundExistingBalances = true
+						break
+					}
+
+					if !foundExistingBalances { // if not found existing record, create new
+						bankGenesisState.Balances = append(bankGenesisState.Balances, banktypes.Balance{
+							Address: bech32Addr,
+							Coins:   coins,
+						})
+					}
 
 					bankGenesisState.Supply = bankGenesisState.Supply.Add(coins...)
 
