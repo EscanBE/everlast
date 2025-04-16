@@ -5,7 +5,7 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/EscanBE/everlast/v12/indexer"
+	"github.com/EscanBE/everlast/indexer"
 	cmtcfg "github.com/cometbft/cometbft/config"
 	sm "github.com/cometbft/cometbft/state"
 	cmtstore "github.com/cometbft/cometbft/store"

@@ -6,8 +6,8 @@ import (
 
 	sdkmath "cosmossdk.io/math"
 
-	"github.com/EscanBE/everlast/v12/integration_test_util"
-	itutiltypes "github.com/EscanBE/everlast/v12/integration_test_util/types"
+	"github.com/EscanBE/everlast/integration_test_util"
+	itutiltypes "github.com/EscanBE/everlast/integration_test_util/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/stretchr/testify/suite"
 )

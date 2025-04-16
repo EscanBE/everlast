@@ -1,7 +1,7 @@
 package testutil
 
 import (
-	chainapp "github.com/EscanBE/everlast/v12/app"
+	chainapp "github.com/EscanBE/everlast/app"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 )
 

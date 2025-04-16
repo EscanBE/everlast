@@ -17,8 +17,8 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	errortypes "github.com/cosmos/cosmos-sdk/types/errors"
 
-	chainapp "github.com/EscanBE/everlast/v12/app"
-	"github.com/EscanBE/everlast/v12/testutil/tx"
+	chainapp "github.com/EscanBE/everlast/app"
+	"github.com/EscanBE/everlast/testutil/tx"
 )
 
 // Commit commits a block at a given time.

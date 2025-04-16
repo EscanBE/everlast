@@ -7,11 +7,11 @@ import (
 
 	sdkmath "cosmossdk.io/math"
 
-	evmutils "github.com/EscanBE/everlast/v12/x/evm/utils"
+	evmutils "github.com/EscanBE/everlast/x/evm/utils"
 
-	rpctypes "github.com/EscanBE/everlast/v12/rpc/types"
-	evertypes "github.com/EscanBE/everlast/v12/types"
-	evmtypes "github.com/EscanBE/everlast/v12/x/evm/types"
+	rpctypes "github.com/EscanBE/everlast/rpc/types"
+	evertypes "github.com/EscanBE/everlast/types"
+	evmtypes "github.com/EscanBE/everlast/x/evm/types"
 	cmtrpcclient "github.com/cometbft/cometbft/rpc/client"
 	cmtrpctypes "github.com/cometbft/cometbft/rpc/core/types"
 	"github.com/ethereum/go-ethereum/common"

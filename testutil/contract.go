@@ -15,9 +15,9 @@ import (
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
 	"github.com/ethereum/go-ethereum/crypto"
 
-	chainapp "github.com/EscanBE/everlast/v12/app"
-	"github.com/EscanBE/everlast/v12/testutil/tx"
-	evm "github.com/EscanBE/everlast/v12/x/evm/types"
+	chainapp "github.com/EscanBE/everlast/app"
+	"github.com/EscanBE/everlast/testutil/tx"
+	evm "github.com/EscanBE/everlast/x/evm/types"
 )
 
 // DeployContract deploys a contract with the provided private key,

@@ -3,9 +3,9 @@ package utils
 import (
 	"testing"
 
-	cmdcfg "github.com/EscanBE/everlast/v12/cmd/config"
+	cmdcfg "github.com/EscanBE/everlast/cmd/config"
 
-	"github.com/EscanBE/everlast/v12/constants"
+	"github.com/EscanBE/everlast/constants"
 
 	"github.com/stretchr/testify/require"
 
@@ -15,7 +15,7 @@ import (
 	cryptotypes "github.com/cosmos/cosmos-sdk/crypto/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/EscanBE/everlast/v12/crypto/ethsecp256k1"
+	"github.com/EscanBE/everlast/crypto/ethsecp256k1"
 )
 
 func init() {

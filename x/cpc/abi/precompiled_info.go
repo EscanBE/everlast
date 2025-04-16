@@ -8,8 +8,8 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/EscanBE/everlast/v12/x/cpc/eip712"
-	cpctypes "github.com/EscanBE/everlast/v12/x/cpc/types"
+	"github.com/EscanBE/everlast/x/cpc/eip712"
+	cpctypes "github.com/EscanBE/everlast/x/cpc/types"
 	cmath "github.com/ethereum/go-ethereum/common/math"
 	"github.com/ethereum/go-ethereum/signer/core/apitypes"
 

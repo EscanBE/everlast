@@ -1,7 +1,7 @@
 package web3
 
 import (
-	"github.com/EscanBE/everlast/v12/version"
+	"github.com/EscanBE/everlast/version"
 
 	"github.com/ethereum/go-ethereum/common/hexutil"
 	"github.com/ethereum/go-ethereum/crypto"

@@ -1,7 +1,7 @@
 package keeper
 
 import (
-	feemarkettypes "github.com/EscanBE/everlast/v12/x/feemarket/types"
+	feemarkettypes "github.com/EscanBE/everlast/x/feemarket/types"
 	"github.com/cosmos/cosmos-sdk/telemetry"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 )

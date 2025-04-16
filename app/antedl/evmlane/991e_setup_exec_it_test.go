@@ -8,8 +8,8 @@ import (
 
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
 
-	"github.com/EscanBE/everlast/v12/app/antedl/evmlane"
-	itutiltypes "github.com/EscanBE/everlast/v12/integration_test_util/types"
+	"github.com/EscanBE/everlast/app/antedl/evmlane"
+	itutiltypes "github.com/EscanBE/everlast/integration_test_util/types"
 )
 
 func (s *ELTestSuite) Test_ELSetupExecutionDecorator() {

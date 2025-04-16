@@ -4,13 +4,13 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/EscanBE/everlast/v12/constants"
+	"github.com/EscanBE/everlast/constants"
 
 	svrcmd "github.com/cosmos/cosmos-sdk/server/cmd"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	chainapp "github.com/EscanBE/everlast/v12/app"
-	cmdcfg "github.com/EscanBE/everlast/v12/cmd/config"
+	chainapp "github.com/EscanBE/everlast/app"
+	cmdcfg "github.com/EscanBE/everlast/cmd/config"
 )
 
 func main() {

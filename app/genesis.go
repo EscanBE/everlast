@@ -3,7 +3,7 @@ package app
 import (
 	"encoding/json"
 
-	"github.com/EscanBE/everlast/v12/app/params"
+	"github.com/EscanBE/everlast/app/params"
 )
 
 // GenesisState of the blockchain is represented here as a map of raw json

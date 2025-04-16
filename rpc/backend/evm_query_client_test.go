@@ -9,10 +9,10 @@ import (
 
 	sdkmath "cosmossdk.io/math"
 
-	"github.com/EscanBE/everlast/v12/rpc/backend/mocks"
-	rpc "github.com/EscanBE/everlast/v12/rpc/types"
-	utiltx "github.com/EscanBE/everlast/v12/testutil/tx"
-	evmtypes "github.com/EscanBE/everlast/v12/x/evm/types"
+	"github.com/EscanBE/everlast/rpc/backend/mocks"
+	rpc "github.com/EscanBE/everlast/rpc/types"
+	utiltx "github.com/EscanBE/everlast/testutil/tx"
+	evmtypes "github.com/EscanBE/everlast/x/evm/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	errortypes "github.com/cosmos/cosmos-sdk/types/errors"
 	grpctypes "github.com/cosmos/cosmos-sdk/types/grpc"

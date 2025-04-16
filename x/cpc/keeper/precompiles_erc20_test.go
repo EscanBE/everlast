@@ -9,9 +9,9 @@ import (
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
 
 	sdkmath "cosmossdk.io/math"
-	"github.com/EscanBE/everlast/v12/constants"
-	cpctypes "github.com/EscanBE/everlast/v12/x/cpc/types"
-	cpcutils "github.com/EscanBE/everlast/v12/x/cpc/utils"
+	"github.com/EscanBE/everlast/constants"
+	cpctypes "github.com/EscanBE/everlast/x/cpc/types"
+	cpcutils "github.com/EscanBE/everlast/x/cpc/utils"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/crypto"

@@ -1,7 +1,7 @@
 package types
 
 import (
-	evmtypes "github.com/EscanBE/everlast/v12/x/evm/types"
+	evmtypes "github.com/EscanBE/everlast/x/evm/types"
 	abci "github.com/cometbft/cometbft/abci/types"
 )
 

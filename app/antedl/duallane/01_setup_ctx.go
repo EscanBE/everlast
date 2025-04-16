@@ -7,9 +7,9 @@ import (
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 	sdkauthante "github.com/cosmos/cosmos-sdk/x/auth/ante"
 
-	dlanteutils "github.com/EscanBE/everlast/v12/app/antedl/utils"
-	"github.com/EscanBE/everlast/v12/utils"
-	evmkeeper "github.com/EscanBE/everlast/v12/x/evm/keeper"
+	dlanteutils "github.com/EscanBE/everlast/app/antedl/utils"
+	"github.com/EscanBE/everlast/utils"
+	evmkeeper "github.com/EscanBE/everlast/x/evm/keeper"
 )
 
 type DLSetupContextDecorator struct {

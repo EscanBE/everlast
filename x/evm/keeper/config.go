@@ -8,7 +8,7 @@ import (
 	"github.com/ethereum/go-ethereum/core"
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
 
-	evmvm "github.com/EscanBE/everlast/v12/x/evm/vm"
+	evmvm "github.com/EscanBE/everlast/x/evm/vm"
 )
 
 // EVMConfig creates the EVMConfig based on current state

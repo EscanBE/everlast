@@ -1,8 +1,8 @@
 package keeper_test
 
 import (
-	evmkeeper "github.com/EscanBE/everlast/v12/x/evm/keeper"
-	evmtypes "github.com/EscanBE/everlast/v12/x/evm/types"
+	evmkeeper "github.com/EscanBE/everlast/x/evm/keeper"
+	evmtypes "github.com/EscanBE/everlast/x/evm/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 )
 

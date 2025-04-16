@@ -78,6 +78,7 @@ Ref: https://keepachangelog.com/en/1.0.0/
 ### API Breaking
 
 - (evm) [Evermint#149](https://github.com/EscanBE/evermint/pull/149) Improve how block bloom emitted and include bloom to block returned by subscription to filter system
+- (app) [#9](https://github.com/EscanBE/everlast/pull/9) Remove "v12" part from go module
 
 ### State Machine Breaking
 

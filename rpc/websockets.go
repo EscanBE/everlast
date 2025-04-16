@@ -27,11 +27,11 @@ import (
 	cmtjrpcclient "github.com/cometbft/cometbft/rpc/jsonrpc/client"
 	cmttypes "github.com/cometbft/cometbft/types"
 
-	"github.com/EscanBE/everlast/v12/rpc/ethereum/pubsub"
-	rpcfilters "github.com/EscanBE/everlast/v12/rpc/namespaces/ethereum/eth/filters"
-	"github.com/EscanBE/everlast/v12/rpc/types"
-	"github.com/EscanBE/everlast/v12/server/config"
-	evmtypes "github.com/EscanBE/everlast/v12/x/evm/types"
+	"github.com/EscanBE/everlast/rpc/ethereum/pubsub"
+	rpcfilters "github.com/EscanBE/everlast/rpc/namespaces/ethereum/eth/filters"
+	"github.com/EscanBE/everlast/rpc/types"
+	"github.com/EscanBE/everlast/server/config"
+	evmtypes "github.com/EscanBE/everlast/x/evm/types"
 )
 
 type WebsocketsServer interface {

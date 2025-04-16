@@ -10,7 +10,7 @@ import (
 
 	sdkmath "cosmossdk.io/math"
 
-	"github.com/EscanBE/everlast/v12/constants"
+	"github.com/EscanBE/everlast/constants"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	banktypes "github.com/cosmos/cosmos-sdk/x/bank/types"

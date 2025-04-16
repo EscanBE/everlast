@@ -1,7 +1,7 @@
 package vm
 
 import (
-	"github.com/EscanBE/everlast/v12/utils"
+	"github.com/EscanBE/everlast/utils"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/ethereum/go-ethereum/common"
 )

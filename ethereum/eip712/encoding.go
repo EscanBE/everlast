@@ -8,14 +8,14 @@ import (
 
 	errorsmod "cosmossdk.io/errors"
 
-	"github.com/EscanBE/everlast/v12/app/params"
+	"github.com/EscanBE/everlast/app/params"
 
 	"github.com/cosmos/cosmos-sdk/x/auth/migrations/legacytx"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdktxtypes "github.com/cosmos/cosmos-sdk/types/tx"
 
-	evertypes "github.com/EscanBE/everlast/v12/types"
+	evertypes "github.com/EscanBE/everlast/types"
 	"github.com/ethereum/go-ethereum/signer/core/apitypes"
 
 	"github.com/cosmos/cosmos-sdk/codec"

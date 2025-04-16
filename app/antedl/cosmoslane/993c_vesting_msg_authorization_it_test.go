@@ -12,11 +12,11 @@ import (
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
 	"github.com/ethereum/go-ethereum/crypto"
 
-	"github.com/EscanBE/everlast/v12/app/antedl/cosmoslane"
-	"github.com/EscanBE/everlast/v12/constants"
-	itutiltypes "github.com/EscanBE/everlast/v12/integration_test_util/types"
+	"github.com/EscanBE/everlast/app/antedl/cosmoslane"
+	"github.com/EscanBE/everlast/constants"
+	itutiltypes "github.com/EscanBE/everlast/integration_test_util/types"
 
-	vauthtypes "github.com/EscanBE/everlast/v12/x/vauth/types"
+	vauthtypes "github.com/EscanBE/everlast/x/vauth/types"
 )
 
 func (s *CLTestSuite) Test_CLVestingMessagesAuthorizationDecorator() {

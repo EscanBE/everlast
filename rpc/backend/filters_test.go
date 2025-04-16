@@ -1,8 +1,8 @@
 package backend
 
 import (
-	"github.com/EscanBE/everlast/v12/rpc/backend/mocks"
-	ethrpc "github.com/EscanBE/everlast/v12/rpc/types"
+	"github.com/EscanBE/everlast/rpc/backend/mocks"
+	ethrpc "github.com/EscanBE/everlast/rpc/types"
 	cmttypes "github.com/cometbft/cometbft/types"
 	"github.com/ethereum/go-ethereum/common"
 	ethtypes "github.com/ethereum/go-ethereum/core/types"

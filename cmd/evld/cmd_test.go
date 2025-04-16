@@ -5,7 +5,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/EscanBE/everlast/v12/constants"
+	"github.com/EscanBE/everlast/constants"
 	"github.com/spf13/cobra"
 
 	"github.com/cosmos/cosmos-sdk/client/flags"
@@ -13,8 +13,8 @@ import (
 	"github.com/cosmos/cosmos-sdk/x/genutil/client/cli"
 	"github.com/stretchr/testify/require"
 
-	chainapp "github.com/EscanBE/everlast/v12/app"
-	main "github.com/EscanBE/everlast/v12/cmd/evld"
+	chainapp "github.com/EscanBE/everlast/app"
+	main "github.com/EscanBE/everlast/cmd/evld"
 )
 
 func TestInitCmd(t *testing.T) {

@@ -1,8 +1,8 @@
 package backend
 
 import (
-	"github.com/EscanBE/everlast/v12/rpc/backend/mocks"
-	evertypes "github.com/EscanBE/everlast/v12/types"
+	"github.com/EscanBE/everlast/rpc/backend/mocks"
+	evertypes "github.com/EscanBE/everlast/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 	"github.com/ethereum/go-ethereum/common"
 )

@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/EscanBE/everlast/v12/x/cpc/abi"
+	"github.com/EscanBE/everlast/x/cpc/abi"
 
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 
@@ -17,8 +17,8 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	cpctypes "github.com/EscanBE/everlast/v12/x/cpc/types"
-	cpcutils "github.com/EscanBE/everlast/v12/x/cpc/utils"
+	cpctypes "github.com/EscanBE/everlast/x/cpc/types"
+	cpcutils "github.com/EscanBE/everlast/x/cpc/utils"
 	"github.com/ethereum/go-ethereum/common"
 	corevm "github.com/ethereum/go-ethereum/core/vm"
 )

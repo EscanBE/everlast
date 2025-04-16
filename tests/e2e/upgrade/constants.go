@@ -1,7 +1,7 @@
 package upgrade
 
 import (
-	"github.com/EscanBE/everlast/v12/constants"
+	"github.com/EscanBE/everlast/constants"
 )
 
 // The constants used in the upgrade tests are defined here

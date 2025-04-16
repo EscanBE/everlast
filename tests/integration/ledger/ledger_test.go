@@ -7,18 +7,18 @@ import (
 	sdkmath "cosmossdk.io/math"
 	signingtypes "github.com/cosmos/cosmos-sdk/types/tx/signing"
 
-	params "github.com/EscanBE/everlast/v12/app/params"
+	params "github.com/EscanBE/everlast/app/params"
 
-	"github.com/EscanBE/everlast/v12/constants"
+	"github.com/EscanBE/everlast/constants"
 	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/client/flags"
 	"github.com/cosmos/cosmos-sdk/crypto/keyring"
 
-	chainapp "github.com/EscanBE/everlast/v12/app"
-	"github.com/EscanBE/everlast/v12/crypto/hd"
-	"github.com/EscanBE/everlast/v12/tests/integration/ledger/mocks"
-	"github.com/EscanBE/everlast/v12/testutil"
-	utiltx "github.com/EscanBE/everlast/v12/testutil/tx"
+	chainapp "github.com/EscanBE/everlast/app"
+	"github.com/EscanBE/everlast/crypto/hd"
+	"github.com/EscanBE/everlast/tests/integration/ledger/mocks"
+	"github.com/EscanBE/everlast/testutil"
+	utiltx "github.com/EscanBE/everlast/testutil/tx"
 
 	"github.com/spf13/cobra"
 

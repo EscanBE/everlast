@@ -3,17 +3,17 @@ package ibc
 import (
 	"testing"
 
-	cmdcfg "github.com/EscanBE/everlast/v12/cmd/config"
+	cmdcfg "github.com/EscanBE/everlast/cmd/config"
 
 	sdkmath "cosmossdk.io/math"
 
-	"github.com/EscanBE/everlast/v12/constants"
+	"github.com/EscanBE/everlast/constants"
 
 	"github.com/stretchr/testify/require"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	teststypes "github.com/EscanBE/everlast/v12/types/tests"
+	teststypes "github.com/EscanBE/everlast/types/tests"
 	transfertypes "github.com/cosmos/ibc-go/v8/modules/apps/transfer/types"
 	channeltypes "github.com/cosmos/ibc-go/v8/modules/core/04-channel/types"
 	ibctesting "github.com/cosmos/ibc-go/v8/testing"

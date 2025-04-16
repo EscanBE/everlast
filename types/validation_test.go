@@ -3,8 +3,8 @@ package types_test
 import (
 	"testing"
 
-	utiltx "github.com/EscanBE/everlast/v12/testutil/tx"
-	evertypes "github.com/EscanBE/everlast/v12/types"
+	utiltx "github.com/EscanBE/everlast/testutil/tx"
+	evertypes "github.com/EscanBE/everlast/types"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/stretchr/testify/require"
 )

@@ -12,14 +12,14 @@ import (
 
 	ethparams "github.com/ethereum/go-ethereum/params"
 
-	chainapp "github.com/EscanBE/everlast/v12/app"
-	"github.com/EscanBE/everlast/v12/constants"
+	chainapp "github.com/EscanBE/everlast/app"
+	"github.com/EscanBE/everlast/constants"
 
 	sdkmath "cosmossdk.io/math"
 	"github.com/stretchr/testify/suite"
 
-	"github.com/EscanBE/everlast/v12/crypto/ethsecp256k1"
-	utiltx "github.com/EscanBE/everlast/v12/testutil/tx"
+	"github.com/EscanBE/everlast/crypto/ethsecp256k1"
+	utiltx "github.com/EscanBE/everlast/testutil/tx"
 	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/crypto/keyring"
 	sdk "github.com/cosmos/cosmos-sdk/types"
@@ -27,7 +27,7 @@ import (
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
 	"github.com/ethereum/go-ethereum/crypto"
 
-	evmtypes "github.com/EscanBE/everlast/v12/x/evm/types"
+	evmtypes "github.com/EscanBE/everlast/x/evm/types"
 )
 
 const invalidAddress = "0x0000"

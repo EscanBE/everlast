@@ -7,7 +7,7 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	paramstypes "github.com/cosmos/cosmos-sdk/x/params/types"
 
-	feemarkettypes "github.com/EscanBE/everlast/v12/x/feemarket/types"
+	feemarkettypes "github.com/EscanBE/everlast/x/feemarket/types"
 )
 
 // Keeper grants access to the Fee Market module state.

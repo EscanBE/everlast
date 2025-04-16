@@ -3,7 +3,7 @@ package cli
 import (
 	"fmt"
 
-	cpctypes "github.com/EscanBE/everlast/v12/x/cpc/types"
+	cpctypes "github.com/EscanBE/everlast/x/cpc/types"
 	clienttx "github.com/cosmos/cosmos-sdk/client/tx"
 
 	"github.com/cosmos/cosmos-sdk/client"

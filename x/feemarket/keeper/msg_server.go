@@ -4,7 +4,7 @@ import (
 	"context"
 
 	errorsmod "cosmossdk.io/errors"
-	feemarkettypes "github.com/EscanBE/everlast/v12/x/feemarket/types"
+	feemarkettypes "github.com/EscanBE/everlast/x/feemarket/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	govtypes "github.com/cosmos/cosmos-sdk/x/gov/types"
 )

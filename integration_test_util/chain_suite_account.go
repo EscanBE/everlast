@@ -1,7 +1,7 @@
 package integration_test_util
 
 import (
-	itutiltypes "github.com/EscanBE/everlast/v12/integration_test_util/types"
+	itutiltypes "github.com/EscanBE/everlast/integration_test_util/types"
 )
 
 // CreateAccount generate a new test account and put into account store

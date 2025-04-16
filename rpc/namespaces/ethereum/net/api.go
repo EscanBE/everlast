@@ -4,7 +4,7 @@ import (
 	"context"
 	"fmt"
 
-	evertypes "github.com/EscanBE/everlast/v12/types"
+	evertypes "github.com/EscanBE/everlast/types"
 	cmtrpcclient "github.com/cometbft/cometbft/rpc/client"
 	"github.com/cosmos/cosmos-sdk/client"
 )

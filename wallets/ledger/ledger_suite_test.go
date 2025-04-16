@@ -8,7 +8,7 @@ import (
 
 	sdkmath "cosmossdk.io/math"
 
-	"github.com/EscanBE/everlast/v12/constants"
+	"github.com/EscanBE/everlast/constants"
 
 	"github.com/stretchr/testify/suite"
 
@@ -22,9 +22,9 @@ import (
 	auxTx "github.com/cosmos/cosmos-sdk/x/auth/tx"
 	bankTypes "github.com/cosmos/cosmos-sdk/x/bank/types"
 
-	"github.com/EscanBE/everlast/v12/wallets/ledger"
-	"github.com/EscanBE/everlast/v12/wallets/ledger/mocks"
-	"github.com/EscanBE/everlast/v12/wallets/usbwallet"
+	"github.com/EscanBE/everlast/wallets/ledger"
+	"github.com/EscanBE/everlast/wallets/ledger/mocks"
+	"github.com/EscanBE/everlast/wallets/usbwallet"
 )
 
 type LedgerTestSuite struct {

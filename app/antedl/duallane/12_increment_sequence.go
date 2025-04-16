@@ -7,9 +7,9 @@ import (
 	sdkauthante "github.com/cosmos/cosmos-sdk/x/auth/ante"
 	authkeeper "github.com/cosmos/cosmos-sdk/x/auth/keeper"
 
-	dlanteutils "github.com/EscanBE/everlast/v12/app/antedl/utils"
-	evmkeeper "github.com/EscanBE/everlast/v12/x/evm/keeper"
-	evmtypes "github.com/EscanBE/everlast/v12/x/evm/types"
+	dlanteutils "github.com/EscanBE/everlast/app/antedl/utils"
+	evmkeeper "github.com/EscanBE/everlast/x/evm/keeper"
+	evmtypes "github.com/EscanBE/everlast/x/evm/types"
 )
 
 type DLIncrementSequenceDecorator struct {

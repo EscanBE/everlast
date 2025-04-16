@@ -10,7 +10,7 @@ import (
 
 	errorsmod "cosmossdk.io/errors"
 	"cosmossdk.io/log"
-	"github.com/EscanBE/everlast/v12/utils"
+	"github.com/EscanBE/everlast/utils"
 	abci "github.com/cometbft/cometbft/abci/types"
 	cmtrpcclient "github.com/cometbft/cometbft/rpc/client"
 	cmttypes "github.com/cometbft/cometbft/types"
@@ -18,8 +18,8 @@ import (
 	errortypes "github.com/cosmos/cosmos-sdk/types/errors"
 	"github.com/ethereum/go-ethereum/trie"
 
-	evmtypes "github.com/EscanBE/everlast/v12/x/evm/types"
-	feemarkettypes "github.com/EscanBE/everlast/v12/x/feemarket/types"
+	evmtypes "github.com/EscanBE/everlast/x/evm/types"
+	feemarkettypes "github.com/EscanBE/everlast/x/feemarket/types"
 
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/common/hexutil"

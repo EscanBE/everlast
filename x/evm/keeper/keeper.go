@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"math/big"
 
-	cpckeeper "github.com/EscanBE/everlast/v12/x/cpc/keeper"
+	cpckeeper "github.com/EscanBE/everlast/x/cpc/keeper"
 
 	sdkmath "cosmossdk.io/math"
 
@@ -16,9 +16,9 @@ import (
 
 	"cosmossdk.io/log"
 	storetypes "cosmossdk.io/store/types"
-	evertypes "github.com/EscanBE/everlast/v12/types"
-	"github.com/EscanBE/everlast/v12/utils"
-	evmtypes "github.com/EscanBE/everlast/v12/x/evm/types"
+	evertypes "github.com/EscanBE/everlast/types"
+	"github.com/EscanBE/everlast/utils"
+	evmtypes "github.com/EscanBE/everlast/x/evm/types"
 	"github.com/cosmos/cosmos-sdk/codec"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	paramstypes "github.com/cosmos/cosmos-sdk/x/params/types"

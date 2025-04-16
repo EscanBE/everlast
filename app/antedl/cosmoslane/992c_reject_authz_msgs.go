@@ -6,7 +6,7 @@ import (
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 	"github.com/cosmos/cosmos-sdk/x/authz"
 
-	dlanteutils "github.com/EscanBE/everlast/v12/app/antedl/utils"
+	dlanteutils "github.com/EscanBE/everlast/app/antedl/utils"
 )
 
 // maxNestedLevelsCount defines a cap for the number of nested levels in an authz.MsgExec

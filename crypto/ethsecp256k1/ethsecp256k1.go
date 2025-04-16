@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	errorsmod "cosmossdk.io/errors"
-	"github.com/EscanBE/everlast/v12/ethereum/eip712"
+	"github.com/EscanBE/everlast/ethereum/eip712"
 	tmcrypto "github.com/cometbft/cometbft/crypto"
 	"github.com/cosmos/cosmos-sdk/codec"
 	cryptotypes "github.com/cosmos/cosmos-sdk/crypto/types"

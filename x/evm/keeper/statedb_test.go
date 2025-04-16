@@ -4,12 +4,12 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/EscanBE/everlast/v12/x/evm/vm"
+	"github.com/EscanBE/everlast/x/evm/vm"
 
 	"cosmossdk.io/store/prefix"
-	"github.com/EscanBE/everlast/v12/crypto/ethsecp256k1"
-	utiltx "github.com/EscanBE/everlast/v12/testutil/tx"
-	evmtypes "github.com/EscanBE/everlast/v12/x/evm/types"
+	"github.com/EscanBE/everlast/crypto/ethsecp256k1"
+	utiltx "github.com/EscanBE/everlast/testutil/tx"
+	evmtypes "github.com/EscanBE/everlast/x/evm/types"
 	codectypes "github.com/cosmos/cosmos-sdk/codec/types"
 	cryptotypes "github.com/cosmos/cosmos-sdk/crypto/types"
 	authsigning "github.com/cosmos/cosmos-sdk/x/auth/signing"

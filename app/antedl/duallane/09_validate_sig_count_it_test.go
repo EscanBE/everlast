@@ -3,8 +3,8 @@ package duallane_test
 import (
 	"math/big"
 
-	"github.com/EscanBE/everlast/v12/app/antedl/duallane"
-	itutiltypes "github.com/EscanBE/everlast/v12/integration_test_util/types"
+	"github.com/EscanBE/everlast/app/antedl/duallane"
+	itutiltypes "github.com/EscanBE/everlast/integration_test_util/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkauthante "github.com/cosmos/cosmos-sdk/x/auth/ante"
 	ethtypes "github.com/ethereum/go-ethereum/core/types"

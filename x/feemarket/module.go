@@ -20,9 +20,9 @@ import (
 	"github.com/cosmos/cosmos-sdk/types/module"
 	simtypes "github.com/cosmos/cosmos-sdk/types/simulation"
 
-	feemarketcli "github.com/EscanBE/everlast/v12/x/feemarket/client/cli"
-	feemarketkeeper "github.com/EscanBE/everlast/v12/x/feemarket/keeper"
-	feemarkettypes "github.com/EscanBE/everlast/v12/x/feemarket/types"
+	feemarketcli "github.com/EscanBE/everlast/x/feemarket/client/cli"
+	feemarketkeeper "github.com/EscanBE/everlast/x/feemarket/keeper"
+	feemarkettypes "github.com/EscanBE/everlast/x/feemarket/types"
 )
 
 var (

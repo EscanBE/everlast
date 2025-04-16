@@ -8,8 +8,8 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	minttypes "github.com/cosmos/cosmos-sdk/x/mint/types"
 
-	"github.com/EscanBE/everlast/v12/constants"
-	cpctypes "github.com/EscanBE/everlast/v12/x/cpc/types"
+	"github.com/EscanBE/everlast/constants"
+	cpctypes "github.com/EscanBE/everlast/x/cpc/types"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/crypto"
 )

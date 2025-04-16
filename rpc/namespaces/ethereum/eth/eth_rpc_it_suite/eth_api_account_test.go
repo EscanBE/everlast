@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/EscanBE/everlast/v12/integration_test_util"
-	rpctypes "github.com/EscanBE/everlast/v12/rpc/types"
-	evmtypes "github.com/EscanBE/everlast/v12/x/evm/types"
+	"github.com/EscanBE/everlast/integration_test_util"
+	rpctypes "github.com/EscanBE/everlast/rpc/types"
+	evmtypes "github.com/EscanBE/everlast/x/evm/types"
 	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/common/hexutil"

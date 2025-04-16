@@ -9,7 +9,7 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/EscanBE/everlast/v12/constants"
+	"github.com/EscanBE/everlast/constants"
 
 	"github.com/hashicorp/go-version"
 )

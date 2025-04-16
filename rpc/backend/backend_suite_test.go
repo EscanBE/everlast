@@ -7,7 +7,7 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/EscanBE/everlast/v12/constants"
+	"github.com/EscanBE/everlast/constants"
 
 	sdkdb "github.com/cosmos/cosmos-db"
 
@@ -20,13 +20,13 @@ import (
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
 	"github.com/stretchr/testify/suite"
 
-	chainapp "github.com/EscanBE/everlast/v12/app"
-	"github.com/EscanBE/everlast/v12/crypto/hd"
-	"github.com/EscanBE/everlast/v12/indexer"
-	"github.com/EscanBE/everlast/v12/rpc/backend/mocks"
-	rpctypes "github.com/EscanBE/everlast/v12/rpc/types"
-	utiltx "github.com/EscanBE/everlast/v12/testutil/tx"
-	evmtypes "github.com/EscanBE/everlast/v12/x/evm/types"
+	chainapp "github.com/EscanBE/everlast/app"
+	"github.com/EscanBE/everlast/crypto/hd"
+	"github.com/EscanBE/everlast/indexer"
+	"github.com/EscanBE/everlast/rpc/backend/mocks"
+	rpctypes "github.com/EscanBE/everlast/rpc/types"
+	utiltx "github.com/EscanBE/everlast/testutil/tx"
+	evmtypes "github.com/EscanBE/everlast/x/evm/types"
 )
 
 type BackendTestSuite struct {

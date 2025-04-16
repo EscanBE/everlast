@@ -8,10 +8,10 @@ import (
 
 	sdkmath "cosmossdk.io/math"
 
-	"github.com/EscanBE/everlast/v12/rpc/backend/mocks"
-	ethrpc "github.com/EscanBE/everlast/v12/rpc/types"
-	utiltx "github.com/EscanBE/everlast/v12/testutil/tx"
-	evmtypes "github.com/EscanBE/everlast/v12/x/evm/types"
+	"github.com/EscanBE/everlast/rpc/backend/mocks"
+	ethrpc "github.com/EscanBE/everlast/rpc/types"
+	utiltx "github.com/EscanBE/everlast/testutil/tx"
+	evmtypes "github.com/EscanBE/everlast/x/evm/types"
 	abci "github.com/cometbft/cometbft/abci/types"
 	cmtrpctypes "github.com/cometbft/cometbft/rpc/core/types"
 	cmttypes "github.com/cometbft/cometbft/types"

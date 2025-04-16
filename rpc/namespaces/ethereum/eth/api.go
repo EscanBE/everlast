@@ -15,11 +15,11 @@ import (
 	"github.com/ethereum/go-ethereum/common/hexutil"
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
 
-	"github.com/EscanBE/everlast/v12/rpc/backend"
+	"github.com/EscanBE/everlast/rpc/backend"
 
-	rpctypes "github.com/EscanBE/everlast/v12/rpc/types"
-	evertypes "github.com/EscanBE/everlast/v12/types"
-	evmtypes "github.com/EscanBE/everlast/v12/x/evm/types"
+	rpctypes "github.com/EscanBE/everlast/rpc/types"
+	evertypes "github.com/EscanBE/everlast/types"
+	evmtypes "github.com/EscanBE/everlast/x/evm/types"
 )
 
 // EthereumAPI allows applications to connect to an EverLast node that is

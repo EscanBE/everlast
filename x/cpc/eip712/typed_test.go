@@ -4,7 +4,7 @@ import (
 	"math/big"
 	"testing"
 
-	cpctypes "github.com/EscanBE/everlast/v12/x/cpc/types"
+	cpctypes "github.com/EscanBE/everlast/x/cpc/types"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/crypto"
 	"github.com/ethereum/go-ethereum/signer/core/apitypes"

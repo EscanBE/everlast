@@ -4,9 +4,9 @@ package integration_test_util
 import (
 	"testing"
 
-	"github.com/EscanBE/everlast/v12/crypto/ethsecp256k1"
-	etherminthd "github.com/EscanBE/everlast/v12/crypto/hd"
-	itutiltypes "github.com/EscanBE/everlast/v12/integration_test_util/types"
+	"github.com/EscanBE/everlast/crypto/ethsecp256k1"
+	etherminthd "github.com/EscanBE/everlast/crypto/hd"
+	itutiltypes "github.com/EscanBE/everlast/integration_test_util/types"
 
 	cosmoshd "github.com/cosmos/cosmos-sdk/crypto/hd"
 	"github.com/cosmos/cosmos-sdk/crypto/keyring"

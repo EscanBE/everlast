@@ -16,9 +16,9 @@ import (
 	"time"
 	"unsafe"
 
-	cpckeeper "github.com/EscanBE/everlast/v12/x/cpc/keeper"
+	cpckeeper "github.com/EscanBE/everlast/x/cpc/keeper"
 
-	cpctypes "github.com/EscanBE/everlast/v12/x/cpc/types"
+	cpctypes "github.com/EscanBE/everlast/x/cpc/types"
 
 	"cosmossdk.io/store/rootmulti"
 	storetypes "cosmossdk.io/store/types"
@@ -28,18 +28,18 @@ import (
 
 	sdkmath "cosmossdk.io/math"
 
-	"github.com/EscanBE/everlast/v12/app/params"
+	"github.com/EscanBE/everlast/app/params"
 
 	"cosmossdk.io/log"
-	chainapp "github.com/EscanBE/everlast/v12/app"
-	"github.com/EscanBE/everlast/v12/constants"
-	etherminthd "github.com/EscanBE/everlast/v12/crypto/hd"
-	kvindexer "github.com/EscanBE/everlast/v12/indexer"
-	itutiltypes "github.com/EscanBE/everlast/v12/integration_test_util/types"
-	rpcbackend "github.com/EscanBE/everlast/v12/rpc/backend"
-	rpctypes "github.com/EscanBE/everlast/v12/rpc/types"
-	evmtypes "github.com/EscanBE/everlast/v12/x/evm/types"
-	feemarkettypes "github.com/EscanBE/everlast/v12/x/feemarket/types"
+	chainapp "github.com/EscanBE/everlast/app"
+	"github.com/EscanBE/everlast/constants"
+	etherminthd "github.com/EscanBE/everlast/crypto/hd"
+	kvindexer "github.com/EscanBE/everlast/indexer"
+	itutiltypes "github.com/EscanBE/everlast/integration_test_util/types"
+	rpcbackend "github.com/EscanBE/everlast/rpc/backend"
+	rpctypes "github.com/EscanBE/everlast/rpc/types"
+	evmtypes "github.com/EscanBE/everlast/x/evm/types"
+	feemarkettypes "github.com/EscanBE/everlast/x/feemarket/types"
 	cmtdb "github.com/cometbft/cometbft-db"
 	"github.com/cometbft/cometbft/crypto/tmhash"
 	tmproto "github.com/cometbft/cometbft/proto/tendermint/types"

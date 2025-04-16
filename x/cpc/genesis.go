@@ -6,9 +6,9 @@ import (
 
 	stakingkeeper "github.com/cosmos/cosmos-sdk/x/staking/keeper"
 
-	"github.com/EscanBE/everlast/v12/constants"
-	cpckeeper "github.com/EscanBE/everlast/v12/x/cpc/keeper"
-	cpctypes "github.com/EscanBE/everlast/v12/x/cpc/types"
+	"github.com/EscanBE/everlast/constants"
+	cpckeeper "github.com/EscanBE/everlast/x/cpc/keeper"
+	cpctypes "github.com/EscanBE/everlast/x/cpc/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 )
 

@@ -16,10 +16,10 @@ import (
 	"github.com/cosmos/cosmos-sdk/codec"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	dlanteutils "github.com/EscanBE/everlast/v12/app/antedl/utils"
-	rpctypes "github.com/EscanBE/everlast/v12/rpc/types"
-	evertypes "github.com/EscanBE/everlast/v12/types"
-	evmtypes "github.com/EscanBE/everlast/v12/x/evm/types"
+	dlanteutils "github.com/EscanBE/everlast/app/antedl/utils"
+	rpctypes "github.com/EscanBE/everlast/rpc/types"
+	evertypes "github.com/EscanBE/everlast/types"
+	evmtypes "github.com/EscanBE/everlast/x/evm/types"
 )
 
 const (

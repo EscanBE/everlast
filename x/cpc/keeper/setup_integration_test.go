@@ -5,24 +5,24 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/EscanBE/everlast/v12/x/cpc/eip712"
+	"github.com/EscanBE/everlast/x/cpc/eip712"
 
 	sdkmath "cosmossdk.io/math"
 	sdksecp256k1 "github.com/cosmos/cosmos-sdk/crypto/keys/secp256k1"
 	stakingkeeper "github.com/cosmos/cosmos-sdk/x/staking/keeper"
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 
-	"github.com/EscanBE/everlast/v12/constants"
-	cpctypes "github.com/EscanBE/everlast/v12/x/cpc/types"
+	"github.com/EscanBE/everlast/constants"
+	cpctypes "github.com/EscanBE/everlast/x/cpc/types"
 
 	"github.com/ethereum/go-ethereum/crypto"
 
-	evmtypes "github.com/EscanBE/everlast/v12/x/evm/types"
+	evmtypes "github.com/EscanBE/everlast/x/evm/types"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/common/hexutil"
 
-	"github.com/EscanBE/everlast/v12/integration_test_util"
-	itutiltypes "github.com/EscanBE/everlast/v12/integration_test_util/types"
+	"github.com/EscanBE/everlast/integration_test_util"
+	itutiltypes "github.com/EscanBE/everlast/integration_test_util/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/stretchr/testify/suite"
 )

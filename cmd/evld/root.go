@@ -8,20 +8,20 @@ import (
 	"path/filepath"
 	"time"
 
-	"github.com/EscanBE/everlast/v12/cmd/evld/genesis"
+	"github.com/EscanBE/everlast/cmd/evld/genesis"
 
 	"cosmossdk.io/client/v2/autocli"
 
 	storetypes "cosmossdk.io/store/types"
 
-	"github.com/EscanBE/everlast/v12/utils"
+	"github.com/EscanBE/everlast/utils"
 
-	"github.com/EscanBE/everlast/v12/app/params"
+	"github.com/EscanBE/everlast/app/params"
 
 	confixcmd "cosmossdk.io/tools/confix/cmd"
-	"github.com/EscanBE/everlast/v12/cmd/evld/inspect"
-	cmdutils "github.com/EscanBE/everlast/v12/cmd/evld/utils"
-	"github.com/EscanBE/everlast/v12/constants"
+	"github.com/EscanBE/everlast/cmd/evld/inspect"
+	cmdutils "github.com/EscanBE/everlast/cmd/evld/utils"
+	"github.com/EscanBE/everlast/constants"
 	"github.com/cosmos/cosmos-sdk/client/snapshot"
 	authtxconfig "github.com/cosmos/cosmos-sdk/x/auth/tx/config"
 	genutiltypes "github.com/cosmos/cosmos-sdk/x/genutil/types"
@@ -55,15 +55,15 @@ import (
 	"github.com/cosmos/cosmos-sdk/x/crisis"
 	genutilcli "github.com/cosmos/cosmos-sdk/x/genutil/client/cli"
 
-	appclient "github.com/EscanBE/everlast/v12/client"
-	"github.com/EscanBE/everlast/v12/client/debug"
-	"github.com/EscanBE/everlast/v12/ethereum/eip712"
-	appserver "github.com/EscanBE/everlast/v12/server"
-	servercfg "github.com/EscanBE/everlast/v12/server/config"
-	srvflags "github.com/EscanBE/everlast/v12/server/flags"
+	appclient "github.com/EscanBE/everlast/client"
+	"github.com/EscanBE/everlast/client/debug"
+	"github.com/EscanBE/everlast/ethereum/eip712"
+	appserver "github.com/EscanBE/everlast/server"
+	servercfg "github.com/EscanBE/everlast/server/config"
+	srvflags "github.com/EscanBE/everlast/server/flags"
 
-	chainapp "github.com/EscanBE/everlast/v12/app"
-	appkeyring "github.com/EscanBE/everlast/v12/crypto/keyring"
+	chainapp "github.com/EscanBE/everlast/app"
+	appkeyring "github.com/EscanBE/everlast/crypto/keyring"
 )
 
 const (

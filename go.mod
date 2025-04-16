@@ -1,4 +1,4 @@
-module github.com/EscanBE/everlast/v12
+module github.com/EscanBE/everlast
 
 go 1.22.11
 
