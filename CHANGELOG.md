@@ -73,6 +73,7 @@ Ref: https://keepachangelog.com/en/1.0.0/
 - (evm) [Evermint#184](https://github.com/EscanBE/evermint/pull/184) Warmup coinbase + custom-precompiled-contracts and fix some tests
 - (cpc) [Evermint#186](https://github.com/EscanBE/evermint/pull/186) Correct genesis import/export for `x/cpc`
 - (rename-chain) [Evermint#189](https://github.com/EscanBE/evermint/pull/189) Fix broken feature rename-chain
+- (cpc) [#7](https://github.com/EscanBE/everlast/pull/7) Add pseudocode when query `eth_getCode` and gRPC query code for custom precompiled contracts
 
 ### API Breaking
 
