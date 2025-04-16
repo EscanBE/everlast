@@ -3,8 +3,9 @@ package genesis
 import (
 	"encoding/json"
 	"fmt"
-	slashingtypes "github.com/cosmos/cosmos-sdk/x/slashing/types"
 	"math/big"
+
+	slashingtypes "github.com/cosmos/cosmos-sdk/x/slashing/types"
 
 	sdkmath "cosmossdk.io/math"
 
@@ -128,7 +129,7 @@ func improveGenesisOfMint(rawGenesisState json.RawMessage, codec codec.Codec) js
 	mintGenesisState.Params.MintDenom = constants.BaseDenom
 	mintGenesisState.Params.GoalBonded = sdkmath.LegacyNewDecWithPrec(50, 2)   // 50%
 	mintGenesisState.Params.InflationMax = sdkmath.LegacyNewDecWithPrec(10, 2) // 10%
-	mintGenesisState.Params.InflationMin = sdkmath.LegacyNewDecWithPrec(03, 2) // 3%
+	mintGenesisState.Params.InflationMin = sdkmath.LegacyNewDecWithPrec(3, 2)  // 3%
 
 	return codec.MustMarshalJSON(&mintGenesisState)
 }
