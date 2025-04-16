@@ -4,7 +4,7 @@ import (
 	"context"
 
 	errorsmod "cosmossdk.io/errors"
-	cpctypes "github.com/EscanBE/everlast/v12/x/cpc/types"
+	cpctypes "github.com/EscanBE/everlast/x/cpc/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	govtypes "github.com/cosmos/cosmos-sdk/x/gov/types"
 )

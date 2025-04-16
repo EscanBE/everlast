@@ -1,7 +1,7 @@
 package keeper_test
 
 import (
-	feemarkettypes "github.com/EscanBE/everlast/v12/x/feemarket/types"
+	feemarkettypes "github.com/EscanBE/everlast/x/feemarket/types"
 	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
 	govtypes "github.com/cosmos/cosmos-sdk/x/gov/types"
 )

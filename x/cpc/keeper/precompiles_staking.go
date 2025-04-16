@@ -8,9 +8,9 @@ import (
 	"slices"
 	"strings"
 
-	"github.com/EscanBE/everlast/v12/x/cpc/eip712"
+	"github.com/EscanBE/everlast/x/cpc/eip712"
 
-	"github.com/EscanBE/everlast/v12/x/cpc/abi"
+	"github.com/EscanBE/everlast/x/cpc/abi"
 
 	distkeeper "github.com/cosmos/cosmos-sdk/x/distribution/keeper"
 	disttypes "github.com/cosmos/cosmos-sdk/x/distribution/types"
@@ -28,8 +28,8 @@ import (
 	errorsmod "cosmossdk.io/errors"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	cpctypes "github.com/EscanBE/everlast/v12/x/cpc/types"
-	cpcutils "github.com/EscanBE/everlast/v12/x/cpc/utils"
+	cpctypes "github.com/EscanBE/everlast/x/cpc/types"
+	cpcutils "github.com/EscanBE/everlast/x/cpc/utils"
 	"github.com/ethereum/go-ethereum/common"
 )
 

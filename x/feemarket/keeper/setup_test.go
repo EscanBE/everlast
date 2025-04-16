@@ -3,14 +3,14 @@ package keeper_test
 import (
 	"testing"
 
-	"github.com/EscanBE/everlast/v12/app/helpers"
-	"github.com/EscanBE/everlast/v12/constants"
+	"github.com/EscanBE/everlast/app/helpers"
+	"github.com/EscanBE/everlast/constants"
 
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 
-	chainapp "github.com/EscanBE/everlast/v12/app"
-	feemarkettypes "github.com/EscanBE/everlast/v12/x/feemarket/types"
+	chainapp "github.com/EscanBE/everlast/app"
+	feemarkettypes "github.com/EscanBE/everlast/x/feemarket/types"
 	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/codec"
 	"github.com/cosmos/cosmos-sdk/crypto/keyring"

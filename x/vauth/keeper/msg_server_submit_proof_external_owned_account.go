@@ -8,7 +8,7 @@ import (
 
 	errorsmod "cosmossdk.io/errors"
 
-	vauthtypes "github.com/EscanBE/everlast/v12/x/vauth/types"
+	vauthtypes "github.com/EscanBE/everlast/x/vauth/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/ethereum/go-ethereum/crypto"
 )

@@ -3,7 +3,7 @@ package ibctesting
 import (
 	"testing"
 
-	"github.com/EscanBE/everlast/v12/constants"
+	"github.com/EscanBE/everlast/constants"
 
 	"github.com/stretchr/testify/require"
 
@@ -18,8 +18,8 @@ import (
 	ibctesting "github.com/cosmos/ibc-go/v8/testing"
 	"github.com/cosmos/ibc-go/v8/testing/mock"
 
-	"github.com/EscanBE/everlast/v12/crypto/ethsecp256k1"
-	evertypes "github.com/EscanBE/everlast/v12/types"
+	"github.com/EscanBE/everlast/crypto/ethsecp256k1"
+	evertypes "github.com/EscanBE/everlast/types"
 )
 
 // ChainIDPrefix defines the default chain ID prefix for our test chains

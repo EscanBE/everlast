@@ -6,19 +6,19 @@ import (
 	"testing"
 	"time"
 
-	cmdcfg "github.com/EscanBE/everlast/v12/cmd/config"
+	cmdcfg "github.com/EscanBE/everlast/cmd/config"
 
 	storemetrics "cosmossdk.io/store/metrics"
 
 	"github.com/cosmos/cosmos-sdk/codec/address"
 	"github.com/cosmos/cosmos-sdk/runtime"
 
-	"github.com/EscanBE/everlast/v12/constants"
+	"github.com/EscanBE/everlast/constants"
 
-	evmkeeper "github.com/EscanBE/everlast/v12/x/evm/keeper"
-	evmtypes "github.com/EscanBE/everlast/v12/x/evm/types"
-	vauthkeeper "github.com/EscanBE/everlast/v12/x/vauth/keeper"
-	vauthtypes "github.com/EscanBE/everlast/v12/x/vauth/types"
+	evmkeeper "github.com/EscanBE/everlast/x/evm/keeper"
+	evmtypes "github.com/EscanBE/everlast/x/evm/types"
+	vauthkeeper "github.com/EscanBE/everlast/x/vauth/keeper"
+	vauthtypes "github.com/EscanBE/everlast/x/vauth/types"
 	typesparams "github.com/cosmos/cosmos-sdk/x/params/types"
 	"github.com/ethereum/go-ethereum/crypto"
 

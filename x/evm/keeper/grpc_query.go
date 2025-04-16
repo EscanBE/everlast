@@ -8,13 +8,13 @@ import (
 	"math/big"
 	"time"
 
-	cpctypes "github.com/EscanBE/everlast/v12/x/cpc/types"
+	cpctypes "github.com/EscanBE/everlast/x/cpc/types"
 
-	evmvm "github.com/EscanBE/everlast/v12/x/evm/vm"
+	evmvm "github.com/EscanBE/everlast/x/evm/vm"
 
 	errorsmod "cosmossdk.io/errors"
 
-	"github.com/EscanBE/everlast/v12/utils"
+	"github.com/EscanBE/everlast/utils"
 	"github.com/ethereum/go-ethereum/eth/tracers"
 	"github.com/ethereum/go-ethereum/eth/tracers/logger"
 
@@ -30,8 +30,8 @@ import (
 	corevm "github.com/ethereum/go-ethereum/core/vm"
 	ethparams "github.com/ethereum/go-ethereum/params"
 
-	evertypes "github.com/EscanBE/everlast/v12/types"
-	evmtypes "github.com/EscanBE/everlast/v12/x/evm/types"
+	evertypes "github.com/EscanBE/everlast/types"
+	evmtypes "github.com/EscanBE/everlast/x/evm/types"
 )
 
 var _ evmtypes.QueryServer = Keeper{}

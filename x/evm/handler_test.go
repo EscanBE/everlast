@@ -5,15 +5,15 @@ import (
 	"testing"
 	"time"
 
-	evmvm "github.com/EscanBE/everlast/v12/x/evm/vm"
+	evmvm "github.com/EscanBE/everlast/x/evm/vm"
 
-	feemarkettypes "github.com/EscanBE/everlast/v12/x/feemarket/types"
+	feemarkettypes "github.com/EscanBE/everlast/x/feemarket/types"
 	minttypes "github.com/cosmos/cosmos-sdk/x/mint/types"
 
 	storetypes "cosmossdk.io/store/types"
 
-	"github.com/EscanBE/everlast/v12/app/helpers"
-	"github.com/EscanBE/everlast/v12/constants"
+	"github.com/EscanBE/everlast/app/helpers"
+	"github.com/EscanBE/everlast/constants"
 
 	sdkmath "cosmossdk.io/math"
 	abci "github.com/cometbft/cometbft/abci/types"
@@ -30,10 +30,10 @@ import (
 	"github.com/cosmos/cosmos-sdk/crypto/keyring"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	chainapp "github.com/EscanBE/everlast/v12/app"
-	"github.com/EscanBE/everlast/v12/crypto/ethsecp256k1"
-	utiltx "github.com/EscanBE/everlast/v12/testutil/tx"
-	evmtypes "github.com/EscanBE/everlast/v12/x/evm/types"
+	chainapp "github.com/EscanBE/everlast/app"
+	"github.com/EscanBE/everlast/crypto/ethsecp256k1"
+	utiltx "github.com/EscanBE/everlast/testutil/tx"
+	evmtypes "github.com/EscanBE/everlast/x/evm/types"
 
 	"github.com/cometbft/cometbft/crypto/tmhash"
 	tmproto "github.com/cometbft/cometbft/proto/tendermint/types"

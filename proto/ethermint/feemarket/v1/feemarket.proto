@@ -3,7 +3,7 @@ package ethermint.feemarket.v1;
 
 import "gogoproto/gogo.proto";
 
-option go_package = "github.com/EscanBE/everlast/v12/x/feemarket/types";
+option go_package = "github.com/EscanBE/everlast/x/feemarket/types";
 
 // Params defines the x/feemarket module parameters
 message Params {

@@ -1,7 +1,7 @@
 package keeper_test
 
 import (
-	evmtypes "github.com/EscanBE/everlast/v12/x/evm/types"
+	evmtypes "github.com/EscanBE/everlast/x/evm/types"
 )
 
 func (suite *KeeperTestSuite) TestEndBlock() {

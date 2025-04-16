@@ -6,16 +6,16 @@ import (
 	"math"
 	"math/big"
 
-	"github.com/EscanBE/everlast/v12/integration_test_util"
-	"github.com/EscanBE/everlast/v12/x/cpc/abi"
+	"github.com/EscanBE/everlast/integration_test_util"
+	"github.com/EscanBE/everlast/x/cpc/abi"
 
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
 
 	sdkmath "cosmossdk.io/math"
-	"github.com/EscanBE/everlast/v12/constants"
-	itutiltypes "github.com/EscanBE/everlast/v12/integration_test_util/types"
-	cpctypes "github.com/EscanBE/everlast/v12/x/cpc/types"
-	cpcutils "github.com/EscanBE/everlast/v12/x/cpc/utils"
+	"github.com/EscanBE/everlast/constants"
+	itutiltypes "github.com/EscanBE/everlast/integration_test_util/types"
+	cpctypes "github.com/EscanBE/everlast/x/cpc/types"
+	cpcutils "github.com/EscanBE/everlast/x/cpc/utils"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 	"github.com/ethereum/go-ethereum/common"

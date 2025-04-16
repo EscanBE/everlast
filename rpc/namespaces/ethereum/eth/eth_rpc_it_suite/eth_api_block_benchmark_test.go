@@ -3,7 +3,7 @@ package eth_rpc_it_suite
 import (
 	"testing"
 
-	rpctypes "github.com/EscanBE/everlast/v12/rpc/types"
+	rpctypes "github.com/EscanBE/everlast/rpc/types"
 )
 
 func genericSetupTestSuiteForBenchmarkGetBlock() (suite *EthRpcTestSuite, rpcTx *rpctypes.RPCTransaction, cleanup func()) {

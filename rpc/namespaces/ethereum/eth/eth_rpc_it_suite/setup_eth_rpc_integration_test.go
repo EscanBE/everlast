@@ -6,9 +6,9 @@ import (
 	"testing"
 
 	"cosmossdk.io/log"
-	"github.com/EscanBE/everlast/v12/integration_test_util"
-	itutiltypes "github.com/EscanBE/everlast/v12/integration_test_util/types"
-	"github.com/EscanBE/everlast/v12/rpc/namespaces/ethereum/eth"
+	"github.com/EscanBE/everlast/integration_test_util"
+	itutiltypes "github.com/EscanBE/everlast/integration_test_util/types"
+	"github.com/EscanBE/everlast/rpc/namespaces/ethereum/eth"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/ethereum/go-ethereum/common"
 	ethtypes "github.com/ethereum/go-ethereum/core/types"

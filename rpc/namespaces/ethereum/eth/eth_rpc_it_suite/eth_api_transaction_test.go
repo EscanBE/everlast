@@ -9,10 +9,10 @@ import (
 
 	signingtypes "github.com/cosmos/cosmos-sdk/types/tx/signing"
 
-	"github.com/EscanBE/everlast/v12/integration_test_util"
-	itutiltypes "github.com/EscanBE/everlast/v12/integration_test_util/types"
-	rpctypes "github.com/EscanBE/everlast/v12/rpc/types"
-	evmtypes "github.com/EscanBE/everlast/v12/x/evm/types"
+	"github.com/EscanBE/everlast/integration_test_util"
+	itutiltypes "github.com/EscanBE/everlast/integration_test_util/types"
+	rpctypes "github.com/EscanBE/everlast/rpc/types"
+	evmtypes "github.com/EscanBE/everlast/x/evm/types"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/common/hexutil"
 	ethtypes "github.com/ethereum/go-ethereum/core/types"

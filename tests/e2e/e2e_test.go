@@ -4,7 +4,7 @@ import (
 	"context"
 	"strings"
 
-	"github.com/EscanBE/everlast/v12/constants"
+	"github.com/EscanBE/everlast/constants"
 )
 
 // TestUpgrade tests if out chain node can be upgraded from one version to another.

@@ -8,12 +8,12 @@ import (
 	"strings"
 	"time"
 
-	cpctypes "github.com/EscanBE/everlast/v12/x/cpc/types"
+	cpctypes "github.com/EscanBE/everlast/x/cpc/types"
 
 	sdkdb "github.com/cosmos/cosmos-db"
 	sdkserver "github.com/cosmos/cosmos-sdk/server"
 
-	"github.com/EscanBE/everlast/v12/app/params"
+	"github.com/EscanBE/everlast/app/params"
 
 	cmtdb "github.com/cometbft/cometbft-db"
 	abci "github.com/cometbft/cometbft/abci/types"
@@ -21,11 +21,11 @@ import (
 
 	"cosmossdk.io/log"
 	sdkmath "cosmossdk.io/math"
-	chainapp "github.com/EscanBE/everlast/v12/app"
-	"github.com/EscanBE/everlast/v12/constants"
-	itutilutils "github.com/EscanBE/everlast/v12/integration_test_util/utils"
-	evmtypes "github.com/EscanBE/everlast/v12/x/evm/types"
-	feemarkettypes "github.com/EscanBE/everlast/v12/x/feemarket/types"
+	chainapp "github.com/EscanBE/everlast/app"
+	"github.com/EscanBE/everlast/constants"
+	itutilutils "github.com/EscanBE/everlast/integration_test_util/utils"
+	evmtypes "github.com/EscanBE/everlast/x/evm/types"
+	feemarkettypes "github.com/EscanBE/everlast/x/feemarket/types"
 	"github.com/cosmos/cosmos-sdk/baseapp"
 	"github.com/cosmos/cosmos-sdk/codec"
 	codectypes "github.com/cosmos/cosmos-sdk/codec/types"

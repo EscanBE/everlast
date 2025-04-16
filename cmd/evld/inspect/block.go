@@ -7,7 +7,7 @@ import (
 	"strconv"
 	"strings"
 
-	evertypes "github.com/EscanBE/everlast/v12/types"
+	evertypes "github.com/EscanBE/everlast/types"
 
 	errorsmod "cosmossdk.io/errors"
 

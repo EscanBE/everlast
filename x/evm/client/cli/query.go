@@ -1,13 +1,13 @@
 package cli
 
 import (
-	rpctypes "github.com/EscanBE/everlast/v12/rpc/types"
+	rpctypes "github.com/EscanBE/everlast/rpc/types"
 	"github.com/spf13/cobra"
 
 	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/client/flags"
 
-	evmtypes "github.com/EscanBE/everlast/v12/x/evm/types"
+	evmtypes "github.com/EscanBE/everlast/x/evm/types"
 )
 
 // GetQueryCmd returns the parent command for all x/bank CLi query commands.

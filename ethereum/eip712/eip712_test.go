@@ -33,16 +33,16 @@ import (
 	govtypes "github.com/cosmos/cosmos-sdk/x/gov/types/v1beta1"
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 
-	chainapp "github.com/EscanBE/everlast/v12/app"
-	"github.com/EscanBE/everlast/v12/app/helpers"
-	"github.com/EscanBE/everlast/v12/app/params"
-	cmdcfg "github.com/EscanBE/everlast/v12/cmd/config"
-	"github.com/EscanBE/everlast/v12/constants"
-	"github.com/EscanBE/everlast/v12/crypto/ethsecp256k1"
-	"github.com/EscanBE/everlast/v12/ethereum/eip712"
-	utiltx "github.com/EscanBE/everlast/v12/testutil/tx"
-	"github.com/EscanBE/everlast/v12/utils"
-	feemarkettypes "github.com/EscanBE/everlast/v12/x/feemarket/types"
+	chainapp "github.com/EscanBE/everlast/app"
+	"github.com/EscanBE/everlast/app/helpers"
+	"github.com/EscanBE/everlast/app/params"
+	cmdcfg "github.com/EscanBE/everlast/cmd/config"
+	"github.com/EscanBE/everlast/constants"
+	"github.com/EscanBE/everlast/crypto/ethsecp256k1"
+	"github.com/EscanBE/everlast/ethereum/eip712"
+	utiltx "github.com/EscanBE/everlast/testutil/tx"
+	"github.com/EscanBE/everlast/utils"
+	feemarkettypes "github.com/EscanBE/everlast/x/feemarket/types"
 )
 
 // Unit tests for single-signer EIP-712 signature verification. Multi-signature key verification tests are out-of-scope

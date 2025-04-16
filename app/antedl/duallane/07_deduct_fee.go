@@ -12,12 +12,12 @@ import (
 
 	cmath "github.com/ethereum/go-ethereum/common/math"
 
-	dlanteutils "github.com/EscanBE/everlast/v12/app/antedl/utils"
-	evertypes "github.com/EscanBE/everlast/v12/types"
-	evmkeeper "github.com/EscanBE/everlast/v12/x/evm/keeper"
-	evmtypes "github.com/EscanBE/everlast/v12/x/evm/types"
-	evmutils "github.com/EscanBE/everlast/v12/x/evm/utils"
-	feemarkettypes "github.com/EscanBE/everlast/v12/x/feemarket/types"
+	dlanteutils "github.com/EscanBE/everlast/app/antedl/utils"
+	evertypes "github.com/EscanBE/everlast/types"
+	evmkeeper "github.com/EscanBE/everlast/x/evm/keeper"
+	evmtypes "github.com/EscanBE/everlast/x/evm/types"
+	evmutils "github.com/EscanBE/everlast/x/evm/utils"
+	feemarkettypes "github.com/EscanBE/everlast/x/feemarket/types"
 )
 
 type DLDeductFeeDecorator struct {

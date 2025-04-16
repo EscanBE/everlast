@@ -3,8 +3,8 @@ package demo
 import (
 	"math/big"
 
-	"github.com/EscanBE/everlast/v12/integration_test_util"
-	evmtypes "github.com/EscanBE/everlast/v12/x/evm/types"
+	"github.com/EscanBE/everlast/integration_test_util"
+	evmtypes "github.com/EscanBE/everlast/x/evm/types"
 	"github.com/ethereum/go-ethereum/common"
 )
 

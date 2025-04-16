@@ -4,7 +4,7 @@ import (
 	"encoding/hex"
 	"testing"
 
-	cmdcfg "github.com/EscanBE/everlast/v12/cmd/config"
+	cmdcfg "github.com/EscanBE/everlast/cmd/config"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/ethereum/go-ethereum/crypto"

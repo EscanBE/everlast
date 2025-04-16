@@ -9,7 +9,7 @@ import (
 	"time"
 
 	"cosmossdk.io/log"
-	"github.com/EscanBE/everlast/v12/rpc/ethereum/pubsub"
+	"github.com/EscanBE/everlast/rpc/ethereum/pubsub"
 	cmtrpctypes "github.com/cometbft/cometbft/rpc/core/types"
 	"github.com/ethereum/go-ethereum/common"
 	ethtypes "github.com/ethereum/go-ethereum/core/types"

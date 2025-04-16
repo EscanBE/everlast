@@ -2,7 +2,7 @@ syntax = "proto3";
 package everlast.vauth.v1;
 
 import "gogoproto/gogo.proto";
-option go_package = "github.com/EscanBE/everlast/v12/x/vauth/types";
+option go_package = "github.com/EscanBE/everlast/x/vauth/types";
 
 // ProofExternalOwnedAccount store the proof that account is external owned account (EOA)
 message ProofExternalOwnedAccount {

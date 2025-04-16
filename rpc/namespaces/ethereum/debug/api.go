@@ -14,15 +14,15 @@ import (
 
 	"github.com/davecgh/go-spew/spew"
 
-	evmtypes "github.com/EscanBE/everlast/v12/x/evm/types"
+	evmtypes "github.com/EscanBE/everlast/x/evm/types"
 
 	stderrors "github.com/pkg/errors"
 
 	"github.com/cosmos/cosmos-sdk/server"
 
 	"cosmossdk.io/log"
-	"github.com/EscanBE/everlast/v12/rpc/backend"
-	rpctypes "github.com/EscanBE/everlast/v12/rpc/types"
+	"github.com/EscanBE/everlast/rpc/backend"
+	rpctypes "github.com/EscanBE/everlast/rpc/types"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/common/hexutil"
 	"github.com/ethereum/go-ethereum/consensus/ethash"

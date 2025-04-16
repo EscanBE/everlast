@@ -7,9 +7,9 @@ import (
 
 	sdkmath "cosmossdk.io/math"
 
-	chainapp "github.com/EscanBE/everlast/v12/app"
-	"github.com/EscanBE/everlast/v12/app/helpers"
-	"github.com/EscanBE/everlast/v12/constants"
+	chainapp "github.com/EscanBE/everlast/app"
+	"github.com/EscanBE/everlast/app/helpers"
+	"github.com/EscanBE/everlast/constants"
 	"github.com/cosmos/cosmos-sdk/baseapp"
 	simtestutil "github.com/cosmos/cosmos-sdk/testutil/sims"
 

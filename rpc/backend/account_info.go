@@ -8,8 +8,8 @@ import (
 	errorsmod "cosmossdk.io/errors"
 
 	sdkmath "cosmossdk.io/math"
-	rpctypes "github.com/EscanBE/everlast/v12/rpc/types"
-	evmtypes "github.com/EscanBE/everlast/v12/x/evm/types"
+	rpctypes "github.com/EscanBE/everlast/rpc/types"
+	evmtypes "github.com/EscanBE/everlast/x/evm/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"

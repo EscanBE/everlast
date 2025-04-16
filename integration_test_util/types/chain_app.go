@@ -3,10 +3,10 @@ package types
 //goland:noinspection SpellCheckingInspection
 import (
 	feegrantkeeper "cosmossdk.io/x/feegrant/keeper"
-	cpckeeper "github.com/EscanBE/everlast/v12/x/cpc/keeper"
-	evmkeeper "github.com/EscanBE/everlast/v12/x/evm/keeper"
-	feemarketkeeper "github.com/EscanBE/everlast/v12/x/feemarket/keeper"
-	vauthkeeper "github.com/EscanBE/everlast/v12/x/vauth/keeper"
+	cpckeeper "github.com/EscanBE/everlast/x/cpc/keeper"
+	evmkeeper "github.com/EscanBE/everlast/x/evm/keeper"
+	feemarketkeeper "github.com/EscanBE/everlast/x/feemarket/keeper"
+	vauthkeeper "github.com/EscanBE/everlast/x/vauth/keeper"
 	abci "github.com/cometbft/cometbft/abci/types"
 	"github.com/cosmos/cosmos-sdk/baseapp"
 	codectypes "github.com/cosmos/cosmos-sdk/codec/types"

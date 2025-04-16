@@ -5,8 +5,8 @@ import (
 	"strings"
 	"testing"
 
-	chainapp "github.com/EscanBE/everlast/v12/app"
-	"github.com/EscanBE/everlast/v12/constants"
+	chainapp "github.com/EscanBE/everlast/app"
+	"github.com/EscanBE/everlast/constants"
 
 	"github.com/stretchr/testify/require"
 
@@ -16,8 +16,8 @@ import (
 	codectypes "github.com/cosmos/cosmos-sdk/codec/types"
 	"github.com/cosmos/cosmos-sdk/crypto/keyring"
 
-	cryptocodec "github.com/EscanBE/everlast/v12/crypto/codec"
-	evertypes "github.com/EscanBE/everlast/v12/types"
+	cryptocodec "github.com/EscanBE/everlast/crypto/codec"
+	evertypes "github.com/EscanBE/everlast/types"
 )
 
 var TestCodec codec.Codec

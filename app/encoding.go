@@ -7,9 +7,9 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/x/auth/migrations/legacytx"
 
-	"github.com/EscanBE/everlast/v12/app/params"
-	cryptocodec "github.com/EscanBE/everlast/v12/crypto/codec"
-	evertypes "github.com/EscanBE/everlast/v12/types"
+	"github.com/EscanBE/everlast/app/params"
+	cryptocodec "github.com/EscanBE/everlast/crypto/codec"
+	evertypes "github.com/EscanBE/everlast/types"
 )
 
 func RegisterEncodingConfig() params.EncodingConfig {

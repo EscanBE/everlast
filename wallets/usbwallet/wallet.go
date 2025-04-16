@@ -9,7 +9,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/EscanBE/everlast/v12/wallets/accounts"
+	"github.com/EscanBE/everlast/wallets/accounts"
 	gethaccounts "github.com/ethereum/go-ethereum/accounts"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/crypto"

@@ -6,7 +6,7 @@ import (
 	"path"
 	"time"
 
-	"github.com/EscanBE/everlast/v12/server/flags"
+	"github.com/EscanBE/everlast/server/flags"
 
 	"github.com/spf13/viper"
 

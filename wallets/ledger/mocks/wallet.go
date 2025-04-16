@@ -1,7 +1,7 @@
 package mocks
 
 import (
-	accounts "github.com/EscanBE/everlast/v12/wallets/accounts"
+	accounts "github.com/EscanBE/everlast/wallets/accounts"
 	apitypes "github.com/ethereum/go-ethereum/signer/core/apitypes"
 
 	big "math/big"

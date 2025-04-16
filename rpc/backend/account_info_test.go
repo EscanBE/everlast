@@ -3,10 +3,10 @@ package backend
 import (
 	"math/big"
 
-	"github.com/EscanBE/everlast/v12/rpc/backend/mocks"
-	rpctypes "github.com/EscanBE/everlast/v12/rpc/types"
-	utiltx "github.com/EscanBE/everlast/v12/testutil/tx"
-	evmtypes "github.com/EscanBE/everlast/v12/x/evm/types"
+	"github.com/EscanBE/everlast/rpc/backend/mocks"
+	rpctypes "github.com/EscanBE/everlast/rpc/types"
+	utiltx "github.com/EscanBE/everlast/testutil/tx"
+	evmtypes "github.com/EscanBE/everlast/x/evm/types"
 	cmtbytes "github.com/cometbft/cometbft/libs/bytes"
 	cmtrpcclient "github.com/cometbft/cometbft/rpc/client"
 	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"

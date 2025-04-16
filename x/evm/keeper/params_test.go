@@ -4,9 +4,9 @@ import (
 	"math/big"
 	"reflect"
 
-	"github.com/EscanBE/everlast/v12/constants"
+	"github.com/EscanBE/everlast/constants"
 
-	evmtypes "github.com/EscanBE/everlast/v12/x/evm/types"
+	evmtypes "github.com/EscanBE/everlast/x/evm/types"
 )
 
 func (suite *KeeperTestSuite) TestParams() {

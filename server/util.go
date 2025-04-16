@@ -5,7 +5,7 @@ import (
 	"time"
 
 	// TODO update import to local pkg when rpc pkg is migrated
-	"github.com/EscanBE/everlast/v12/server/config"
+	"github.com/EscanBE/everlast/server/config"
 	"github.com/spf13/cobra"
 	"golang.org/x/net/netutil"
 

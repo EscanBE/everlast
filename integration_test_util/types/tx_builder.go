@@ -2,11 +2,11 @@ package types
 
 import (
 	sdkmath "cosmossdk.io/math"
-	"github.com/EscanBE/everlast/v12/app/params"
-	"github.com/EscanBE/everlast/v12/constants"
-	evertypes "github.com/EscanBE/everlast/v12/types"
-	evmtypes "github.com/EscanBE/everlast/v12/x/evm/types"
-	evmutils "github.com/EscanBE/everlast/v12/x/evm/utils"
+	"github.com/EscanBE/everlast/app/params"
+	"github.com/EscanBE/everlast/constants"
+	evertypes "github.com/EscanBE/everlast/types"
+	evmtypes "github.com/EscanBE/everlast/x/evm/types"
+	evmutils "github.com/EscanBE/everlast/x/evm/utils"
 	"github.com/cosmos/cosmos-sdk/client"
 	codectypes "github.com/cosmos/cosmos-sdk/codec/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"

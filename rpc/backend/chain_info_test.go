@@ -8,7 +8,7 @@ import (
 
 	sdkmath "cosmossdk.io/math"
 
-	"github.com/EscanBE/everlast/v12/constants"
+	"github.com/EscanBE/everlast/constants"
 
 	"github.com/ethereum/go-ethereum/common/hexutil"
 	ethrpc "github.com/ethereum/go-ethereum/rpc"
@@ -18,11 +18,11 @@ import (
 	abci "github.com/cometbft/cometbft/abci/types"
 	cmtrpctypes "github.com/cometbft/cometbft/rpc/core/types"
 
-	"github.com/EscanBE/everlast/v12/rpc/backend/mocks"
-	rpc "github.com/EscanBE/everlast/v12/rpc/types"
-	utiltx "github.com/EscanBE/everlast/v12/testutil/tx"
-	evmtypes "github.com/EscanBE/everlast/v12/x/evm/types"
-	feemarkettypes "github.com/EscanBE/everlast/v12/x/feemarket/types"
+	"github.com/EscanBE/everlast/rpc/backend/mocks"
+	rpc "github.com/EscanBE/everlast/rpc/types"
+	utiltx "github.com/EscanBE/everlast/testutil/tx"
+	evmtypes "github.com/EscanBE/everlast/x/evm/types"
+	feemarkettypes "github.com/EscanBE/everlast/x/feemarket/types"
 )
 
 func (suite *BackendTestSuite) TestBaseFee() {

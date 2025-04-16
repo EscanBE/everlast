@@ -1,10 +1,10 @@
 package keeper_test
 
 import (
-	"github.com/EscanBE/everlast/v12/constants"
+	"github.com/EscanBE/everlast/constants"
 
-	vauthkeeper "github.com/EscanBE/everlast/v12/x/vauth/keeper"
-	vauthtypes "github.com/EscanBE/everlast/v12/x/vauth/types"
+	vauthkeeper "github.com/EscanBE/everlast/x/vauth/keeper"
+	vauthtypes "github.com/EscanBE/everlast/x/vauth/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/types/errors"
 )
