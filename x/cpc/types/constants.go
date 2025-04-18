@@ -6,6 +6,9 @@ const (
 	GasVerifyEIP712 = 200_000
 )
 
+// PseudoCodePrecompiled is the pseudocode for the custom precompiled contracts.
+// Used to work around the issue that the UI fetches the contract code to check if the contract is a contract,
+// while precompiled contracts do not have code.
 var PseudoCodePrecompiled []byte
 
 func init() {
