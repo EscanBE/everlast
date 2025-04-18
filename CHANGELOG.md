@@ -75,6 +75,7 @@ Ref: https://keepachangelog.com/en/1.0.0/
 - (rename-chain) [Evermint#189](https://github.com/EscanBE/evermint/pull/189) Fix broken feature rename-chain
 - (cpc) [#7](https://github.com/EscanBE/everlast/pull/7) Add pseudocode when query `eth_getCode` and gRPC query code for custom precompiled contracts
 - (genesis) [#11](https://github.com/EscanBE/everlast/pull/11) Correct genesis doc provider
+- (script) [#12](https://github.com/EscanBE/everlast/pull/12) Remove the genesis `initial_height` correction in local node script
 
 ### API Breaking
 

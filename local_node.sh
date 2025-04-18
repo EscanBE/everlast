@@ -134,9 +134,6 @@ if [[ $overwrite == "y" || $overwrite == "Y" ]]; then
 	sed -i.bak 's/pruning = "default"/pruning = "nothing"/g' "$APP_TOML"
 fi
 
-# Fix the initial height format
-sed -i.bak 's/"initial_height": 1/"initial_height": "1"/g' "$HOMEDIR"/config/genesis.json
-
 # Start the node
 "$BINARY" start \
   --metrics "$TRACE" --log_level "$LOGLEVEL" \
