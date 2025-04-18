@@ -41,7 +41,7 @@ func NewImproveGenesisCmd() *cobra.Command {
 					}
 
 					if consensusGenesis.Params == nil {
-						consensusGenesis.Params = &cmttypes.ConsensusParams{}
+						consensusGenesis.Params = cmttypes.DefaultConsensusParams()
 					}
 					consensusGenesis.Params.Block.MaxGas = 36_000_000
 
