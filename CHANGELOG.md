@@ -74,6 +74,7 @@ Ref: https://keepachangelog.com/en/1.0.0/
 - (cpc) [Evermint#186](https://github.com/EscanBE/evermint/pull/186) Correct genesis import/export for `x/cpc`
 - (rename-chain) [Evermint#189](https://github.com/EscanBE/evermint/pull/189) Fix broken feature rename-chain
 - (cpc) [#7](https://github.com/EscanBE/everlast/pull/7) Add pseudocode when query `eth_getCode` and gRPC query code for custom precompiled contracts
+- (genesis) [#10](https://github.com/EscanBE/everlast/pull/10) Correct genesis doc provider
 
 ### API Breaking
 
